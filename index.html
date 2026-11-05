@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arimori Studios | Operational Infrastructure & Systems Integration</title>
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            forest: {
+              950: '#070D0A',
+              900: '#0C1711',
+              850: '#112219',
+              800: '#183124',
+              700: '#234735',
+            },
+            amberAccent: '#F59E0B',
+            terminalGreen: '#22C55E',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Subtle 90s CRT Scanline effect */
+    .scanlines {
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 0, 0, 0.25) 50%,
+        rgba(0, 0, 0, 0.25)
+      );
+      background-size: 100% 4px;
+    }
+    /* Ambient Komorebi Sunbeam Radial Gradient */
+    .sunbeam-canopy {
+      background: radial-gradient(
+        circle at 50% -10%,
+        rgba(74, 222, 128, 0.18) 0%,
+        rgba(245, 158, 11, 0.08) 25%,
+        rgba(7, 13, 10, 0.95) 70%
+      );
+    }
+    /* Subtle Motherboard Circuit Pattern via SVG */
+    .circuit-bg {
+      background-image: radial-gradient(rgba(34, 197, 94, 0.12) 1px, transparent 1px),
+                        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+  </style>
+</head>
+<body class="bg-forest-950 text-slate-200 font-sans selection:bg-terminalGreen selection:text-forest-950">
+
+  <!-- ================= TOP NAVIGATION ================= -->
+  <header class="sticky top-0 z-50 border-b border-forest-800/80 bg-forest-950/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-terminalGreen shadow-[0_0_8px_#22c55e]"></span>
+        <a href="#" class="font-display font-bold text-lg tracking-wider text-slate-100">
+          ARIMORI<span class="text-terminalGreen">.STUDIO</span>
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-mono tracking-widest uppercase text-slate-400">
+        <a href="#services" class="hover:text-terminalGreen transition">Infrastructure</a>
+        <a href="#packages" class="hover:text-terminalGreen transition">Packages</a>
+        <a href="#vault" class="hover:text-terminalGreen transition">POPIA Vault</a>
+        <a href="#contact" class="hover:text-terminalGreen transition">Deploy</a>
+      </nav>
+      <div>
+        <a href="https://wa.me/27727489328?text=Hi%20Arimori%20Studios,%20I'd%20like%20to%20discuss%20a%20systems%20integration%20for%20my%20business." target="_blank" class="px-4 py-2 border border-forest-700 hover:border-terminalGreen text-xs font-mono uppercase tracking-wider text-slate-200 hover:text-terminalGreen transition rounded-sm">
+          WhatsApp Audit
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= SECTION 1: HERO (KOMOREBI CANOPY & MOTHERBOARD ROOTS) ================= -->
+  <section class="relative min-h-[85vh] flex items-center justify-center sunbeam-canopy circuit-bg px-6 py-24 overflow-hidden border-b border-forest-800">
+    <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
+      
+      <!-- System Status Pill -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-forest-700 bg-forest-900/60 backdrop-blur-sm text-xs font-mono text-slate-300">
+        <span class="w-1.5 h-1.5 rounded-full bg-terminalGreen animate-pulse"></span>
+        <span>EASTERN CAPE REGIONAL INTEGRATIONS // LIVE</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-display text-4xl sm:text-6xl font-bold tracking-tight text-slate-100 leading-tight">
+        Turnkey Operational Infrastructure for Independent Enterprise.
+      </h1>
+
+      <!-- Value Proposition Body -->
+      <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        We engineer, install, and safeguard physical-to-digital counter operations: custom POS ledgers, thermal printing, verified Google footprints, and encrypted POPIA document vaults. 100% asset sovereignty. Zero vendor lock-in.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <a href="#packages" class="w-full sm:w-auto px-6 py-3.5 bg-terminalGreen text-forest-950 font-mono font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-emerald-400 transition shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+          Explore 5-Tier Architecture ↓
+        </a>
+        <a href="https://wa.me/27727489328?text=Hi%20Arimori%20Studios,%20I'd%20like%20to%20schedule%20a%20branch%20counter%20modernization%20audit." target="_blank" class="w-full sm:w-auto px-6 py-3.5 border border-forest-700 hover:border-slate-300 font-mono text-xs uppercase tracking-wider text-slate-300 hover:text-white transition rounded-sm">
+          Schedule Counter Audit
+        </a>
+      </div>
+
+      <!-- Verified Guarantees -->
+      <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-left border-t border-forest-800/80">
+        <div class="p-3">
+          <div class="font-mono text-xs text-terminalGreen">01 // SPEED</div>
+          <div class="font-display text-sm text-slate-200 mt-1">6–10 Day On-Site Deployment</div>
+        </div>
+        <div class="p-3">
+          <div class="font-mono text-xs text-terminalGreen">02 // INTEGRITY</div>
+          <div class="font-display text-sm text-slate-200 mt-1">Blind Cash-Up Shift Audit</div>
+        </div>
+        <div class="p-3">
+          <div class="font-mono text-xs text-terminalGreen">03 // COMPLIANCE</div>
+          <div class="font-display text-sm text-slate-200 mt-1">POPIA Section 1 Encrypted Vault</div>
+        </div>
+        <div class="p-3">
+          <div class="font-mono text-xs text-terminalGreen">04 // WARRANTY</div>
+          <div class="font-display text-sm text-slate-200 mt-1">30-Day Live Performance Sign-Off</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 2: THE PACKAGES (FOG REVEAL SYSTEM) ================= -->
+  <section id="packages" class="py-24 px-6 bg-forest-900 border-b border-forest-800 relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="mb-16 max-w-xl">
+        <span class="font-mono text-xs text-terminalGreen uppercase tracking-widest">// THE 5-TIER ROADMAP</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-100 mt-2">
+          Modular Systems Architecture.
+        </h2>
+        <p class="text-sm text-slate-400 mt-3 font-sans">
+          From basic branch discovery on Google Maps to full-house counter hardware, barcode ledgers, and Instant EFT collections.
+        </p>
+      </div>
+
+      <!-- Packages Grid with Frost/Fog Transition -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Tier 1 -->
+        <div class="group relative p-6 rounded border border-forest-700/60 bg-forest-950/40 backdrop-blur-md hover:border-terminalGreen/60 hover:bg-forest-850/80 transition duration-300">
+          <div class="flex justify-between items-start">
+            <span class="font-mono text-xs text-slate-500 group-hover:text-terminalGreen">TIER 01</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-forest-800 text-slate-300">DISCOVERY</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-100 mt-4">Standalone Digital Front Door</h3>
+          <div class="mt-4 font-mono text-2xl font-bold text-slate-200">R6,500 <span class="text-xs text-slate-500 font-normal">once-off</span></div>
+          <ul class="mt-6 space-y-2 text-xs text-slate-400 font-sans border-t border-forest-800 pt-4">
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> 4–5 Mobile-responsive pages (.co.za / .studio)</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Google Maps & Search pin verification</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> 24/7 Floating WhatsApp emergency intake</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> 100% Asset & credential handover</li>
+          </ul>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="group relative p-6 rounded border border-forest-700/60 bg-forest-950/40 backdrop-blur-md hover:border-terminalGreen/60 hover:bg-forest-850/80 transition duration-300">
+          <div class="flex justify-between items-start">
+            <span class="font-mono text-xs text-slate-500 group-hover:text-terminalGreen">TIER 02</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-forest-800 text-slate-300">MARKETING</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-100 mt-4">Full Digital Launchpad</h3>
+          <div class="mt-4 font-mono text-2xl font-bold text-slate-200">R16,000 <span class="text-xs text-slate-500 font-normal">once-off</span></div>
+          <ul class="mt-6 space-y-2 text-xs text-slate-400 font-sans border-t border-forest-800 pt-4">
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Everything in Tier 01</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> WhatsApp Business product & price catalog</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Hyperlocal Meta Click-to-WhatsApp ad setup</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Corporate brand kit, stationery & Smart QR cards</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Branded domain email & calendar sync</li>
+          </ul>
+        </div>
+
+        <!-- Tier 3 (The Core Counter Standard) -->
+        <div class="group relative p-6 rounded border border-terminalGreen/50 bg-forest-950/80 backdrop-blur-md hover:border-terminalGreen hover:bg-forest-850 transition duration-300 shadow-[0_0_30px_rgba(34,197,94,0.08)]">
+          <div class="flex justify-between items-start">
+            <span class="font-mono text-xs text-terminalGreen">TIER 03 // RECOMMENDED</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-terminalGreen/20 text-terminalGreen font-mono">COUNTER HARDWARE</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-100 mt-4">In-Branch POS Ledger & Hardware</h3>
+          <div class="mt-4 font-mono text-2xl font-bold text-emerald-400">R20,000 <span class="text-xs text-slate-400 font-normal">once-off</span></div>
+          <ul class="mt-6 space-y-2 text-xs text-slate-300 font-sans border-t border-forest-800 pt-4">
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> 80mm Heavy-Duty USB thermal printer + rolls</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> USB Barcode scanner with hands-free stand</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Custom local ledger (1-sec barcode search)</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Blind Cash-Up shift reconciliation (Anti-Theft)</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> POPIA Scan-to-Laptop local document vault</li>
+            <li class="flex items-center gap-2 text-amber-400"><span class="text-amber-400">+</span> Auto-Kick Steel Cash Drawer (+R1,000 at cost)</li>
+          </ul>
+        </div>
+
+        <!-- Tier 4 -->
+        <div class="group relative p-6 rounded border border-forest-700/60 bg-forest-950/40 backdrop-blur-md hover:border-terminalGreen/60 hover:bg-forest-850/80 transition duration-300">
+          <div class="flex justify-between items-start">
+            <span class="font-mono text-xs text-slate-500 group-hover:text-terminalGreen">TIER 04</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-forest-800 text-slate-300">COLLECTIONS</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-100 mt-4">Advanced Collections & Remote Engine</h3>
+          <div class="mt-4 font-mono text-2xl font-bold text-slate-200">R28,000 <span class="text-xs text-slate-500 font-normal">once-off</span></div>
+          <ul class="mt-6 space-y-2 text-xs text-slate-400 font-sans border-t border-forest-800 pt-4">
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Everything in Tier 03 Hardware & Ledger</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Instant EFT Gateway integration (Ozow / Stitch)</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Customer OTP self-service portal (Statements/Receipts)</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Touchscreen digital signature canvas for contracts</li>
+          </ul>
+        </div>
+
+        <!-- Tier 5 -->
+        <div class="group relative p-6 rounded border border-forest-700/60 bg-forest-950/40 backdrop-blur-md hover:border-terminalGreen/60 hover:bg-forest-850/80 transition duration-300 md:col-span-2 lg:col-span-1">
+          <div class="flex justify-between items-start">
+            <span class="font-mono text-xs text-slate-500 group-hover:text-terminalGreen">TIER 05</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-forest-800 text-slate-300">ENTERPRISE</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-100 mt-4">Full-House Transformation</h3>
+          <div class="mt-4 font-mono text-2xl font-bold text-slate-200">R44,000 <span class="text-xs text-slate-500 font-normal">once-off</span></div>
+          <ul class="mt-6 space-y-2 text-xs text-slate-400 font-sans border-t border-forest-800 pt-4">
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Full union of Tier 02 Marketing & Tier 04 Operations</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Complete on-site counter hardware deployment</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> End-to-end diaspora remote collection rails</li>
+            <li class="flex items-center gap-2"><span class="text-terminalGreen">✓</span> Priority on-site staff workflow training</li>
+          </ul>
+        </div>
+
+        <!-- Commercial Terms Card -->
+        <div class="p-6 rounded border border-forest-800 bg-forest-950 flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-xs text-slate-500">// RISK SAFEGUARDS</span>
+            <h4 class="font-display text-base font-bold text-slate-200 mt-2">Commercial Milestone Terms</h4>
+            <div class="mt-4 space-y-3 font-mono text-xs text-slate-400">
+              <div class="flex justify-between border-b border-forest-800/60 pb-1">
+                <span>01. Mobilization Deposit</span>
+                <span class="text-slate-200">50%</span>
+              </div>
+              <div class="flex justify-between border-b border-forest-800/60 pb-1">
+                <span>02. Live Installation & Training</span>
+                <span class="text-slate-200">25%</span>
+              </div>
+              <div class="flex justify-between border-b border-forest-800/60 pb-1">
+                <span>03. 30-Day Operational Warranty</span>
+                <span class="text-slate-200">25%</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 text-[11px] text-slate-500 font-sans leading-relaxed">
+            *Final 25% balance is payable only after 30 days of verified, error-free counter and cash reconciliation operations.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 3: THE CYBERSECURITY & WINTER FOREST VAULT ================= -->
+  <!-- Deep winter pine tone with 90s CRT Phosphor Terminal vibe -->
+  <section id="vault" class="py-24 px-6 bg-forest-950 border-b border-forest-800 scanlines relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="p-8 md:p-12 border border-terminalGreen/30 bg-black/70 rounded-lg backdrop-blur-xl relative overflow-hidden">
+        
+        <!-- Blinking Terminal Header -->
+        <div class="flex flex-wrap items-center justify-between border-b border-forest-800 pb-4 mb-8">
+          <div class="flex items-center space-x-2 font-mono text-xs text-terminalGreen">
+            <span class="inline-block w-3 h-3 bg-terminalGreen/20 border border-terminalGreen rounded-sm"></span>
+            <span>SECURE_ENCLAVE // POPIA_COMPLIANCE_ARCH</span>
+          </div>
+          <div class="font-mono text-xs text-slate-500">
+            ENCRYPTION: AES-256 // LOCAL-AIRGAP-READY
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <div class="space-y-4">
+            <span class="font-mono text-xs text-emerald-400 uppercase tracking-widest">[ PROTECTED REPOSITORIES ]</span>
+            <h3 class="font-display text-3xl font-bold text-slate-100">
+              The Digital Document Vault & Governance Engine
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed font-sans">
+              Critical community documents—death certificates, national ID books, and policy sign-offs—cannot sit unencrypted in open filing cabinets. Arimori provisions an immutable, locally hosted document vault indexed directly to customer ledger IDs.
+            </p>
+            
+            <div class="p-4 bg-forest-950/80 border border-forest-800 rounded font-mono text-xs text-terminalGreen space-y-1">
+              <div>&gt; STATUS: IMMUTABLE_AUDIT_TRAIL_ACTIVE</div>
+              <div>&gt; DISCREPANCY_LOGS: NON_DELETABLE</div>
+              <div>&gt; CITIZEN_DATA: SECLUDED_FROM_TELEMETRY</div>
+            </div>
+          </div>
+
+          <!-- 90s BIOS / Terminal Card (Coming Soon Security Extension) -->
+          <div class="p-6 border border-terminalGreen/40 bg-forest-950 rounded font-mono text-xs shadow-[0_0_25px_rgba(34,197,94,0.1)]">
+            <div class="text-slate-500 border-b border-forest-800 pb-2 mb-4 flex justify-between">
+              <span>ARIMORI_SECURITY_MODULE_V2.0</span>
+              <span class="text-terminalGreen animate-pulse">● STANDBY</span>
+            </div>
+            
+            <div class="space-y-2 text-slate-300">
+              <p><span class="text-terminalGreen">&gt;</span> <span class="text-slate-400">MODULE:</span> Technology Risk & Data Governance</p>
+              <p><span class="text-terminalGreen">&gt;</span> <span class="text-slate-400">FOCUS:</span> POPIA Statutory Audit & AI Workflow Hardening</p>
+              <p><span class="text-terminalGreen">&gt;</span> <span class="text-slate-400">AVAILABILITY:</span> Q4 2026 / ENTERPRISE EXPANSION</p>
+              <p class="text-[11px] text-slate-500 pt-4 leading-relaxed font-sans">
+                Full-scope technical vulnerability assessments and automated workflow governance tailored for independent legal practices and regional financial institutions.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact" class="py-12 px-6 bg-forest-950 border-t border-forest-800 font-mono text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center space-x-3">
+        <span class="font-display font-bold text-slate-300 text-sm">ARIMORI STUDIOS</span>
+        <span>//</span>
+        <span>arimori.studio</span>
+      </div>
+      <div>
+        Eastern Cape Regional Corridor: Mthatha • East London • Gqeberha • Matatiele
+      </div>
+      <div>
+        © 2026 Arimori Studios (Pty) Ltd. 100% Asset Sovereignty.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
