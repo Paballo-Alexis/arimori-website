@@ -27,7 +27,7 @@
               100: '#F7F4EC',
               200: '#EFE9DC',
             },
-            mossNav: '#A8BC8B', // The exact olive-moss green tone from your Canva nav header
+            mossNav: '#A8BC8B',
             pine: {
               800: '#1B3022',
               900: '#0F1E15',
@@ -41,7 +41,6 @@
   </script>
 
   <style>
-    /* Custom drop-down chevron arrow for native CSS hover */
     .dropdown-icon::after {
       content: '';
       display: inline-block;
@@ -56,7 +55,6 @@
       transform: rotate(180deg);
     }
     
-    /* Interactive Canvas for Motherboard Mouse Glow */
     #circuitCanvas {
       position: absolute;
       top: 0;
@@ -70,24 +68,21 @@
 </head>
 <body class="bg-cream-50 text-neutral-900 font-sans selection:bg-pine-800 selection:text-cream-50 relative overflow-x-hidden">
 
-  <!-- ================= TOP NAVIGATION (Matches Product.png) ================= -->
-  <header class="sticky top-0 z-50 bg-mossNav text-neutral-900 border-b border-black/10 px-6 py-3.5 transition-all">
+  <!-- ================= TOP NAVIGATION ================= -->
+  <header class="sticky top-0 z-50 bg-mossNav text-neutral-900 border-b border-black/10 px-6 py-3 transition-all">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       
-      <!-- Logo + Brand Name (Static, non-interactive) -->
+      <!-- Static Logo + Brand Lockup -->
       <div class="flex items-center space-x-3 select-none">
-        <svg class="w-8 h-8 text-neutral-900" viewBox="0 0 100 80" fill="currentColor">
-          <path d="M15 70 L35 15 L50 45 L65 15 L85 70 L70 70 L58 38 L50 56 L42 38 L30 70 Z M38 52 L62 52 L50 30 Z"/>
-        </svg>
-        <span class="font-display font-bold tracking-[0.25em] text-lg text-neutral-900">ARIMORI</span>
+        <img src="images/Firefly_RemoveBackground.png" alt="Arimori Arch Monogram" class="h-8 w-auto object-contain">
+        <span class="font-display font-bold tracking-[0.25em] text-base text-neutral-900">ARIMORI</span>
       </div>
 
-      <!-- Navigation Tabs with Clean CSS Dropdown Arrows -->
+      <!-- Navigation Tabs -->
       <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-        <!-- Home (Direct link) -->
         <a href="#" class="hover:text-black font-semibold transition">Home</a>
         
-        <!-- Solutions (Dropdown) -->
+        <!-- Solutions Dropdown -->
         <div class="relative group py-2">
           <button class="dropdown-icon hover:text-black transition flex items-center focus:outline-none">
             Solutions
@@ -101,7 +96,7 @@
           </div>
         </div>
 
-        <!-- Resources (Dropdown) -->
+        <!-- Resources Dropdown -->
         <div class="relative group py-2">
           <button class="dropdown-icon hover:text-black transition flex items-center focus:outline-none">
             Resources
@@ -114,7 +109,7 @@
           </div>
         </div>
 
-        <!-- Company (Dropdown) -->
+        <!-- Company Dropdown -->
         <div class="relative group py-2">
           <button class="dropdown-icon hover:text-black transition flex items-center focus:outline-none">
             Company
@@ -126,13 +121,12 @@
           </div>
         </div>
 
-        <!-- Pricing (Direct link) -->
         <a href="#packages" class="hover:text-black transition">Pricing</a>
       </nav>
 
-      <!-- Mobile Menu Toggle Button -->
+      <!-- Mobile Hamburger Button -->
       <div class="md:hidden">
-        <button id="mobileMenuBtn" class="text-neutral-900 p-1 focus:outline-none">
+        <button class="text-neutral-900 p-1 focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
@@ -140,41 +134,37 @@
     </div>
   </header>
 
-  <!-- ================= SECTION 1: HERO & ANIMATED MOTHERBOARD CANVAS ================= -->
-  <!-- Matches Product.png: Monogram, Slogan, and Headline with interactive circuit glow -->
-  <section id="heroSection" class="relative min-h-[70vh] flex flex-col items-center justify-center text-center px-6 py-20 bg-cream-50 overflow-hidden border-b border-neutral-200">
+  <!-- ================= SECTION 1: HERO & INTERACTIVE MOTHERBOARD CANVAS ================= -->
+  <section id="heroSection" class="relative min-h-[72vh] flex flex-col items-center justify-center text-center px-6 py-20 bg-cream-50 overflow-hidden border-b border-neutral-200">
     
-    <!-- Interactive Canvas Layer for mouse-hover glow -->
     <canvas id="circuitCanvas"></canvas>
 
-    <div class="relative z-10 max-w-4xl mx-auto space-y-8 select-none">
+    <div class="relative z-10 max-w-4xl mx-auto space-y-6 select-none">
       
-      <!-- Interlocking Monogram Logo -->
+      <!-- Primary Logo Mark -->
       <div class="flex justify-center">
-        <svg class="w-24 h-24 sm:w-28 sm:h-28 text-neutral-900" viewBox="0 0 100 80" fill="currentColor">
-          <path d="M15 70 L35 15 L50 45 L65 15 L85 70 L70 70 L58 38 L50 56 L42 38 L30 70 Z M38 52 L62 52 L50 30 Z"/>
-        </svg>
+        <img src="images/Firefly_RemoveBackground.png" alt="Arimori Studios Emblem" class="w-28 sm:w-36 h-auto object-contain">
       </div>
 
-      <!-- Slogan (Architects of Enduring Systems) -->
-      <div class="space-y-1">
-        <h2 class="font-display text-xl sm:text-2xl font-bold tracking-[0.25em] text-neutral-900 uppercase">
-          ARCHITECTS OF
-        </h2>
-        <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-[0.3em] text-neutral-900 uppercase">
-          ENDURING SYSTEMS
-        </h2>
+      <!-- Official Slogan Lockup -->
+      <div class="space-y-1 pt-2">
+        <div class="flex justify-center">
+          <img src="images/ARIMORI%20(3).png" alt="Arimori Studios Wordmark" class="h-10 sm:h-12 w-auto object-contain">
+        </div>
+        <p class="font-display text-sm sm:text-base font-bold tracking-[0.3em] text-neutral-800 uppercase pt-2">
+          ARCHITECTS OF ENDURING SYSTEMS
+        </p>
       </div>
 
-      <!-- Big Lead Title -->
-      <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-neutral-950 tracking-tight max-w-2xl mx-auto leading-tight pt-4">
+      <!-- Hook Headline -->
+      <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-neutral-950 tracking-tight max-w-2xl mx-auto leading-tight pt-2">
         Just one tick away from building your <span class="block font-black text-black">digital legacy</span>
       </h1>
 
     </div>
   </section>
 
-  <!-- ================= SECTION 2: THE NARROW CHECKLIST LEDGER (FIRST 3 MILESTONES) ================= -->
+  <!-- ================= SECTION 2: THE CHECKLIST LEDGER (FIRST 3 MILESTONES) ================= -->
   <section id="ledger" class="py-20 px-6 bg-cream-100 border-b border-neutral-200">
     <div class="max-w-xl mx-auto">
       
@@ -183,10 +173,8 @@
         <h3 class="font-display text-2xl font-bold text-neutral-900 mt-1">Core Operational Milestones</h3>
       </div>
 
-      <!-- Focused 3-Step Checklist Ledger -->
       <div class="space-y-4">
         
-        <!-- Milestone 1 -->
         <div class="flex items-start gap-4 p-5 rounded-lg bg-cream-50 border border-neutral-300 shadow-sm hover:border-pine-800 transition">
           <div class="w-7 h-7 rounded-full bg-emerald-100 border border-emerald-500 text-emerald-800 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">
             ✓
@@ -194,12 +182,11 @@
           <div>
             <h4 class="font-display font-bold text-base text-neutral-900">01. Verified Local Discovery & Digital Front Door</h4>
             <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
-              Permanent Google Maps address pin verification, local search indexing, and a high-speed .co.za responsive storefront with 24/7 WhatsApp emergency triage.
+              Permanent Google Maps address pin verification, local search indexing, and a high-speed .co.za responsive storefront with 24/7 WhatsApp emergency triage[cite: 1].
             </p>
           </div>
         </div>
 
-        <!-- Milestone 2 -->
         <div class="flex items-start gap-4 p-5 rounded-lg bg-cream-50 border border-neutral-300 shadow-sm hover:border-pine-800 transition">
           <div class="w-7 h-7 rounded-full bg-emerald-100 border border-emerald-500 text-emerald-800 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">
             ✓
@@ -207,12 +194,11 @@
           <div>
             <h4 class="font-display font-bold text-base text-neutral-900">02. Automated WhatsApp Commerce & Hyperlocal Meta Ads</h4>
             <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
-              Official WhatsApp Business service catalogue with automated quick-replies, backed by targeted Click-to-WhatsApp Meta campaigns across the Eastern Cape.
+              Official WhatsApp Business service catalogue with automated quick-replies, backed by targeted Click-to-WhatsApp Meta campaigns across the Eastern Cape[cite: 1].
             </p>
           </div>
         </div>
 
-        <!-- Milestone 3 -->
         <div class="flex items-start gap-4 p-5 rounded-lg bg-cream-50 border border-pine-800 bg-emerald-50/30 shadow-md">
           <div class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">
             ✓
@@ -223,7 +209,7 @@
               <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-pine-800 text-cream-50">CORE PILLAR</span>
             </div>
             <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
-              80mm thermal receipt printer, 1-second USB barcode scanner, offline-tolerant counter database, blind cash-up reconciliation, and encrypted POPIA document vault.
+              80mm thermal receipt printer, 1-second USB barcode scanner, offline-tolerant counter database, blind cash-up reconciliation, and encrypted POPIA document vault[cite: 1].
             </p>
           </div>
         </div>
@@ -233,7 +219,7 @@
     </div>
   </section>
 
-  <!-- ================= SECTION 3: THE 3 FLAGSHIP ANCHOR CARDS (Melius Style) ================= -->
+  <!-- ================= SECTION 3: 3-COLUMN ANCHOR PRICING CARDS ================= -->
   <section id="packages" class="py-24 px-6 bg-cream-50 border-b border-neutral-200">
     <div class="max-w-6xl mx-auto">
       
@@ -247,32 +233,30 @@
         </p>
       </div>
 
-      <!-- 3-Column Desktop Grid / 1-Column Mobile Stack -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        <!-- CARD 1: The Growth Launchpad -->
+        <!-- CARD 1: Growth Launchpad -->
         <div class="rounded-xl border border-neutral-300 bg-cream-100 p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
             <span class="text-xs font-mono text-neutral-500 uppercase tracking-widest">TIER 02 // OUTREACH</span>
             <h3 class="font-display text-2xl font-bold text-neutral-900 mt-1">Growth Launchpad</h3>
-            <p class="text-xs text-neutral-600 mt-1">Multi-channel customer acquisition and branding.</p>
+            <p class="text-xs text-neutral-600 mt-1">Multi-channel customer acquisition and branding[cite: 1].</p>
             
             <div class="my-6">
               <div class="font-display text-4xl font-black text-neutral-950">R16,000</div>
-              <span class="text-xs font-mono text-neutral-500">once-off investment</span>
+              <span class="text-xs font-mono text-neutral-500">once-off investment[cite: 1]</span>
             </div>
 
-            <!-- Reference Image Pill -->
-            <div class="mb-6 rounded-lg overflow-hidden border border-neutral-200 h-28 bg-neutral-200 flex items-center justify-center">
-              <img src="WhatsApp Accounts for Business & Personal Use Explained.jpeg" alt="WhatsApp Business Commerce" class="w-full h-full object-cover">
+            <div class="mb-6 rounded-lg overflow-hidden border border-neutral-200 h-36 bg-neutral-100 flex items-center justify-center">
+              <img src="images/WhatsApp%20Accounts%20for%20Business%20%26%20Personal%20Use%20Explained.jpeg" alt="WhatsApp Business Commerce" class="w-full h-full object-cover">
             </div>
 
             <div class="text-xs font-mono text-neutral-500 uppercase pb-2 border-b border-neutral-300">Features Included:</div>
             <ul class="mt-4 space-y-2.5 text-xs text-neutral-700">
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Mobile-responsive storefront (.co.za)</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Google Maps address verification</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> WhatsApp Business catalog & auto-flows</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Meta Click-to-WhatsApp local ads</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Mobile-responsive storefront (.co.za)[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Google Maps address verification[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> WhatsApp Business catalog & auto-flows[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Meta Click-to-WhatsApp local ads[cite: 1]</li>
             </ul>
           </div>
 
@@ -281,7 +265,7 @@
           </a>
         </div>
 
-        <!-- CARD 2: The Counter Standard (FEATURED / CORE) -->
+        <!-- CARD 2: Counter Standard (FEATURED) -->
         <div class="rounded-xl border-2 border-pine-800 bg-cream-50 p-7 flex flex-col justify-between shadow-xl relative">
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-pine-800 text-cream-50 px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-widest font-bold">
             RECOMMENDED STANDARD
@@ -290,25 +274,24 @@
           <div>
             <span class="text-xs font-mono text-emerald-800 uppercase tracking-widest">TIER 03 // IN-BRANCH</span>
             <h3 class="font-display text-2xl font-bold text-neutral-950 mt-1">Counter Standard</h3>
-            <p class="text-xs text-neutral-600 mt-1">The physical counter POS & audit hardware suite.</p>
+            <p class="text-xs text-neutral-600 mt-1">The physical counter POS & audit hardware suite[cite: 1].</p>
             
             <div class="my-6">
               <div class="font-display text-4xl font-black text-pine-900">R20,000</div>
-              <span class="text-xs font-mono text-neutral-500">complete hardware & ledger kit</span>
+              <span class="text-xs font-mono text-neutral-500">complete hardware & ledger kit[cite: 1]</span>
             </div>
 
-            <!-- Reference Image Pill -->
-            <div class="mb-6 rounded-lg overflow-hidden border border-neutral-200 h-28 bg-neutral-200 flex items-center justify-center">
-              <img src="Epson TMT83III Printer Thermal 80mm Auto Cut TM T83III TMT 83III USB Serial Auto Cutter RJ11.jpeg" alt="Thermal POS Printer" class="w-full h-full object-cover">
+            <div class="mb-6 rounded-lg overflow-hidden border border-neutral-200 h-36 bg-neutral-100 flex items-center justify-center">
+              <img src="images/Epson%20TMT83III%20Printer%20Thermal%2080mm%20Auto%20Cut%20TM%20T83III%20TMT%2083III%20USB%20Serial%20Auto%20Cutter%20RJ11.jpeg" alt="Thermal POS Printer" class="w-full h-full object-cover">
             </div>
 
             <div class="text-xs font-mono text-neutral-500 uppercase pb-2 border-b border-neutral-300">Features Included:</div>
             <ul class="mt-4 space-y-2.5 text-xs text-neutral-800">
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> 80mm Thermal receipt printer + till rolls</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> USB Barcode scanner with hands-free stand</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Custom offline-tolerant counter database</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Blind Cash-Up anti-theft shift audit</li>
-              <li class="flex items-center gap-2 text-neutral-600"><span class="text-neutral-500 font-bold">+</span> Auto-kick steel cash drawer (+R1,000 at cost)</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> 80mm Thermal receipt printer + till rolls[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> USB Barcode scanner with hands-free stand[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Custom offline-tolerant counter database[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Blind Cash-Up anti-theft shift audit[cite: 1]</li>
+              <li class="flex items-center gap-2 text-neutral-600"><span class="text-neutral-500 font-bold">+</span> Auto-kick steel cash drawer (+R1,000 at cost)[cite: 1]</li>
             </ul>
           </div>
 
@@ -317,29 +300,28 @@
           </a>
         </div>
 
-        <!-- CARD 3: The Enterprise Foundation -->
+        <!-- CARD 3: Enterprise Foundation -->
         <div class="rounded-xl border border-neutral-300 bg-cream-100 p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
             <span class="text-xs font-mono text-neutral-500 uppercase tracking-widest">TIER 05 // FULL-HOUSE</span>
             <h3 class="font-display text-2xl font-bold text-neutral-900 mt-1">Enterprise Foundation</h3>
-            <p class="text-xs text-neutral-600 mt-1">Complete marketing acquisition + hardware operations.</p>
+            <p class="text-xs text-neutral-600 mt-1">Complete marketing acquisition + hardware operations[cite: 1].</p>
             
             <div class="my-6">
               <div class="font-display text-4xl font-black text-neutral-950">R44,000</div>
-              <span class="text-xs font-mono text-neutral-500">turnkey deployment</span>
+              <span class="text-xs font-mono text-neutral-500">turnkey deployment[cite: 1]</span>
             </div>
 
-            <!-- Reference Image Pill -->
-            <div class="mb-6 rounded-lg overflow-hidden border border-neutral-200 h-28 bg-neutral-200 flex items-center justify-center">
-              <img src="Digital Business Ideas for Entrepreneurs.jpeg" alt="Enterprise Integration Workstation" class="w-full h-full object-cover">
+            <div class="mb-6 rounded-lg overflow-hidden border border-neutral-200 h-36 bg-neutral-100 flex items-center justify-center">
+              <img src="images/Digital%20Business%20Ideas%20for%20Entrepreneurs.jpeg" alt="Enterprise Integration Workstation" class="w-full h-full object-cover">
             </div>
 
             <div class="text-xs font-mono text-neutral-500 uppercase pb-2 border-b border-neutral-300">Features Included:</div>
             <ul class="mt-4 space-y-2.5 text-xs text-neutral-700">
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Everything in Growth Launchpad (Tier 02)</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Full in-branch POS hardware & ledger kit</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Instant EFT payment gateway (Ozow/Stitch)</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Remote OTP member portal & digital signing</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Everything in Growth Launchpad (Tier 02)[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Full in-branch POS hardware & ledger kit[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Instant EFT payment gateway (Ozow/Stitch)[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Remote OTP member portal & digital signing[cite: 1]</li>
             </ul>
           </div>
 
@@ -353,7 +335,7 @@
     </div>
   </section>
 
-  <!-- ================= SECTION 4: FREQUENTLY ASKED QUESTIONS (3 Cards) ================= -->
+  <!-- ================= SECTION 4: FREQUENTLY ASKED QUESTIONS ================= -->
   <section id="faq" class="py-20 px-6 bg-cream-100 border-b border-neutral-200">
     <div class="max-w-3xl mx-auto">
       
@@ -374,14 +356,14 @@
         <div class="p-5 rounded-lg bg-cream-50 border border-neutral-300">
           <h4 class="font-display font-bold text-sm text-neutral-900">Can our staff still process payments during loadshedding or network outages?</h4>
           <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
-            Yes. The Counter Standard runs on an offline-tolerant local network ledger. You can scan member cards, log payments, and print thermal slips on backup battery power even when municipal internet is down.
+            Yes. The Counter Standard runs on an offline-tolerant local network ledger. You can scan member cards, log payments, and print thermal slips on backup battery power even when municipal internet is down[cite: 1].
           </p>
         </div>
 
         <div class="p-5 rounded-lg bg-cream-50 border border-neutral-300">
           <h4 class="font-display font-bold text-sm text-neutral-900">How does the 30-day performance warranty work?</h4>
           <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
-            Payment is split into milestones: 50% mobilization deposit, 25% upon live on-site hardware delivery, and the final 25% balance is only payable after 30 days of verified, error-free counter and reconciliation operations.
+            Payment is split into milestones: 50% mobilization deposit, 25% upon live on-site hardware delivery, and the final 25% balance is only payable after 30 days of verified, error-free counter and reconciliation operations[cite: 1].
           </p>
         </div>
 
@@ -393,11 +375,9 @@
   <!-- ================= SECTION 5: WATERMARK & REGULATORY FOOTER ================= -->
   <footer class="relative bg-cream-200 text-neutral-700 py-16 px-6 overflow-hidden">
     
-    <!-- Faded AM Monogram Watermark (Low Opacity in Background) -->
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
-      <svg class="w-[500px] h-[500px] text-neutral-900" viewBox="0 0 100 80" fill="currentColor">
-        <path d="M15 70 L35 15 L50 45 L65 15 L85 70 L70 70 L58 38 L50 56 L42 38 L30 70 Z M38 52 L62 52 L50 30 Z"/>
-      </svg>
+    <!-- Watermark using your transparent monogram -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05]">
+      <img src="images/Firefly_RemoveBackground.png" alt="Watermark" class="w-[450px] h-auto object-contain">
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono">
@@ -419,14 +399,14 @@
     </div>
   </footer>
 
-  <!-- ================= JAVASCRIPT: INTERACTIVE MOUSE-FOLLOWING CIRCUIT GLOW ================= -->
+  <!-- ================= MOTHERBOARD CIRCUIT GLOW SCRIPT ================= -->
   <script>
     const canvas = document.getElementById('circuitCanvas');
     const ctx = canvas.getContext('2d');
     const hero = document.getElementById('heroSection');
 
     let width, height;
-    let mouse = { x: -1000, y: -1000, radius: 140 };
+    let mouse = { x: -1000, y: -1000, radius: 150 };
 
     function resize() {
       width = canvas.width = hero.offsetWidth;
@@ -446,13 +426,12 @@
       mouse.y = -1000;
     });
 
-    // Procedural Motherboard Circuit Lines
     const lines = [];
-    const count = 40;
+    const count = 42;
     for (let i = 0; i < count; i++) {
       const startX = Math.random() * width;
       const startY = Math.random() * height;
-      const length = 50 + Math.random() * 120;
+      const length = 60 + Math.random() * 140;
       const isHorizontal = Math.random() > 0.5;
       
       lines.push({
@@ -469,7 +448,6 @@
       ctx.clearRect(0, 0, width, height);
 
       lines.forEach(line => {
-        // Measure distance to cursor
         const midX = (line.x1 + line.branchX) / 2;
         const midY = (line.y1 + line.branchY) / 2;
         const dist = Math.hypot(mouse.x - midX, mouse.y - midY);
@@ -480,24 +458,21 @@
         ctx.lineTo(line.branchX, line.branchY);
 
         if (dist < mouse.radius) {
-          // Glow green when mouse hovers nearby
           ctx.strokeStyle = '#22C55E';
-          ctx.lineWidth = 2;
+          ctx.lineWidth = 2.2;
           ctx.shadowColor = '#22C55E';
           ctx.shadowBlur = 10;
         } else {
-          // Subtle faint white/cream lines on default background
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.75)';
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
           ctx.lineWidth = 1;
           ctx.shadowBlur = 0;
         }
 
         ctx.stroke();
 
-        // Circuit Node Terminal Pads (Dots)
         ctx.beginPath();
         ctx.arc(line.branchX, line.branchY, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = dist < mouse.radius ? '#166534' : 'rgba(255, 255, 255, 0.85)';
+        ctx.fillStyle = dist < mouse.radius ? '#15803D' : 'rgba(255, 255, 255, 0.85)';
         ctx.fill();
       });
 
