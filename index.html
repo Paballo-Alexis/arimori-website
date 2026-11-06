@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arimori Studios | Architects of Enduring Systems</title>
   
-  <!-- Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <!-- Fonts: Space Grotesk, Inter, JetBrains Mono, Playfair Display, and Allura (Cursive) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,6 +20,8 @@
             sans: ['Inter', 'sans-serif'],
             display: ['Space Grotesk', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
+            serif: ['Playfair Display', 'serif'],
+            cursive: ['Allura', 'cursive'],
           },
           colors: {
             cream: {
@@ -27,7 +29,7 @@
               100: '#F7F4EC',
               200: '#EFE9DC',
             },
-            mossNav: '#A8BC8B',
+            mossNav: '#A8BC8B', // The olive tone from your palette
             pine: {
               800: '#1B3022',
               900: '#0F1E15',
@@ -63,6 +65,17 @@
       height: 100%;
       pointer-events: none;
       z-index: 1;
+    }
+
+    /* Infinite loop marquee animation for cursive headline */
+    @keyframes marqueeLoop {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marqueeLoop 22s linear infinite;
     }
   </style>
 </head>
@@ -115,13 +128,13 @@
             Company
           </button>
           <div class="absolute left-0 top-full hidden group-hover:block w-48 bg-cream-100 border border-neutral-300 rounded shadow-lg py-2 z-50">
-            <a href="#" class="block px-4 py-2 text-xs hover:bg-cream-200">About Arimori</a>
+            <a href="#about" class="block px-4 py-2 text-xs hover:bg-cream-200">About Arimori</a>
             <a href="https://github.com" target="_blank" class="block px-4 py-2 text-xs hover:bg-cream-200">Engineering & GitHub</a>
             <a href="https://wa.me/27727489328" target="_blank" class="block px-4 py-2 text-xs hover:bg-cream-200">Direct Contact</a>
           </div>
         </div>
 
-        <a href="#packages" class="hover:text-black transition">Pricing</a>
+        <a href="#pricing-matrix" class="hover:text-black transition">Pricing</a>
       </nav>
 
       <!-- Mobile Hamburger Button -->
@@ -135,28 +148,30 @@
   </header>
 
   <!-- ================= SECTION 1: HERO & INTERACTIVE MOTHERBOARD CANVAS ================= -->
-  <section id="heroSection" class="relative min-h-[72vh] flex flex-col items-center justify-center text-center px-6 py-20 bg-cream-50 overflow-hidden border-b border-neutral-200">
+  <section id="heroSection" class="relative min-h-[75vh] flex flex-col items-center justify-center text-center px-6 py-20 bg-cream-50 overflow-hidden border-b border-neutral-200">
     
     <canvas id="circuitCanvas"></canvas>
 
     <div class="relative z-10 max-w-4xl mx-auto space-y-6 select-none">
       
-      <!-- Primary Logo Mark -->
+      <!-- Primary Logo Mark (Interlocking AM Arch) -->
       <div class="flex justify-center">
-        <img src="images/Firefly_RemoveBackground.png" alt="Arimori Studios Emblem" class="w-28 sm:w-36 h-auto object-contain">
+        <img src="images/Firefly_RemoveBackground.png" alt="Arimori Studios Monogram" class="w-32 sm:w-44 h-auto object-contain drop-shadow-sm">
       </div>
 
-      <!-- Official Slogan Lockup -->
-      <div class="space-y-1 pt-2">
-        <div class="flex justify-center">
-          <img src="images/ARIMORI%20(3).png" alt="Arimori Studios Wordmark" class="h-10 sm:h-12 w-auto object-contain">
-        </div>
-        <p class="font-display text-sm sm:text-base font-bold tracking-[0.3em] text-neutral-800 uppercase pt-2">
+      <!-- Wordmark: Large, Sharp & Full Visibility -->
+      <div class="flex justify-center px-4">
+        <img src="images/ARIMORI%20(3).png" alt="ARIMORI STUDIOS" class="w-full max-w-md sm:max-w-xl h-auto object-contain">
+      </div>
+
+      <!-- Slogan -->
+      <div class="pt-1">
+        <p class="font-display text-sm sm:text-lg font-bold tracking-[0.3em] text-neutral-800 uppercase">
           ARCHITECTS OF ENDURING SYSTEMS
         </p>
       </div>
 
-      <!-- Hook Headline -->
+      <!-- Main Headline -->
       <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-neutral-950 tracking-tight max-w-2xl mx-auto leading-tight pt-2">
         Just one tick away from building your <span class="block font-black text-black">digital legacy</span>
       </h1>
@@ -164,7 +179,7 @@
     </div>
   </section>
 
-  <!-- ================= SECTION 2: THE CHECKLIST LEDGER (FIRST 3 MILESTONES) ================= -->
+  <!-- ================= SECTION 2: CHECKLIST LEDGER ================= -->
   <section id="ledger" class="py-20 px-6 bg-cream-100 border-b border-neutral-200">
     <div class="max-w-xl mx-auto">
       
@@ -182,7 +197,7 @@
           <div>
             <h4 class="font-display font-bold text-base text-neutral-900">01. Verified Local Discovery & Digital Front Door</h4>
             <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
-              Permanent Google Maps address pin verification, local search indexing, and a high-speed .co.za responsive storefront with 24/7 WhatsApp emergency triage[cite: 1].
+              Permanent Google Maps address pin verification, local search indexing, and a high-speed .co.za responsive storefront with 24/7 WhatsApp emergency triage.
             </p>
           </div>
         </div>
@@ -194,7 +209,7 @@
           <div>
             <h4 class="font-display font-bold text-base text-neutral-900">02. Automated WhatsApp Commerce & Hyperlocal Meta Ads</h4>
             <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
-              Official WhatsApp Business service catalogue with automated quick-replies, backed by targeted Click-to-WhatsApp Meta campaigns across the Eastern Cape[cite: 1].
+              Official WhatsApp Business service catalogue with automated quick-replies, backed by targeted Click-to-WhatsApp Meta campaigns across the Eastern Cape.
             </p>
           </div>
         </div>
@@ -209,7 +224,7 @@
               <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-pine-800 text-cream-50">CORE PILLAR</span>
             </div>
             <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
-              80mm thermal receipt printer, 1-second USB barcode scanner, offline-tolerant counter database, blind cash-up reconciliation, and encrypted POPIA document vault[cite: 1].
+              80mm thermal receipt printer, 1-second USB barcode scanner, offline-tolerant counter database, blind cash-up reconciliation, and encrypted POPIA document vault.
             </p>
           </div>
         </div>
@@ -219,7 +234,7 @@
     </div>
   </section>
 
-  <!-- ================= SECTION 3: 3-COLUMN ANCHOR PRICING CARDS ================= -->
+  <!-- ================= SECTION 3: 3-COLUMN ANCHOR CARDS ================= -->
   <section id="packages" class="py-24 px-6 bg-cream-50 border-b border-neutral-200">
     <div class="max-w-6xl mx-auto">
       
@@ -240,23 +255,24 @@
           <div>
             <span class="text-xs font-mono text-neutral-500 uppercase tracking-widest">TIER 02 // OUTREACH</span>
             <h3 class="font-display text-2xl font-bold text-neutral-900 mt-1">Growth Launchpad</h3>
-            <p class="text-xs text-neutral-600 mt-1">Multi-channel customer acquisition and branding[cite: 1].</p>
+            <p class="text-xs text-neutral-600 mt-1">Multi-channel customer acquisition and branding.</p>
             
             <div class="my-6">
               <div class="font-display text-4xl font-black text-neutral-950">R16,000</div>
-              <span class="text-xs font-mono text-neutral-500">once-off investment[cite: 1]</span>
+              <span class="text-xs font-mono text-neutral-500">once-off investment</span>
             </div>
 
+            <!-- WhatsApp Business Catalog Mockup -->
             <div class="mb-6 rounded-lg overflow-hidden border border-neutral-200 h-36 bg-neutral-100 flex items-center justify-center">
-              <img src="images/WhatsApp%20Accounts%20for%20Business%20%26%20Personal%20Use%20Explained.jpeg" alt="WhatsApp Business Commerce" class="w-full h-full object-cover">
+              <img src="images/Top%2010%20Things%20to%20Know%20About%20WhatsApp%20Business_.jpeg" alt="WhatsApp Business Catalog" class="w-full h-full object-cover">
             </div>
 
             <div class="text-xs font-mono text-neutral-500 uppercase pb-2 border-b border-neutral-300">Features Included:</div>
             <ul class="mt-4 space-y-2.5 text-xs text-neutral-700">
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Mobile-responsive storefront (.co.za)[cite: 1]</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Google Maps address verification[cite: 1]</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> WhatsApp Business catalog & auto-flows[cite: 1]</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Meta Click-to-WhatsApp local ads[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Mobile-responsive storefront (.co.za)</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Google Maps address verification</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> WhatsApp Business catalog & auto-flows</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Meta Click-to-WhatsApp local ads</li>
             </ul>
           </div>
 
@@ -274,24 +290,25 @@
           <div>
             <span class="text-xs font-mono text-emerald-800 uppercase tracking-widest">TIER 03 // IN-BRANCH</span>
             <h3 class="font-display text-2xl font-bold text-neutral-950 mt-1">Counter Standard</h3>
-            <p class="text-xs text-neutral-600 mt-1">The physical counter POS & audit hardware suite[cite: 1].</p>
+            <p class="text-xs text-neutral-600 mt-1">The physical counter POS & audit hardware suite.</p>
             
             <div class="my-6">
               <div class="font-display text-4xl font-black text-pine-900">R20,000</div>
-              <span class="text-xs font-mono text-neutral-500">complete hardware & ledger kit[cite: 1]</span>
+              <span class="text-xs font-mono text-neutral-500">complete hardware & ledger kit</span>
             </div>
 
+            <!-- Thermal POS Printer Mockup -->
             <div class="mb-6 rounded-lg overflow-hidden border border-neutral-200 h-36 bg-neutral-100 flex items-center justify-center">
               <img src="images/Epson%20TMT83III%20Printer%20Thermal%2080mm%20Auto%20Cut%20TM%20T83III%20TMT%2083III%20USB%20Serial%20Auto%20Cutter%20RJ11.jpeg" alt="Thermal POS Printer" class="w-full h-full object-cover">
             </div>
 
             <div class="text-xs font-mono text-neutral-500 uppercase pb-2 border-b border-neutral-300">Features Included:</div>
             <ul class="mt-4 space-y-2.5 text-xs text-neutral-800">
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> 80mm Thermal receipt printer + till rolls[cite: 1]</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> USB Barcode scanner with hands-free stand[cite: 1]</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Custom offline-tolerant counter database[cite: 1]</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Blind Cash-Up anti-theft shift audit[cite: 1]</li>
-              <li class="flex items-center gap-2 text-neutral-600"><span class="text-neutral-500 font-bold">+</span> Auto-kick steel cash drawer (+R1,000 at cost)[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> 80mm Thermal receipt printer + till rolls</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> USB Barcode scanner with hands-free stand</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Custom offline-tolerant counter database</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Blind Cash-Up anti-theft shift audit</li>
+              <li class="flex items-center gap-2 text-neutral-600"><span class="text-neutral-500 font-bold">+</span> Auto-kick steel cash drawer (+R1,000 at cost)</li>
             </ul>
           </div>
 
@@ -305,23 +322,24 @@
           <div>
             <span class="text-xs font-mono text-neutral-500 uppercase tracking-widest">TIER 05 // FULL-HOUSE</span>
             <h3 class="font-display text-2xl font-bold text-neutral-900 mt-1">Enterprise Foundation</h3>
-            <p class="text-xs text-neutral-600 mt-1">Complete marketing acquisition + hardware operations[cite: 1].</p>
+            <p class="text-xs text-neutral-600 mt-1">Complete marketing acquisition + hardware operations.</p>
             
             <div class="my-6">
               <div class="font-display text-4xl font-black text-neutral-950">R44,000</div>
-              <span class="text-xs font-mono text-neutral-500">turnkey deployment[cite: 1]</span>
+              <span class="text-xs font-mono text-neutral-500">turnkey deployment</span>
             </div>
 
+            <!-- Enterprise Laptop Mockup -->
             <div class="mb-6 rounded-lg overflow-hidden border border-neutral-200 h-36 bg-neutral-100 flex items-center justify-center">
               <img src="images/Digital%20Business%20Ideas%20for%20Entrepreneurs.jpeg" alt="Enterprise Integration Workstation" class="w-full h-full object-cover">
             </div>
 
             <div class="text-xs font-mono text-neutral-500 uppercase pb-2 border-b border-neutral-300">Features Included:</div>
             <ul class="mt-4 space-y-2.5 text-xs text-neutral-700">
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Everything in Growth Launchpad (Tier 02)[cite: 1]</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Full in-branch POS hardware & ledger kit[cite: 1]</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Instant EFT payment gateway (Ozow/Stitch)[cite: 1]</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Remote OTP member portal & digital signing[cite: 1]</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Everything in Growth Launchpad (Tier 02)</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Full in-branch POS hardware & ledger kit</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Instant EFT payment gateway (Ozow/Stitch)</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-700 font-bold">✓</span> Remote OTP member portal & digital signing</li>
             </ul>
           </div>
 
@@ -335,8 +353,242 @@
     </div>
   </section>
 
-  <!-- ================= SECTION 4: FREQUENTLY ASKED QUESTIONS ================= -->
-  <section id="faq" class="py-20 px-6 bg-cream-100 border-b border-neutral-200">
+  <!-- ================= SECTION 4: ABOUT ARIMORI (SPACES WITH STORY STYLE) ================= -->
+  <!-- Inspired by House of Honey: High-tech screen background with looping cursive and print title -->
+  <section id="about" class="relative bg-cream-50 border-b border-neutral-200 overflow-hidden">
+    
+    <!-- Hero Banner with Looping Olive Cursive Marquee -->
+    <div class="relative h-80 sm:h-96 w-full flex items-center justify-center overflow-hidden">
+      <!-- Background Image -->
+      <img src="images/1000805418.jpg" alt="Technical Engineering Enclave" class="absolute inset-0 w-full h-full object-cover brightness-[0.38] contrast-125">
+      
+      <!-- Infinite Looping Cursive Text in Olive Green -->
+      <div class="absolute inset-0 flex items-center pointer-events-none z-10 overflow-hidden">
+        <div class="animate-marquee whitespace-nowrap text-mossNav font-cursive text-7xl sm:text-9xl opacity-75 select-none tracking-wide">
+          <span>Enduring Systems &nbsp; • &nbsp; Sheltered Legacy &nbsp; • &nbsp; Architectural Integrity &nbsp; • &nbsp; Sovereign Infrastructure &nbsp; • &nbsp; </span>
+          <span>Enduring Systems &nbsp; • &nbsp; Sheltered Legacy &nbsp; • &nbsp; Architectural Integrity &nbsp; • &nbsp; Sovereign Infrastructure &nbsp; • &nbsp; </span>
+        </div>
+      </div>
+
+      <!-- Static Centered Print Header -->
+      <div class="relative z-20 text-center px-4">
+        <span class="font-mono text-xs uppercase tracking-widest text-emerald-400 font-bold block mb-2">[ OUR ETHOS ]</span>
+        <h2 class="font-serif text-4xl sm:text-6xl text-white font-bold tracking-tight uppercase">
+          ABOUT ARIMORI
+        </h2>
+      </div>
+    </div>
+
+    <!-- Editorial Ethos & Mock Websites Side-by-Side Content -->
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Ethos and Mission Statement -->
+        <div class="space-y-6">
+          <span class="font-mono text-xs uppercase tracking-widest text-pine-800 font-bold">// STEWARDSHIP & RESILIENCE</span>
+          <h3 class="font-display text-3xl sm:text-4xl font-bold text-neutral-900 leading-snug">
+            We engineer permanence for community enterprises.
+          </h3>
+          <p class="text-sm text-neutral-700 leading-relaxed">
+            Born out of the need for robust operational autonomy across the Eastern Cape corridor, Arimori Studios designs, hardens, and deploys physical-to-digital systems that endure municipal volatility, network failure, and technological debt.
+          </p>
+          <p class="text-sm text-neutral-700 leading-relaxed">
+            Our mission is straightforward: ensure independent family enterprises, funeral establishments, legal chambers, and regional retailers retain 100% asset sovereignty. We do not extract recurring commissions or lock clients into proprietary software silos.
+          </p>
+
+          <div class="pt-4 border-t border-neutral-200 grid grid-cols-2 gap-4 font-mono text-xs">
+            <div>
+              <div class="text-emerald-700 font-bold text-lg">100%</div>
+              <div class="text-neutral-500">Asset & Database Sovereignty</div>
+            </div>
+            <div>
+              <div class="text-emerald-700 font-bold text-lg">0%</div>
+              <div class="text-neutral-500">Recurring Transaction Royalties</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Mock Websites / Sector Integrations -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          <div class="p-5 rounded-lg bg-cream-100 border border-neutral-300 space-y-3">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-900 text-cream-50 uppercase">COMMERCE</span>
+            <h4 class="font-display font-bold text-base text-neutral-900">Regional Retail & Grocers</h4>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Sub-second counter barcode search, offline till reconciliation, and automated stock deficit alerts.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-lg bg-cream-100 border border-neutral-300 space-y-3">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-pine-800 text-cream-50 uppercase">STEWARDSHIP</span>
+            <h4 class="font-display font-bold text-base text-neutral-900">Funeral Undertakings</h4>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Encrypted POPIA vaults for death notices and national IDs, paired with remote Instant EFT rails for the diaspora.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-lg bg-cream-100 border border-neutral-300 space-y-3">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-900 text-cream-50 uppercase">LEGAL</span>
+            <h4 class="font-display font-bold text-base text-neutral-900">Independent Chambers</h4>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Statutory document tracking, non-deletable audit trails, and automated client consultation booking.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-lg bg-cream-100 border border-neutral-300 space-y-3">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-800 text-cream-50 uppercase">OUTREACH</span>
+            <h4 class="font-display font-bold text-base text-neutral-900">Local Brand Launchpads</h4>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Google Maps verified discovery pins, modern responsive portals, and official WhatsApp catalogs.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 5: COMPLETE PRICING MATRIX (MELIUS COMPARISON STYLE) ================= -->
+  <!-- Matches your Melius reference table: all tiers side-by-side with feature breakdown -->
+  <section id="pricing-matrix" class="py-24 px-6 bg-cream-100 border-b border-neutral-200">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-pine-800 font-semibold">[ COMPLETE SYSTEM OVERVIEW ]</span>
+        <h2 class="font-display text-3xl font-extrabold text-neutral-950 mt-1">
+          Full Modular Tier Comparison
+        </h2>
+        <p class="text-xs text-neutral-500 font-mono mt-2">
+          Transparent einmalige investments. No monthly platform subscriptions.
+        </p>
+      </div>
+
+      <!-- Responsive Comparison Table -->
+      <div class="overflow-x-auto rounded-xl border border-neutral-300 bg-cream-50 shadow-sm">
+        <table class="w-full text-left border-collapse font-sans text-xs">
+          <thead>
+            <tr class="border-b border-neutral-300 bg-cream-200 text-neutral-900 font-display">
+              <th class="p-4 font-bold text-sm">System Deliverables</th>
+              <th class="p-4 font-bold">
+                <div class="text-xs font-mono text-neutral-500 font-normal">TIER 01</div>
+                <div>Discovery Suite</div>
+                <div class="font-mono text-sm font-black mt-1">R6,500</div>
+              </th>
+              <th class="p-4 font-bold">
+                <div class="text-xs font-mono text-neutral-500 font-normal">TIER 02</div>
+                <div>Growth Launchpad</div>
+                <div class="font-mono text-sm font-black mt-1">R16,000</div>
+              </th>
+              <th class="p-4 font-bold bg-emerald-100/60 border-x border-emerald-300">
+                <div class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-pine-800 text-cream-50 inline-block mb-1">CORE</div>
+                <div>Counter Standard</div>
+                <div class="font-mono text-sm font-black text-pine-900 mt-1">R20,000</div>
+              </th>
+              <th class="p-4 font-bold">
+                <div class="text-xs font-mono text-neutral-500 font-normal">TIER 04</div>
+                <div>Remote Exchange</div>
+                <div class="font-mono text-sm font-black mt-1">R28,000</div>
+              </th>
+              <th class="p-4 font-bold">
+                <div class="text-xs font-mono text-neutral-500 font-normal">TIER 05</div>
+                <div>Enterprise Foundation</div>
+                <div class="font-mono text-sm font-black mt-1">R44,000</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-200 text-neutral-700">
+            <tr>
+              <td class="p-4 font-semibold text-neutral-900">Custom Domain (.co.za) & Google Maps Verification</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+              <td class="p-4 text-neutral-400 text-center bg-emerald-50/30 border-x border-emerald-300">—</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-neutral-900">Responsive Website & WhatsApp Emergency Intake</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+              <td class="p-4 text-neutral-400 text-center bg-emerald-50/30 border-x border-emerald-300">—</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-neutral-900">WhatsApp Commerce Catalog & Hyperlocal Meta Ads</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+              <td class="p-4 text-neutral-400 text-center bg-emerald-50/30 border-x border-emerald-300">—</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-neutral-900">In-Branch POS Hardware (80mm Thermal Printer + Scanner)</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-emerald-700 font-bold text-center bg-emerald-50/30 border-x border-emerald-300">✓</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-neutral-900">Offline Counter Database & Blind Cash-Up Shift Audit</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-emerald-700 font-bold text-center bg-emerald-50/30 border-x border-emerald-300">✓</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-neutral-900">POPIA Section 1 Encrypted Local Document Vault</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-emerald-700 font-bold text-center bg-emerald-50/30 border-x border-emerald-300">✓</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-neutral-900">Instant EFT Gateway (Ozow / Stitch) & Diaspora Portals</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-neutral-400 text-center bg-emerald-50/30 border-x border-emerald-300">—</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-neutral-900">Digital Touchscreen Signature Canvas for Contracts</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-neutral-400 text-center">—</td>
+              <td class="p-4 text-neutral-400 text-center bg-emerald-50/30 border-x border-emerald-300">—</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+              <td class="p-4 text-emerald-700 font-bold text-center">✓</td>
+            </tr>
+            <tr class="bg-cream-200/50">
+              <td class="p-4 font-bold text-neutral-900">Action</td>
+              <td class="p-4 text-center">
+                <a href="https://wa.me/27727489328?text=Inquiry%20Tier%2001" target="_blank" class="px-3 py-1.5 rounded bg-neutral-900 text-cream-50 font-mono text-[10px] uppercase font-bold hover:bg-black">Inquire</a>
+              </td>
+              <td class="p-4 text-center">
+                <a href="https://wa.me/27727489328?text=Inquiry%20Tier%2002" target="_blank" class="px-3 py-1.5 rounded bg-neutral-900 text-cream-50 font-mono text-[10px] uppercase font-bold hover:bg-black">Inquire</a>
+              </td>
+              <td class="p-4 text-center bg-emerald-100/40 border-x border-emerald-300">
+                <a href="https://wa.me/27727489328?text=Inquiry%20Tier%2003" target="_blank" class="px-3 py-1.5 rounded bg-pine-800 text-cream-50 font-mono text-[10px] uppercase font-bold hover:bg-pine-900">Select</a>
+              </td>
+              <td class="p-4 text-center">
+                <a href="https://wa.me/27727489328?text=Inquiry%20Tier%2004" target="_blank" class="px-3 py-1.5 rounded bg-neutral-900 text-cream-50 font-mono text-[10px] uppercase font-bold hover:bg-black">Inquire</a>
+              </td>
+              <td class="p-4 text-center">
+                <a href="https://wa.me/27727489328?text=Inquiry%20Tier%2005" target="_blank" class="px-3 py-1.5 rounded bg-neutral-900 text-cream-50 font-mono text-[10px] uppercase font-bold hover:bg-black">Inquire</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 6: FREQUENTLY ASKED QUESTIONS ================= -->
+  <section id="faq" class="py-20 px-6 bg-cream-50 border-b border-neutral-200">
     <div class="max-w-3xl mx-auto">
       
       <div class="text-center mb-12">
@@ -346,24 +598,24 @@
 
       <div class="space-y-4">
         
-        <div class="p-5 rounded-lg bg-cream-50 border border-neutral-300">
+        <div class="p-5 rounded-lg bg-cream-100 border border-neutral-300">
           <h4 class="font-display font-bold text-sm text-neutral-900">Do you take a monthly fee or commission cut of our payments?</h4>
           <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
             No. We believe in 100% asset sovereignty. All collections settle directly into your business bank account. You own your code, databases, and physical hardware outright with zero recurring vendor cuts.
           </p>
         </div>
 
-        <div class="p-5 rounded-lg bg-cream-50 border border-neutral-300">
+        <div class="p-5 rounded-lg bg-cream-100 border border-neutral-300">
           <h4 class="font-display font-bold text-sm text-neutral-900">Can our staff still process payments during loadshedding or network outages?</h4>
           <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
-            Yes. The Counter Standard runs on an offline-tolerant local network ledger. You can scan member cards, log payments, and print thermal slips on backup battery power even when municipal internet is down[cite: 1].
+            Yes. The Counter Standard runs on an offline-tolerant local network ledger. You can scan member cards, log payments, and print thermal slips on backup battery power even when municipal internet is down.
           </p>
         </div>
 
-        <div class="p-5 rounded-lg bg-cream-50 border border-neutral-300">
+        <div class="p-5 rounded-lg bg-cream-100 border border-neutral-300">
           <h4 class="font-display font-bold text-sm text-neutral-900">How does the 30-day performance warranty work?</h4>
           <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
-            Payment is split into milestones: 50% mobilization deposit, 25% upon live on-site hardware delivery, and the final 25% balance is only payable after 30 days of verified, error-free counter and reconciliation operations[cite: 1].
+            Payment is split into milestones: 50% mobilization deposit, 25% upon live on-site hardware delivery, and the final 25% balance is only payable after 30 days of verified, error-free counter and reconciliation operations.
           </p>
         </div>
 
@@ -372,7 +624,7 @@
     </div>
   </section>
 
-  <!-- ================= SECTION 5: WATERMARK & REGULATORY FOOTER ================= -->
+  <!-- ================= SECTION 7: WATERMARK & REGULATORY FOOTER ================= -->
   <footer class="relative bg-cream-200 text-neutral-700 py-16 px-6 overflow-hidden">
     
     <!-- Watermark using your transparent monogram -->
@@ -399,7 +651,7 @@
     </div>
   </footer>
 
-  <!-- ================= MOTHERBOARD CIRCUIT GLOW SCRIPT ================= -->
+  <!-- ================= JAVASCRIPT: MOTHERBOARD CIRCUIT GLOW ================= -->
   <script>
     const canvas = document.getElementById('circuitCanvas');
     const ctx = canvas.getContext('2d');
