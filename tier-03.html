@@ -1,1 +1,86 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tier 03 — The Counter Standard [HERO] | Arimori Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/shell.css" />
+  <style>
+    :root { --tier-color: #10B981; --tier-glow: rgba(16, 185, 129, 0.28); }
+    .tier-page-wrap { max-width: 1140px; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+    .tier-breadcrumb { font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-secondary); margin-bottom: 2rem; display: inline-block; }
+    .tier-breadcrumb:hover { color: var(--tier-color); }
+    .tier-hero-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
+    .numeral-stage { background: #030504; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.25); padding: 1.5rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 40px var(--tier-glow); }
+    .numeral-stage img { width: 100%; max-height: 440px; object-fit: contain; mix-blend-mode: screen; animation: floatNum 5s ease-in-out infinite; }
+    @keyframes floatNum { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--tier-color); display: block; margin-bottom: 0.65rem; }
+    .tier-hero-info h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 700; line-height: 1.12; margin-bottom: 0.85rem; }
+    .price-badge { display: inline-block; font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: var(--tier-color); padding: 0.45rem 0.95rem; border-radius: 8px; background: rgba(16, 185, 129, 0.08); border: 1px solid var(--tier-color); margin-bottom: 1.25rem; }
+    .tier-lead { font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.75rem; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+    .btn-tier { padding: 0.75rem 1.35rem; border-radius: 10px; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; background: var(--tier-glow); border: 1px solid var(--tier-color); color: var(--text-primary); }
+    .btn-outline { padding: 0.75rem 1.35rem; border-radius: 10px; font-family: var(--font-mono); font-size: 0.78rem; border: 1px solid var(--border-subtle); color: var(--text-secondary); }
+    .deliverables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.35rem; margin-bottom: 3rem; }
+    .deliv-card { padding: 1.5rem; border-radius: 14px; background: rgba(8, 13, 11, 0.82); border: 1px solid var(--border-subtle); }
+    .deliv-card h3 { font-family: var(--font-display); font-size: 1.05rem; color: var(--emerald-bright); margin-bottom: 0.45rem; }
+    .deliv-card p { font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); }
+    .tier-pager { display: flex; justify-content: space-between; align-items: center; padding-top: 1.75rem; border-top: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.78rem; }
+    @media (max-width: 860px) { .tier-hero-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main id="page-content">
+    <div class="tier-page-wrap">
+      <a href="modular-solutions.html" class="tier-breadcrumb">← Back to Modular Solutions</a>
+
+      <section class="tier-hero-grid">
+        <div class="numeral-stage">
+          <img src="assets/images/tier-num-03.jpg" alt="Tier 03 Dot-Matrix Numeral 3" />
+        </div>
+        <div class="tier-hero-info">
+          <span class="eyebrow">TIER 03 // FOREST FLOOR — FLAGSHIP HERO TIER</span>
+          <h1>The Counter Standard</h1>
+          <div class="price-badge">R9,500 Setup & Hardware + R1,500/mo</div>
+          <p class="tier-lead">
+            Our flagship package for walk-in shops, co-ops, and busy counters. Combines physical receipt & barcode hardware with an offline-first till that never stops during load-shedding or network outages.
+          </p>
+          <div class="cta-row">
+            <a href="https://wa.me/27836947300?text=Hi%20Arimori%20Studios,%20I'd%20like%20to%20deploy%20Tier%2003%20(The%20Counter%20Standard)." target="_blank" rel="noopener noreferrer" class="btn-tier">Book Tier 03 on WhatsApp</a>
+            <a href="pricing.html" class="btn-outline">Compare All 5 Layers</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="deliverables-grid">
+        <div class="deliv-card">
+          <h3>Physical Counter Hardware Included</h3>
+          <p><strong>Plain English:</strong> We deliver and set up a fast receipt printer and barcode scanner right at your counter.<br/><em>Tech Spec:</em> 80mm thermal receipt printer + 2D barcode scanner provisioned on-site.</p>
+        </div>
+        <div class="deliv-card">
+          <h3>Works Without Internet</h3>
+          <p><strong>Plain English:</strong> Keep serving customers and printing receipts when signal drops; everything syncs automatically when signal returns.<br/><em>Tech Spec:</em> Offline-first local SQLite ledger with asynchronous cloud reconciliation.</p>
+        </div>
+        <div class="deliv-card">
+          <h3>Theft-Proof Blind Cash-Up</h3>
+          <p><strong>Plain English:</strong> Cashiers count the drawer at closing before seeing the system total, stopping till shortages.<br/><em>Tech Spec:</em> Blind cash-up audit protocol paired with SHA-256 tamper-evident receipt logs.</p>
+        </div>
+        <div class="deliv-card">
+          <h3>Encrypted POPIA Digital Vault</h3>
+          <p><strong>Plain English:</strong> Customer IDs and signed forms stay locked in a private digital cabinet.<br/><em>Tech Spec:</em> Single-tenant AES-256 encrypted compliance vault aligned with South African POPIA laws.</p>
+        </div>
+      </section>
+
+      <nav class="tier-pager">
+        <a href="tier-02.html">← Prev: Tier 02 — Growth Launchpad</a>
+        <a href="tier-04.html">Next: Tier 04 — The Remote Exchange →</a>
+      </nav>
+    </div>
+  </main>
+  <script src="js/shell.js"></script>
+</body>
+</html>
