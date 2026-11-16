@@ -1,1 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio & Practice Pillars | Arimori Studios</title>
 
+  <meta property="og:title" content="Portfolio & Practice Pillars | Arimori Studios" />
+  <meta property="og:description" content="Consultancy, Data Analytics, Machine Learning, Cybersecurity, Marketing, and Web Development." />
+  <meta property="og:url" content="https://arimori.studio/portfolio.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/shell.css" />
+
+  <style>
+    .portfolio-wrapper {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    .portfolio-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--emerald-bright);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .portfolio-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+    }
+
+    .portfolio-header p {
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .discipline-card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #060908;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+    }
+
+    .discipline-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(16, 185, 129, 0.5);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.92), 0 0 30px rgba(16, 185, 129, 0.14);
+    }
+
+    .card-stage {
+      position: relative;
+      height: 230px;
+      background: #030504;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 700px;
+    }
+
+    .card-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.88;
+      transition: transform 0.6s ease, opacity 0.4s ease;
+    }
+
+    .discipline-card:hover .card-stage img {
+      transform: scale(1.06);
+      opacity: 0.52;
+    }
+
+    /* Glowing 3D Floating "COMING SOON" Emblem */
+    .coming-soon-3d {
+      position: absolute;
+      z-index: 3;
+      padding: 0.55rem 1.25rem;
+      border-radius: 8px;
+      background: rgba(3, 5, 4, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      box-shadow:
+        0 0 22px rgba(16, 185, 129, 0.35),
+        0 10px 25px rgba(0, 0, 0, 0.85),
+        inset 0 0 12px rgba(56, 189, 248, 0.25);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: #f8fafc;
+      text-shadow:
+        0 1px 0 #0ea5e9,
+        0 2px 0 #10b981,
+        0 0 16px rgba(52, 211, 153, 0.9),
+        0 0 28px rgba(56, 189, 248, 0.75);
+      transform-style: preserve-3d;
+      animation: floatBadge3D 5.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatBadge3D {
+      0%, 100% {
+        transform: translateY(0px) rotateX(6deg) rotateY(-8deg);
+      }
+      50% {
+        transform: translateY(-7px) rotateX(-5deg) rotateY(8deg);
+      }
+    }
+
+    .card-body {
+      padding: 1.5rem 1.65rem 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.65rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .pillar-code {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--cerulean-bright);
+    }
+
+    .card-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.32rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .card-body p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <main id="page-content">
+    <div class="portfolio-wrapper">
+
+      <header class="portfolio-header">
+        <span class="eyebrow">SIX STUDIO DISCIPLINES // ARCHIVE IN PREPARATION</span>
+        <h1>Practice Pillars & Case Studies</h1>
+        <p>
+          Full interactive case studies from our active South African deployments are currently being de-identified and prepared for public release.
+        </p>
+      </header>
+
+      <section class="portfolio-grid" aria-label="Studio Disciplines">
+
+        <!-- 01: Consultancy -->
+        <article class="discipline-card">
+          <div class="card-stage">
+            <img src="assets/images/portfolio-consultancy.jpg" alt="Consultancy Golden Holographic Chess Grid" />
+            <div class="coming-soon-3d">COMING SOON</div>
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="pillar-code">DISCIPLINE 01 // STRATEGY</span>
+              <h2>Consultancy</h2>
+            </div>
+            <p>Operational audits, process architecture, and digital transformation roadmaps tailored for growing enterprises and co-ops.</p>
+          </div>
+        </article>
+
+        <!-- 02: Data Analytics -->
+        <article class="discipline-card">
+          <div class="card-stage">
+            <img src="assets/images/portfolio-analytics.jpg" alt="Data Analytics Golden 3D Telemetry Wave" />
+            <div class="coming-soon-3d" style="animation-delay: -0.9s;">COMING SOON</div>
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="pillar-code">DISCIPLINE 02 // TELEMETRY</span>
+              <h2>Data Analytics</h2>
+            </div>
+            <p>Consolidated sales ledgers, cash-up variance tracking, and real-time executive dashboards across single and multi-branch teams.</p>
+          </div>
+        </article>
+
+        <!-- 03: Machine Learning -->
+        <article class="discipline-card">
+          <div class="card-stage">
+            <img src="assets/images/portfolio-ml.jpg" alt="Machine Learning Golden Neural Network" />
+            <div class="coming-soon-3d" style="animation-delay: -1.8s;">COMING SOON</div>
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="pillar-code">DISCIPLINE 03 // INTELLIGENCE</span>
+              <h2>Machine Learning</h2>
+            </div>
+            <p>Early-warning member lapse prediction, automated inquiry triage, and demand forecasting models trained on local operational patterns.</p>
+          </div>
+        </article>
+
+        <!-- 04: Cybersecurity -->
+        <article class="discipline-card">
+          <div class="card-stage">
+            <img src="assets/images/portfolio-cybersecurity.jpg" alt="Cybersecurity Golden Polygonal Shield" />
+            <div class="coming-soon-3d" style="animation-delay: -2.7s;">COMING SOON</div>
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="pillar-code">DISCIPLINE 04 // SOVEREIGNTY</span>
+              <h2>Cybersecurity</h2>
+            </div>
+            <p>Single-tenant AES-256 encrypted POPIA vaults, SHA-256 tamper-evident receipt chains, and zero-trust access controls.</p>
+          </div>
+        </article>
+
+        <!-- 05: Marketing -->
+        <article class="discipline-card">
+          <div class="card-stage">
+            <img src="assets/images/portfolio-marketing.jpg" alt="Marketing Golden Acoustic Outreach Waves" />
+            <div class="coming-soon-3d" style="animation-delay: -3.6s;">COMING SOON</div>
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="pillar-code">DISCIPLINE 05 // ACQUISITION</span>
+              <h2>Marketing</h2>
+            </div>
+            <p>High-intent local Google Search indexing, verified Map-Pack dominance, and direct click-to-WhatsApp Meta campaigns.</p>
+          </div>
+        </article>
+
+        <!-- 06: Web Development -->
+        <article class="discipline-card">
+          <div class="card-stage">
+            <img src="assets/images/portfolio-webdev.jpg" alt="Web Development Golden Wireframe Windows" />
+            <div class="coming-soon-3d" style="animation-delay: -4.5s;">COMING SOON</div>
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="pillar-code">DISCIPLINE 06 // ENGINEERING</span>
+              <h2>Web Development</h2>
+            </div>
+            <p>Sub-second custom storefronts, offline-first progressive web apps, and bespoke WebGL / 3D interactive brand experiences.</p>
+          </div>
+        </article>
+
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/shell.js"></script>
+</body>
+</html>
