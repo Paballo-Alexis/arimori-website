@@ -1,1 +1,1155 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arimori Studios | Architects of Enduring Systems</title>
+
+  <!-- Open Graph Social Preview -->
+  <meta property="og:title" content="Arimori Studios | Architects of Enduring Systems" />
+  <meta property="og:description" content="Sovereign digital infrastructure, offline-first counter POS, and POPIA-encrypted vaults." />
+  <meta property="og:url" content="https://arimori.studio" />
+
+  <!-- Editorial & Technical Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Global Shell Styles -->
+  <link rel="stylesheet" href="css/shell.css" />
+
+  <style>
+    main#page-content {
+      padding-top: 0;
+      position: relative;
+      background: #030504;
+    }
+
+    .scroll-runway {
+      height: 520vh;
+      position: relative;
+      width: 100%;
+    }
+
+    .stage-viewport {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: #030504;
+    }
+
+    #arimori-webgl {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 1;
+    }
+
+    /* Phase 5 Permanent Slogan Beneath 3D Logo Light */
+    .slogan-overlay {
+      position: absolute;
+      top: 21vh;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-align: center;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      width: 90%;
+      max-width: 680px;
+    }
+
+    .slogan-overlay.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .slogan-brand {
+      font-family: var(--font-display);
+      font-size: clamp(0.72rem, 1.4vw, 0.85rem);
+      font-weight: 600;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(248, 250, 252, 0.72);
+      margin-bottom: 0.45rem;
+    }
+
+    .slogan-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.4vw, 1.75rem);
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: #f8fafc;
+      text-shadow: 0 0 28px rgba(251, 191, 36, 0.35), 0 0 12px rgba(255, 255, 255, 0.25);
+    }
+
+    /* Phase 1 Scroll Cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 2.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .scroll-cue span {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(248, 250, 252, 0.55);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 34px;
+      background: linear-gradient(180deg, rgba(251, 191, 36, 0.85), transparent);
+      animation: pulseLine 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseLine {
+      0%, 100% { transform: scaleY(0.65); opacity: 0.45; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+
+    /* Phase 5 Color-Matched Side Leader Lines & Plain-English Labels */
+    .annotations-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 12;
+      pointer-events: none;
+    }
+
+    .orb-annotation {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      pointer-events: auto;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.45s ease, transform 0.35s ease;
+    }
+
+    .orb-annotation.revealed {
+      opacity: 1;
+    }
+
+    .orb-annotation.align-right {
+      flex-direction: row;
+      transform: translateX(0);
+    }
+
+    .orb-annotation.align-left {
+      flex-direction: row-reverse;
+      text-align: right;
+      transform: translateX(-100%);
+    }
+
+    .leader-stem {
+      width: clamp(32px, 6vw, 84px);
+      height: 1.5px;
+      position: relative;
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    }
+
+    .orb-annotation.align-left .leader-stem {
+      transform-origin: right center;
+    }
+
+    .orb-annotation.revealed .leader-stem {
+      transform: scaleX(1);
+    }
+
+    .leader-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .leader-card {
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
+      background: rgba(3, 5, 4, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      max-width: 270px;
+    }
+
+    .orb-annotation:hover .leader-card,
+    .orb-annotation.highlighted .leader-card {
+      background: rgba(8, 14, 11, 0.94);
+      transform: translateY(-2px);
+    }
+
+    .leader-tier-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .leader-title {
+      font-family: var(--font-display);
+      font-size: clamp(0.82rem, 1.25vw, 0.98rem);
+      font-weight: 600;
+      color: #f8fafc;
+      margin: 1px 0 2px;
+      display: block;
+    }
+
+    .leader-desc {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      color: #94a3b8;
+      line-height: 1.35;
+      display: block;
+    }
+
+    .leader-price {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      margin-top: 3px;
+      opacity: 0.9;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .orb-annotation.align-left {
+        flex-direction: row;
+        text-align: left;
+        transform: translateX(0);
+      }
+      .orb-annotation.align-left .leader-stem {
+        transform-origin: left center;
+      }
+      .leader-stem {
+        width: 20px;
+      }
+      .leader-card {
+        max-width: 195px;
+        padding: 0.35rem 0.55rem;
+      }
+      .leader-desc {
+        display: none;
+      }
+    }
+
+    .warp-flash {
+      position: fixed;
+      inset: 0;
+      z-index: 1500;
+      background: #030504;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.55s ease;
+    }
+    .warp-flash.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <main id="page-content">
+    <div class="scroll-runway" id="scrollRunway">
+      <div class="stage-viewport" id="stageViewport">
+        <canvas id="arimori-webgl"></canvas>
+
+        <!-- Phase 5 Slogan Beneath 3D Logo Light -->
+        <div class="slogan-overlay" id="voidSlogan">
+          <div class="slogan-brand">ARIMORI STUDIOS</div>
+          <h1 class="slogan-title">Architects of Enduring Systems</h1>
+        </div>
+
+        <!-- Phase 1 Scroll Cue -->
+        <div class="scroll-cue" id="scrollCue">
+          <span>Scroll to Dive</span>
+          <div class="scroll-line"></div>
+        </div>
+
+        <!-- Phase 5 Color-Matched Side Leader Lines -->
+        <div class="annotations-layer" id="annotationsLayer"></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="warp-flash" id="warpFlash"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="js/shell.js"></script>
+
+  <script>
+    (function () {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const canvas = document.getElementById('arimori-webgl');
+      const viewport = document.getElementById('stageViewport');
+      const annotationsLayer = document.getElementById('annotationsLayer');
+      const voidSlogan = document.getElementById('voidSlogan');
+      const scrollCue = document.getElementById('scrollCue');
+      const warpFlash = document.getElementById('warpFlash');
+
+      const isMobile = window.innerWidth < 768;
+
+      /* =====================================================================
+         1. STRICT TOP-TO-BOTTOM ORB SPECIFICATION (PLAIN-ENGLISH LABELS)
+         ===================================================================== */
+      const TIER_ORBS = [
+        {
+          id: 'orb-stratosphere',
+          tier: 'TIER 05 // STRATOSPHERE',
+          name: 'The Enterprise Foundation',
+          desc: 'One master dashboard for multi-branch businesses, early late-payment alerts, and hands-on support.',
+          price: 'R16,500 Setup + R3,200/mo',
+          color: '#38BDF8',
+          type: 'stratosphere',
+          texturePath: 'assets/images/orb-stratosphere.jpg',
+          url: 'tier-05.html',
+          align: 'right'
+        },
+        {
+          id: 'orb-atmosphere',
+          tier: 'TIER 04 // ATMOSPHERE',
+          name: 'The Remote Exchange',
+          desc: 'Easy phone payments via Instant EFT & Capitec Pay with automatic deposit matching.',
+          price: 'R12,500 Setup + R2,250/mo',
+          color: '#F8FAFC',
+          type: 'atmosphere',
+          texturePath: 'assets/images/orb-atmosphere.jpg',
+          url: 'tier-04.html',
+          align: 'left'
+        },
+        {
+          id: 'orb-forest',
+          tier: 'TIER 03 // FOREST FLOOR (HERO)',
+          name: 'The Counter Standard',
+          desc: 'Fast receipt printer, offline shop till that works without internet, and safe POPIA record storage.',
+          price: 'R9,500 Setup + R1,500/mo',
+          color: '#10B981',
+          type: 'forest',
+          texturePath: 'assets/images/orb-forest.jpg',
+          url: 'tier-03.html',
+          align: 'right'
+        },
+        {
+          id: 'orb-crust',
+          tier: 'TIER 02 // CRUST',
+          name: 'The Growth Launchpad',
+          desc: 'WhatsApp price catalog, instant automatic replies, and bookings synced to your phone calendar.',
+          price: 'R6,500 Setup + R1,250/mo',
+          color: '#A8A29E',
+          type: 'crust',
+          texturePath: 'assets/images/orb-crust.jpg',
+          url: 'tier-02.html',
+          align: 'left'
+        },
+        {
+          id: 'orb-core',
+          tier: 'TIER 01 // CORE / MANTLE',
+          name: 'The Discovery Suite',
+          desc: 'Verified Google Maps pin and a clean 4-page website with a direct WhatsApp button.',
+          price: 'R2,500 Setup + R450/mo',
+          color: '#F97316',
+          type: 'core',
+          texturePath: 'assets/images/orb-core.jpg',
+          url: 'tier-01.html',
+          align: 'right'
+        }
+      ];
+
+      /* =====================================================================
+         2. THREE.JS SCENE, CAMERA & RENDERER
+         ===================================================================== */
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x030504);
+
+      const camera = new THREE.PerspectiveCamera(
+        45,
+        viewport.clientWidth / viewport.clientHeight,
+        0.1,
+        200
+      );
+      camera.position.set(0, 6.4, 14);
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setSize(viewport.clientWidth, viewport.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.35);
+      scene.add(ambientLight);
+
+      const logoPointLight = new THREE.PointLight(0xffe8a3, 2.8, 40);
+      logoPointLight.position.set(0, 6.4, 2);
+      scene.add(logoPointLight);
+
+      /* =====================================================================
+         3. 3D SCULPTED ARIMORI MONOGRAM LIGHT (TOP ANCHOR)
+         ===================================================================== */
+      const logoGroup = new THREE.Group();
+      logoGroup.position.set(0, 6.4, 0);
+      scene.add(logoGroup);
+
+      function createArimori3DLogo() {
+        const outerShape = new THREE.Shape();
+        outerShape.moveTo(0, 1.35);
+        outerShape.lineTo(1.2, -1.05);
+        outerShape.lineTo(0.76, -1.05);
+        outerShape.lineTo(0, 0.52);
+        outerShape.lineTo(-0.76, -1.05);
+        outerShape.lineTo(-1.2, -1.05);
+        outerShape.closePath();
+
+        const innerArch = new THREE.Shape();
+        innerArch.moveTo(-0.55, -1.05);
+        innerArch.lineTo(-0.55, -0.15);
+        innerArch.lineTo(0, -0.62);
+        innerArch.lineTo(0.55, -0.15);
+        innerArch.lineTo(0.55, -1.05);
+        innerArch.lineTo(0.32, -1.05);
+        innerArch.lineTo(0.32, -0.45);
+        innerArch.lineTo(0, -0.78);
+        innerArch.lineTo(-0.32, -0.45);
+        innerArch.lineTo(-0.32, -1.05);
+        innerArch.closePath();
+
+        const extrudeSettings = {
+          depth: 0.24,
+          bevelEnabled: true,
+          bevelSegments: 4,
+          steps: 1,
+          bevelSize: 0.045,
+          bevelThickness: 0.045
+        };
+
+        const lightMat = new THREE.MeshStandardMaterial({
+          color: 0xfffbeb,
+          emissive: 0xfde68a,
+          emissiveIntensity: 1.55,
+          roughness: 0.18,
+          metalness: 0.35
+        });
+
+        const outerGeo = new THREE.ExtrudeGeometry(outerShape, extrudeSettings);
+        outerGeo.center();
+        const outerMesh = new THREE.Mesh(outerGeo, lightMat);
+        outerMesh.position.y = 0.12;
+
+        const innerGeo = new THREE.ExtrudeGeometry(innerArch, extrudeSettings);
+        innerGeo.center();
+        const innerMesh = new THREE.Mesh(innerGeo, lightMat);
+        innerMesh.position.y = -0.35;
+
+        const nodeGeo = new THREE.OctahedronGeometry(0.14, 1);
+        const nodeMesh = new THREE.Mesh(nodeGeo, lightMat);
+        nodeMesh.position.y = 1.38;
+
+        logoGroup.add(outerMesh, innerMesh, nodeMesh);
+
+        const haloCanvas = document.createElement('canvas');
+        haloCanvas.width = 256;
+        haloCanvas.height = 256;
+        const hCtx = haloCanvas.getContext('2d');
+        const grad = hCtx.createRadialGradient(128, 128, 4, 128, 128, 124);
+        grad.addColorStop(0, 'rgba(255, 250, 230, 0.95)');
+        grad.addColorStop(0.28, 'rgba(253, 224, 130, 0.42)');
+        grad.addColorStop(0.65, 'rgba(16, 185, 129, 0.08)');
+        grad.addColorStop(1, 'rgba(3, 5, 4, 0)');
+        hCtx.fillStyle = grad;
+        hCtx.fillRect(0, 0, 256, 256);
+
+        const haloTex = new THREE.CanvasTexture(haloCanvas);
+        const haloMat = new THREE.SpriteMaterial({
+          map: haloTex,
+          transparent: true,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        });
+        const haloSprite = new THREE.Sprite(haloMat);
+        haloSprite.scale.set(6.8, 6.8, 1);
+        haloSprite.position.z = -0.4;
+        logoGroup.add(haloSprite);
+      }
+      createArimori3DLogo();
+
+      /* =====================================================================
+         4. PHASE 2: FULL-SCREEN 3D PLANETARY STRATA LAYERS
+         ===================================================================== */
+      const strataGroup = new THREE.Group();
+      scene.add(strataGroup);
+
+      const STRATA_CONFIG = [
+        { y: 1.5, color: 0x1e3a8a, emissive: 0x38bdf8, wire: true },
+        { y: -4.5, color: 0xe2e8f0, emissive: 0x94a3b8, wire: false },
+        { y: -10.5, color: 0x065f46, emissive: 0x10b981, wire: false },
+        { y: -16.5, color: 0x57534e, emissive: 0x78716c, wire: false },
+        { y: -22.5, color: 0x9a3412, emissive: 0xf97316, wire: false }
+      ];
+
+      const strataMeshes = [];
+      STRATA_CONFIG.forEach((cfg, idx) => {
+        const geo = new THREE.PlaneGeometry(34, 34, 48, 48);
+        const pos = geo.attributes.position;
+        for (let i = 0; i < pos.count; i++) {
+          const vx = pos.getX(i);
+          const vy = pos.getY(i);
+          const dist = Math.hypot(vx, vy);
+          const ridge = Math.sin(vx * 0.45 + idx) * Math.cos(vy * 0.45) * 0.85;
+          const portal = Math.max(0, 1 - dist / 4.2) * -2.2;
+          pos.setZ(i, ridge + portal);
+        }
+        geo.computeVertexNormals();
+
+        const mat = new THREE.MeshStandardMaterial({
+          color: cfg.color,
+          emissive: cfg.emissive,
+          emissiveIntensity: idx === 4 ? 0.85 : 0.35,
+          wireframe: cfg.wire || idx % 2 === 1,
+          transparent: true,
+          opacity: 0.0,
+          side: THREE.DoubleSide
+        });
+
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.rotation.x = -Math.PI / 2;
+        mesh.position.y = cfg.y;
+        strataGroup.add(mesh);
+        strataMeshes.push(mesh);
+      });
+
+      /* =====================================================================
+         5. PHASE 3 & 4: DISSOLVE & RE-FORM PARTICLE FIELD
+         ===================================================================== */
+      const particleCount = isMobile ? 900 : 2200;
+      const particleGeo = new THREE.BufferGeometry();
+      const basePositions = new Float32Array(particleCount * 3);
+      const spherePositions = new Float32Array(particleCount * 3);
+      const particleColors = new Float32Array(particleCount * 3);
+
+      const palette = [
+        new THREE.Color(0xfde68a),
+        new THREE.Color(0x10b981),
+        new THREE.Color(0x38bdf8),
+        new THREE.Color(0xf97316)
+      ];
+
+      for (let i = 0; i < particleCount; i++) {
+        const i3 = i * 3;
+        basePositions[i3] = (Math.random() - 0.5) * 24;
+        basePositions[i3 + 1] = -8 - Math.random() * 22;
+        basePositions[i3 + 2] = (Math.random() - 0.5) * 24;
+
+        const u = Math.random();
+        const v = Math.random();
+        const theta = u * 2.0 * Math.PI;
+        const phi = Math.acos(2.0 * v - 1.0);
+        const r = 1.65 + (Math.random() - 0.5) * 0.15;
+        spherePositions[i3] = r * Math.sin(phi) * Math.cos(theta);
+        spherePositions[i3 + 1] = -26 + r * Math.cos(phi);
+        spherePositions[i3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+
+        const c = palette[i % palette.length];
+        particleColors[i3] = c.r;
+        particleColors[i3 + 1] = c.g;
+        particleColors[i3 + 2] = c.b;
+      }
+
+      particleGeo.setAttribute('position', new THREE.BufferAttribute(basePositions.slice(), 3));
+      particleGeo.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
+
+      const particleMat = new THREE.PointsMaterial({
+        size: isMobile ? 0.11 : 0.085,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
+      });
+
+      const particleSystem = new THREE.Points(particleGeo, particleMat);
+      scene.add(particleSystem);
+
+      /* =====================================================================
+         6. PHASE 5: THE 5 IDENTICAL 3D ORBS + GOLDEN-WHITE DNA CODE BEAM
+         ===================================================================== */
+      const voidGroup = new THREE.Group();
+      voidGroup.visible = false;
+      scene.add(voidGroup);
+
+      const ORB_RADIUS = 0.88;
+      const ORB_Y_POSITIONS = [2.4, -0.4, -3.2, -6.0, -8.8];
+      const textureLoader = new THREE.TextureLoader();
+
+      function createPlanetaryMaterial(orbCfg) {
+        const uniforms = {
+          uTime: { value: 0 },
+          uType: { value: ['stratosphere', 'atmosphere', 'forest', 'crust', 'core'].indexOf(orbCfg.type) },
+          uHover: { value: 0 },
+          uMap: { value: null },
+          uHasMap: { value: 0 }
+        };
+
+        textureLoader.load(
+          orbCfg.texturePath,
+          (tex) => {
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.RepeatWrapping;
+            uniforms.uMap.value = tex;
+            uniforms.uHasMap.value = 1;
+          },
+          undefined,
+          () => {}
+        );
+
+        return new THREE.ShaderMaterial({
+          uniforms,
+          vertexShader: `
+            varying vec2 vUv;
+            varying vec3 vNormal;
+            varying vec3 vPos;
+            void main() {
+              vUv = uv;
+              vNormal = normalize(normalMatrix * normal);
+              vPos = position;
+              gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+          `,
+          fragmentShader: `
+            uniform float uTime;
+            uniform int uType;
+            uniform float uHover;
+            uniform sampler2D uMap;
+            uniform float uHasMap;
+            varying vec2 vUv;
+            varying vec3 vNormal;
+            varying vec3 vPos;
+
+            float hash(vec3 p) {
+              p = fract(p * 0.3183099 + 0.1);
+              p *= 17.0;
+              return fract(p.x * p.y * p.z * (p.x + p.y + p.z));
+            }
+
+            float noise(vec3 x) {
+              vec3 i = floor(x);
+              vec3 f = fract(x);
+              f = f * f * (3.0 - 2.0 * f);
+              return mix(
+                mix(mix(hash(i + vec3(0,0,0)), hash(i + vec3(1,0,0)), f.x),
+                    mix(hash(i + vec3(0,1,0)), hash(i + vec3(1,1,0)), f.x), f.y),
+                mix(mix(hash(i + vec3(0,0,1)), hash(i + vec3(1,0,1)), f.x),
+                    mix(hash(i + vec3(0,1,1)), hash(i + vec3(1,1,1)), f.x), f.y), f.z);
+            }
+
+            float fbm(vec3 p) {
+              float v = 0.0;
+              float a = 0.5;
+              for (int i = 0; i < 4; i++) {
+                v += a * noise(p);
+                p = p * 2.05 + vec3(0.13);
+                a *= 0.5;
+              }
+              return v;
+            }
+
+            void main() {
+              vec3 lightDir = normalize(vec3(0.4, 0.85, 0.65));
+              float diff = max(dot(vNormal, lightDir), 0.18);
+              float fresnel = pow(1.0 - max(dot(vNormal, vec3(0.0, 0.0, 1.0)), 0.0), 2.6);
+
+              vec3 baseCol = vec3(0.0);
+              vec3 rimCol = vec3(1.0);
+
+              if (uType == 0) {
+                float n = fbm(vPos * 3.0 + uTime * 0.05);
+                float stars = smoothstep(0.92, 0.99, hash(floor(vPos * 32.0)));
+                float twinkle = 0.6 + 0.4 * sin(uTime * 3.5 + vPos.x * 20.0);
+                baseCol = mix(vec3(0.02, 0.06, 0.18), vec3(0.07, 0.22, 0.48), n) * diff;
+                baseCol += vec3(0.75, 0.9, 1.0) * stars * twinkle * 1.4;
+                rimCol = vec3(0.22, 0.74, 0.97);
+              } else if (uType == 1) {
+                float swirl = fbm(vPos * 2.4 + vec3(uTime * 0.08, 0.0, -uTime * 0.06));
+                float clouds = smoothstep(0.32, 0.78, swirl);
+                baseCol = mix(vec3(0.42, 0.54, 0.68), vec3(0.98, 0.99, 1.0), clouds) * (diff * 0.85 + 0.25);
+                rimCol = vec3(0.95, 0.98, 1.0);
+              } else if (uType == 2) {
+                float moss = fbm(vPos * 4.5);
+                float veins = smoothstep(0.62, 0.75, fbm(vPos * 9.0 + uTime * 0.04));
+                baseCol = mix(vec3(0.02, 0.22, 0.12), vec3(0.08, 0.62, 0.36), moss) * diff;
+                baseCol += vec3(0.2, 0.95, 0.6) * veins * 0.45;
+                rimCol = vec3(0.06, 0.73, 0.51);
+              } else if (uType == 3) {
+                float rock = fbm(vPos * 5.5);
+                float strata = sin(vPos.y * 12.0 + rock * 4.0) * 0.5 + 0.5;
+                baseCol = mix(vec3(0.22, 0.20, 0.18), vec3(0.56, 0.52, 0.48), rock * 0.7 + strata * 0.3) * diff;
+                rimCol = vec3(0.66, 0.64, 0.62);
+              } else {
+                float crust = fbm(vPos * 4.2 + uTime * 0.06);
+                float crack = 1.0 - smoothstep(0.0, 0.14, abs(crust - 0.5));
+                float pulse = 0.85 + 0.25 * sin(uTime * 2.4);
+                vec3 darkRock = vec3(0.14, 0.04, 0.02) * diff;
+                vec3 lavaGlow = mix(vec3(0.95, 0.22, 0.02), vec3(1.0, 0.75, 0.15), crack) * pulse * 1.65;
+                baseCol = mix(darkRock, lavaGlow, crack);
+                rimCol = vec3(0.98, 0.45, 0.09);
+              }
+
+              if (uHasMap > 0.5) {
+                vec3 texCol = texture2D(uMap, vUv).rgb * (diff + 0.25);
+                baseCol = mix(baseCol, texCol, 0.72);
+              }
+
+              vec3 finalCol = baseCol + rimCol * fresnel * (0.55 + uHover * 0.65);
+              gl_FragColor = vec4(finalCol, 1.0);
+            }
+          `
+        });
+      }
+
+      const orbMeshes = [];
+      const orbSharedGeo = new THREE.SphereGeometry(ORB_RADIUS, 48, 48);
+
+      TIER_ORBS.forEach((orbCfg, i) => {
+        const mat = createPlanetaryMaterial(orbCfg);
+        const mesh = new THREE.Mesh(orbSharedGeo, mat);
+        mesh.position.set(0, ORB_Y_POSITIONS[i], 0);
+        mesh.userData = { index: i, config: orbCfg };
+        voidGroup.add(mesh);
+        orbMeshes.push(mesh);
+      });
+
+      /* =====================================================================
+         7. THE GOLDEN-WHITE DNA CODE BEAM
+         ===================================================================== */
+      function createDNACodeTexture() {
+        const c = document.createElement('canvas');
+        c.width = 1024;
+        c.height = 256;
+        const ctx = c.getContext('2d');
+
+        const grad = ctx.createLinearGradient(0, 0, 0, 256);
+        grad.addColorStop(0, 'rgba(255, 251, 235, 0.95)');
+        grad.addColorStop(0.5, 'rgba(253, 224, 130, 0.85)');
+        grad.addColorStop(1, 'rgba(255, 251, 235, 0.95)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 1024, 256);
+
+        ctx.font = 'bold 14px monospace';
+        ctx.fillStyle = 'rgba(120, 53, 15, 0.42)';
+        const snippets = [
+          '0x8F4A::SOVEREIGN_CORE',
+          'SHA256_VERIFIED // 99.98%',
+          'POPIA_VAULT_ACTIVE [AES-256]',
+          'SQLITE_SYNC_OK // 14ms',
+          'ARIMORI::ENDURING_SYSTEMS'
+        ];
+        for (let row = 0; row < 6; row++) {
+          const text = snippets[row % snippets.length].repeat(4);
+          ctx.fillText(text, (row * 47) % 180, 32 + row * 40);
+        }
+
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        for (let x = 0; x <= 1024; x += 16) {
+          const y = 128 + Math.sin(x * 0.04) * 38 + Math.cos(x * 0.11) * 14;
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        for (let x = 32; x < 1024; x += 96) {
+          const y = 128 + Math.sin(x * 0.04) * 38 + Math.cos(x * 0.11) * 14;
+          ctx.fillStyle = '#ffffff';
+          ctx.beginPath();
+          ctx.arc(x, y, 4.5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        const tex = new THREE.CanvasTexture(c);
+        tex.wrapS = THREE.RepeatWrapping;
+        tex.wrapT = THREE.RepeatWrapping;
+        tex.repeat.set(6, 1);
+        return tex;
+      }
+
+      const dnaCodeTexture = createDNACodeTexture();
+
+      function buildDNAStrand(phaseOffset, radiusScale) {
+        const points = [];
+        const steps = 160;
+        const topY = 5.2;
+        const bottomY = -9.6;
+
+        for (let i = 0; i <= steps; i++) {
+          const t = i / steps;
+          const y = THREE.MathUtils.lerp(topY, bottomY, t);
+          const envelope = Math.sin(Math.min(1, t * 4.5) * (Math.PI / 2));
+          const angle = t * Math.PI * 5.0 + phaseOffset;
+          const weaveRadius = 1.48 * envelope * radiusScale;
+          const x = Math.sin(angle) * weaveRadius;
+          const z = Math.cos(angle) * (weaveRadius * 0.85);
+          points.push(new THREE.Vector3(x, y, z));
+        }
+
+        const curve = new THREE.CatmullRomCurve3(points);
+        const tubeGeo = new THREE.TubeGeometry(curve, 220, 0.055 * radiusScale, 10, false);
+        const tubeMat = new THREE.MeshBasicMaterial({
+          map: dnaCodeTexture,
+          color: 0xfff3c4,
+          transparent: true,
+          opacity: 0.92,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        });
+        return new THREE.Mesh(tubeGeo, tubeMat);
+      }
+
+      const dnaStrandA = buildDNAStrand(0, 1.0);
+      const dnaStrandB = buildDNAStrand(Math.PI, 0.72);
+      voidGroup.add(dnaStrandA, dnaStrandB);
+
+      /* =====================================================================
+         8. BUILD DOM LEADER LINE ANNOTATIONS FOR PHASE 5
+         ===================================================================== */
+      const annotationEls = [];
+
+      TIER_ORBS.forEach((orbCfg, idx) => {
+        const el = document.createElement('div');
+        el.className = `orb-annotation align-${orbCfg.align}`;
+        el.innerHTML = `
+          <div class="leader-dot" style="background:${orbCfg.color}; box-shadow: 0 0 10px ${orbCfg.color};"></div>
+          <div class="leader-stem" style="background: linear-gradient(90deg, ${orbCfg.color}, rgba(255,255,255,0.2)); box-shadow: 0 0 8px ${orbCfg.color};"></div>
+          <div class="leader-card" style="border-color: ${orbCfg.color}44;">
+            <span class="leader-tier-tag" style="color:${orbCfg.color};">${orbCfg.tier}</span>
+            <span class="leader-title">${orbCfg.name}</span>
+            <span class="leader-desc">${orbCfg.desc}</span>
+            <span class="leader-price" style="color:${orbCfg.color};">${orbCfg.price}</span>
+          </div>
+        `;
+
+        el.addEventListener('mouseenter', () => highlightOrb(idx, true));
+        el.addEventListener('mouseleave', () => highlightOrb(idx, false));
+        el.addEventListener('click', () => triggerOrbDive(idx));
+
+        annotationsLayer.appendChild(el);
+        annotationEls.push(el);
+      });
+
+      function highlightOrb(index, active) {
+        orbMeshes.forEach((m, i) => {
+          const targetHover = i === index && active ? 1.0 : 0.0;
+          gsap.to(m.material.uniforms.uHover, { value: targetHover, duration: 0.3 });
+          gsap.to(m.scale, {
+            x: i === index && active ? 1.14 : 1.0,
+            y: i === index && active ? 1.14 : 1.0,
+            z: i === index && active ? 1.14 : 1.0,
+            duration: 0.35,
+            ease: 'power2.out'
+          });
+        });
+
+        annotationEls.forEach((el, i) => {
+          el.classList.toggle('highlighted', i === index && active);
+        });
+      }
+
+      /* =====================================================================
+         9. CLICK / TAP RAYCASTER + FLY-INTO-ORB TRANSITION
+         ===================================================================== */
+      const raycaster = new THREE.Raycaster();
+      const pointer = new THREE.Vector2();
+      let hoveredIndex = -1;
+      let isDivingIntoTier = false;
+
+      function updatePointer(clientX, clientY) {
+        const rect = canvas.getBoundingClientRect();
+        pointer.x = ((clientX - rect.left) / rect.width) * 2 - 1;
+        pointer.y = -((clientY - rect.top) / rect.height) * 2 + 1;
+      }
+
+      canvas.addEventListener('mousemove', (e) => {
+        if (!voidGroup.visible || isDivingIntoTier) return;
+        updatePointer(e.clientX, e.clientY);
+        raycaster.setFromCamera(pointer, camera);
+        const hits = raycaster.intersectObjects(orbMeshes);
+        const hitIdx = hits.length > 0 ? hits[0].object.userData.index : -1;
+
+        if (hitIdx !== hoveredIndex) {
+          if (hoveredIndex !== -1) highlightOrb(hoveredIndex, false);
+          hoveredIndex = hitIdx;
+          if (hoveredIndex !== -1) {
+            highlightOrb(hoveredIndex, true);
+            canvas.style.cursor = 'pointer';
+          } else {
+            canvas.style.cursor = 'default';
+          }
+        }
+      });
+
+      canvas.addEventListener('click', (e) => {
+        if (!voidGroup.visible || isDivingIntoTier) return;
+        updatePointer(e.clientX, e.clientY);
+        raycaster.setFromCamera(pointer, camera);
+        const hits = raycaster.intersectObjects(orbMeshes);
+        if (hits.length > 0) {
+          triggerOrbDive(hits[0].object.userData.index);
+        }
+      });
+
+      function triggerOrbDive(index) {
+        if (isDivingIntoTier) return;
+        isDivingIntoTier = true;
+        const targetOrb = orbMeshes[index];
+        const targetUrl = TIER_ORBS[index].url;
+
+        gsap.to(camera.position, {
+          x: targetOrb.position.x,
+          y: targetOrb.position.y,
+          z: targetOrb.position.z + 0.35,
+          duration: 0.75,
+          ease: 'power3.in',
+          onStart: () => {
+            setTimeout(() => warpFlash.classList.add('active'), 350);
+          },
+          onComplete: () => {
+            window.location.href = targetUrl;
+          }
+        });
+      }
+
+      /* =====================================================================
+         10. GSAP SCROLLTRIGGER — 5-PHASE "FROM LIGHT TO CORE" CHOREOGRAPHY
+         ===================================================================== */
+      const scrollState = { progress: 0 };
+
+      ScrollTrigger.create({
+        trigger: '#scrollRunway',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.65,
+        onUpdate: (self) => {
+          scrollState.progress = self.progress;
+          applyScrollChoreography(self.progress);
+        }
+      });
+
+      function applyScrollChoreography(p) {
+        if (isDivingIntoTier) return;
+
+        scrollCue.style.opacity = p < 0.04 ? '1' : '0';
+
+        // PHASE 1 (0.00 -> 0.14): Space
+        if (p < 0.14) {
+          const t = p / 0.14;
+          logoGroup.visible = true;
+          logoGroup.position.set(0, 6.4, 0);
+          logoGroup.scale.setScalar(1 + t * 0.15);
+
+          camera.position.set(0, 6.4 - t * 2.5, 14 - t * 3.5);
+          camera.lookAt(0, 6.4 - t * 3.5, 0);
+
+          strataMeshes.forEach((m) => (m.material.opacity = t * 0.35));
+          particleMat.opacity = 0;
+          voidGroup.visible = false;
+          voidSlogan.classList.remove('visible');
+          hideAnnotations();
+        }
+        // PHASE 2 (0.14 -> 0.48): The Dive
+        else if (p < 0.48) {
+          const t = (p - 0.14) / 0.34;
+          logoGroup.visible = t < 0.25;
+
+          const diveY = THREE.MathUtils.lerp(3.9, -23.5, t);
+          camera.position.set(0, diveY + 2.4, 9.2);
+          camera.lookAt(0, diveY - 2.0, 0);
+
+          strataMeshes.forEach((m) => {
+            const dist = Math.abs(m.position.y - diveY);
+            m.material.opacity = THREE.MathUtils.clamp(1.1 - dist / 9.5, 0.08, 0.82);
+          });
+
+          particleMat.opacity = THREE.MathUtils.clamp((t - 0.65) * 2.8, 0, 0.55);
+          voidGroup.visible = false;
+          voidSlogan.classList.remove('visible');
+          hideAnnotations();
+        }
+        // PHASE 3 (0.48 -> 0.68): Dissolve
+        else if (p < 0.68) {
+          const t = (p - 0.48) / 0.20;
+          logoGroup.visible = false;
+
+          strataMeshes.forEach((m) => {
+            m.material.opacity = Math.max(0, (1 - t) * 0.45);
+          });
+
+          camera.position.set(0, -24.5 - t * 1.5, 9.2 - t * 2.2);
+          camera.lookAt(0, -26, 0);
+
+          particleMat.opacity = 0.55 + t * 0.45;
+          updateParticles(t * 0.35);
+          voidGroup.visible = false;
+          voidSlogan.classList.remove('visible');
+          hideAnnotations();
+        }
+        // PHASE 4 (0.68 -> 0.82): Re-form
+        else if (p < 0.82) {
+          const t = (p - 0.68) / 0.14;
+          logoGroup.visible = false;
+          strataMeshes.forEach((m) => (m.material.opacity = 0));
+
+          const gather = Math.min(1, t * 1.45);
+          updateParticles(0.35 + gather * 0.65);
+          particleMat.opacity = 1 - Math.max(0, (t - 0.72) * 3.5);
+
+          camera.position.set(0, -26, THREE.MathUtils.lerp(7.0, 0.2, t));
+          camera.lookAt(0, -26, 0);
+
+          voidGroup.visible = false;
+          voidSlogan.classList.remove('visible');
+          hideAnnotations();
+        }
+        // PHASE 5 (0.82 -> 1.00): Reveal (3D Logo + Slogan + DNA Beam + 5 Orbs + Color-Matched Leader Lines)
+        else {
+          const t = (p - 0.82) / 0.18;
+          strataMeshes.forEach((m) => (m.material.opacity = 0));
+          particleMat.opacity = 0;
+
+          logoGroup.visible = true;
+          logoGroup.position.set(0, 6.4, 0);
+          logoGroup.scale.setScalar(0.85);
+
+          voidGroup.visible = true;
+          const zoomOutZ = THREE.MathUtils.lerp(6.5, isMobile ? 27.5 : 22.5, Math.min(1, t * 1.6));
+          camera.position.set(0, -1.6, zoomOutZ);
+          camera.lookAt(0, -1.6, 0);
+
+          if (t > 0.22) {
+            voidSlogan.classList.add('visible');
+          } else {
+            voidSlogan.classList.remove('visible');
+          }
+
+          const beamAlpha = THREE.MathUtils.clamp((t - 0.15) * 2.5, 0, 0.92);
+          dnaStrandA.material.opacity = beamAlpha;
+          dnaStrandB.material.opacity = beamAlpha * 0.75;
+
+          if (t > 0.55) {
+            revealAnnotationsStaggered((t - 0.55) / 0.45);
+          } else {
+            hideAnnotations();
+          }
+        }
+      }
+
+      function updateParticles(morphFactor) {
+        const posAttr = particleGeo.attributes.position;
+        for (let i = 0; i < particleCount; i++) {
+          const i3 = i * 3;
+          posAttr.array[i3] = THREE.MathUtils.lerp(basePositions[i3], spherePositions[i3], morphFactor);
+          posAttr.array[i3 + 1] = THREE.MathUtils.lerp(basePositions[i3 + 1], spherePositions[i3 + 1], morphFactor);
+          posAttr.array[i3 + 2] = THREE.MathUtils.lerp(basePositions[i3 + 2], spherePositions[i3 + 2], morphFactor);
+        }
+        posAttr.needsUpdate = true;
+      }
+
+      function hideAnnotations() {
+        annotationEls.forEach((el) => el.classList.remove('revealed'));
+      }
+
+      function revealAnnotationsStaggered(subProgress) {
+        annotationEls.forEach((el, idx) => {
+          const threshold = idx * 0.16;
+          if (subProgress >= threshold) {
+            el.classList.add('revealed');
+          } else {
+            el.classList.remove('revealed');
+          }
+        });
+      }
+
+      const tempVec = new THREE.Vector3();
+      function syncAnnotationPositions() {
+        if (!voidGroup.visible) return;
+
+        const width = viewport.clientWidth;
+        const height = viewport.clientHeight;
+
+        orbMeshes.forEach((mesh, idx) => {
+          const cfg = TIER_ORBS[idx];
+          const el = annotationEls[idx];
+
+          const edgeOffset = (!isMobile && cfg.align === 'left') ? -(ORB_RADIUS + 0.12) : (ORB_RADIUS + 0.12);
+          tempVec.set(mesh.position.x + edgeOffset, mesh.position.y, mesh.position.z);
+          tempVec.project(camera);
+
+          const screenX = (tempVec.x * 0.5 + 0.5) * width;
+          const screenY = (-(tempVec.y * 0.5) + 0.5) * height;
+
+          el.style.left = `${screenX}px`;
+          el.style.top = `${screenY}px`;
+          el.style.marginTop = `-${el.offsetHeight / 2}px`;
+        });
+      }
+
+      const clock = new THREE.Clock();
+
+      function animate() {
+        requestAnimationFrame(animate);
+        const elapsed = clock.getElapsedTime();
+
+        logoGroup.rotation.y = Math.sin(elapsed * 0.65) * 0.35;
+
+        orbMeshes.forEach((mesh, idx) => {
+          mesh.rotation.y = elapsed * (0.22 + idx * 0.03);
+          mesh.position.y = ORB_Y_POSITIONS[idx] + Math.sin(elapsed * 1.3 + idx * 1.1) * 0.07;
+          mesh.material.uniforms.uTime.value = elapsed;
+        });
+
+        dnaCodeTexture.offset.x = -elapsed * 0.14;
+
+        if (voidGroup.visible) {
+          syncAnnotationPositions();
+        }
+
+        renderer.render(scene, camera);
+      }
+
+      window.addEventListener('resize', () => {
+        camera.aspect = viewport.clientWidth / viewport.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(viewport.clientWidth, viewport.clientHeight);
+        applyScrollChoreography(scrollState.progress);
+      });
+
+      applyScrollChoreography(0);
+      animate();
+    })();
+  </script>
+</body>
+</html>
