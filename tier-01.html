@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tier 01 — The Discovery Suite | Arimori Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/shell.css" />
+  <style>
+    :root { --tier-color: #F97316; --tier-glow: rgba(249, 115, 22, 0.25); }
+    .tier-page-wrap { max-width: 1140px; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+    .tier-breadcrumb { font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-secondary); margin-bottom: 2rem; display: inline-block; }
+    .tier-breadcrumb:hover { color: var(--tier-color); }
+    .tier-hero-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
+    .numeral-stage { background: #030504; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.07); padding: 1.5rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 35px var(--tier-glow); }
+    .numeral-stage img { width: 100%; max-height: 440px; object-fit: contain; mix-blend-mode: screen; animation: floatNum 5s ease-in-out infinite; }
+    @keyframes floatNum { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--tier-color); display: block; margin-bottom: 0.65rem; }
+    .tier-hero-info h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 700; line-height: 1.12; margin-bottom: 0.85rem; }
+    .price-badge { display: inline-block; font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: var(--tier-color); padding: 0.45rem 0.95rem; border-radius: 8px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--tier-color); margin-bottom: 1.25rem; }
+    .tier-lead { font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.75rem; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+    .btn-tier { padding: 0.75rem 1.35rem; border-radius: 10px; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; background: var(--tier-glow); border: 1px solid var(--tier-color); color: var(--text-primary); transition: transform 0.2s ease, background 0.2s ease; }
+    .btn-tier:hover { transform: translateY(-2px); background: rgba(249, 115, 22, 0.42); }
+    .btn-outline { padding: 0.75rem 1.35rem; border-radius: 10px; font-family: var(--font-mono); font-size: 0.78rem; border: 1px solid var(--border-subtle); color: var(--text-secondary); }
+    .deliverables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.35rem; margin-bottom: 3rem; }
+    .deliv-card { padding: 1.5rem; border-radius: 14px; background: rgba(8, 13, 11, 0.82); border: 1px solid var(--border-subtle); }
+    .deliv-card h3 { font-family: var(--font-display); font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.45rem; }
+    .deliv-card p { font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); }
+    .disclaimer-note { padding: 1.25rem 1.5rem; border-radius: 12px; background: rgba(245, 158, 11, 0.07); border: 1px solid rgba(245, 158, 11, 0.35); font-size: 0.86rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 2.5rem; }
+    .tier-pager { display: flex; justify-content: space-between; align-items: center; padding-top: 1.75rem; border-top: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.78rem; }
+    @media (max-width: 860px) { .tier-hero-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main id="page-content">
+    <div class="tier-page-wrap">
+      <a href="modular-solutions.html" class="tier-breadcrumb">← Back to Modular Solutions</a>
 
+      <section class="tier-hero-grid">
+        <div class="numeral-stage">
+          <img src="assets/images/tier-num-01.jpg" alt="Tier 01 Dot-Matrix Numeral 1" />
+        </div>
+        <div class="tier-hero-info">
+          <span class="eyebrow">TIER 01 // CORE / MANTLE</span>
+          <h1>The Discovery Suite</h1>
+          <div class="price-badge">R2,500 Once-Off Setup + R450/mo</div>
+          <p class="tier-lead">
+            The essential foundation for solo business owners, trades, and local services. We establish your verified digital storefront so nearby customers find you on Google and message you on WhatsApp in one tap.
+          </p>
+          <div class="cta-row">
+            <a href="https://wa.me/27836947300?text=Hi%20Arimori%20Studios,%20I'd%20like%20to%20deploy%20Tier%2001%20(The%20Discovery%20Suite)." target="_blank" rel="noopener noreferrer" class="btn-tier">Book Tier 01 on WhatsApp</a>
+            <a href="pricing.html" class="btn-outline">Compare All 5 Layers</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="deliverables-grid">
+        <div class="deliv-card">
+          <h3>Verified Google Maps Pin</h3>
+          <p><strong>Plain English:</strong> Customers searching near you see your pin, hours, and directions right on Google Maps.<br/><em>Tech Spec:</em> Verified Google Business Profile with local map-pack SEO indexing.</p>
+        </div>
+        <div class="deliv-card">
+          <h3>Custom 4-Page Mobile Website</h3>
+          <p><strong>Plain English:</strong> A clean, fast-loading website on your own <code>.co.za</code> or <code>.com</code> address.<br/><em>Tech Spec:</em> Sub-second responsive HTML/CSS build, SSL encryption, and custom DNS routing.</p>
+        </div>
+        <div class="deliv-card">
+          <h3>24/7 Direct WhatsApp Lead Button</h3>
+          <p><strong>Plain English:</strong> Visitors tap once to start a pre-filled WhatsApp chat straight to your business phone.<br/><em>Tech Spec:</em> Deep-linked WhatsApp API routing with zero third-party form friction.</p>
+        </div>
+      </section>
+
+      <div class="disclaimer-note">
+        <strong>Note on Custom 3D Websites:</strong> Standard Tier 01 pricing covers a clean, ultra-fast 2D architectural website. If you want custom interactive 3D pages or WebGL animations added to Tier 01, additional scoped charges will apply depending on your exact 3D requirements.
+      </div>
+
+      <nav class="tier-pager">
+        <a href="modular-solutions.html">← All Modules</a>
+        <a href="tier-02.html">Next: Tier 02 — The Growth Launchpad →</a>
+      </nav>
+    </div>
+  </main>
+  <script src="js/shell.js"></script>
+</body>
+</html>
