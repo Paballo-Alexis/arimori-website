@@ -1,1 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Arimori — Ethos & The Proposal | Arimori Studios</title>
 
+  <meta property="og:title" content="About Arimori — Ethos & The Proposal | Arimori Studios" />
+  <meta property="og:description" content="Our philosophy of enduring systems and a formal invitation to sovereign business infrastructure." />
+  <meta property="og:url" content="https://arimori.studio/about.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/shell.css" />
+
+  <style>
+    .about-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--emerald-bright);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ================= SECTION 01: OUR ETHOS + MOVING CANYON MIST CLOUDS ================= */
+    .ethos-section {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 5.5rem;
+      scroll-margin-top: 100px;
+    }
+
+    .ethos-visual-frame {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(253, 224, 130, 0.25);
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.92), 0 0 35px rgba(16, 185, 129, 0.08);
+      background: #030504;
+    }
+
+    .ethos-visual-frame img {
+      width: 100%;
+      max-height: 580px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Atmospheric Drifting Mist Clouds Hovering Over the Pine Cliff */
+    .cliff-mist-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .mist-bank {
+      position: absolute;
+      width: 220%;
+      left: -60%;
+      filter: blur(22px);
+      mix-blend-mode: screen;
+    }
+
+    /* Upper ridge mist drifting smoothly across the pine treetops */
+    .mist-bank.upper {
+      top: 38%;
+      height: 26%;
+      background:
+        radial-gradient(ellipse 26% 55% at 22% 50%, rgba(226, 232, 240, 0.26), transparent 72%),
+        radial-gradient(ellipse 32% 60% at 54% 48%, rgba(203, 213, 225, 0.22), transparent 75%),
+        radial-gradient(ellipse 24% 50% at 82% 52%, rgba(241, 245, 249, 0.24), transparent 70%);
+      animation: driftMistRight 28s ease-in-out infinite alternate;
+    }
+
+    /* Deeper valley fog rolling slowly along the canyon cliff face */
+    .mist-bank.lower {
+      top: 56%;
+      height: 32%;
+      background:
+        radial-gradient(ellipse 30% 60% at 18% 55%, rgba(167, 243, 208, 0.14), transparent 75%),
+        radial-gradient(ellipse 35% 65% at 48% 50%, rgba(226, 232, 240, 0.28), transparent 78%),
+        radial-gradient(ellipse 28% 55% at 78% 58%, rgba(186, 230, 253, 0.18), transparent 72%);
+      animation: driftMistLeft 36s ease-in-out infinite alternate;
+    }
+
+    /* Subtle ambient golden shimmer around the upper monogram */
+    .monogram-aura {
+      position: absolute;
+      top: 6%;
+      left: 15%;
+      width: 70%;
+      height: 34%;
+      background: radial-gradient(circle, rgba(253, 224, 130, 0.18), transparent 68%);
+      mix-blend-mode: screen;
+      animation: pulseAura 6s ease-in-out infinite;
+    }
+
+    @keyframes driftMistRight {
+      0% { transform: translateX(-14%) translateY(0px); }
+      100% { transform: translateX(14%) translateY(-6px); }
+    }
+
+    @keyframes driftMistLeft {
+      0% { transform: translateX(15%) translateY(4px); }
+      100% { transform: translateX(-15%) translateY(-4px); }
+    }
+
+    @keyframes pulseAura {
+      0%, 100% { opacity: 0.55; transform: scale(0.96); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+
+    .ethos-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .ethos-3d-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .monogram-3d-spin {
+      width: 44px;
+      height: 44px;
+      perspective: 600px;
+    }
+
+    .monogram-3d-spin svg {
+      width: 100%;
+      height: 100%;
+      animation: slowSpin3D 11s ease-in-out infinite;
+      filter: drop-shadow(0 0 12px rgba(253, 224, 130, 0.45));
+    }
+
+    @keyframes slowSpin3D {
+      0%, 100% { transform: rotateY(-18deg); }
+      50% { transform: rotateY(18deg); }
+    }
+
+    .kanji-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #fde68a;
+      letter-spacing: 0.12em;
+    }
+
+    .ethos-content h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 2.9rem);
+      font-weight: 700;
+      line-height: 1.14;
+    }
+
+    .ethos-content p {
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+
+    .ethos-pillars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .pillar-mini {
+      padding: 1rem 1.1rem;
+      border-radius: 12px;
+      background: rgba(8, 13, 11, 0.75);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .pillar-mini strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      color: var(--emerald-bright);
+      margin-bottom: 0.25rem;
+    }
+
+    .pillar-mini span {
+      font-size: 0.8rem;
+      line-height: 1.45;
+      color: var(--text-secondary);
+    }
+
+    /* ================= SECTION 02: THE PROPOSAL (BLACK PARCHMENT INVITATION) ================= */
+    .proposal-section {
+      margin-bottom: 5rem;
+      scroll-margin-top: 100px;
+    }
+
+    .parchment-card {
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: clamp(2.25rem, 5vw, 4.25rem) clamp(1.5rem, 5vw, 4rem);
+      border-radius: 6px;
+      background-color: #0b0c0c;
+      background-image:
+        linear-gradient(rgba(5, 6, 6, 0.72), rgba(5, 6, 6, 0.82)),
+        url('assets/images/proposal-parchment.jpg');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 40px rgba(251, 191, 36, 0.06);
+      border: 1px solid rgba(253, 224, 130, 0.32);
+    }
+
+    .parchment-inner-border {
+      border: 1px solid rgba(253, 224, 130, 0.18);
+      padding: clamp(1.75rem, 4vw, 3rem);
+      position: relative;
+    }
+
+    .invitation-crest {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .invitation-crest svg {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 0.85rem;
+      display: block;
+      filter: drop-shadow(0 0 10px rgba(253, 224, 130, 0.4));
+    }
+
+    .invitation-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #fde68a;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .invitation-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.85rem, 3.6vw, 2.65rem);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #fefce8;
+      line-height: 1.15;
+    }
+
+    .invitation-divider {
+      width: 90px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(253, 224, 130, 0.7), transparent);
+      margin: 1.5rem auto 2rem;
+    }
+
+    .invitation-body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.12rem, 1.6vw, 1.26rem);
+      line-height: 1.82;
+      color: #e7e5e4;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .invitation-salutation {
+      font-style: italic;
+      font-size: 1.3rem;
+      color: #fef3c7;
+    }
+
+    .invitation-pledges {
+      list-style: none;
+      margin: 0.5rem 0;
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid rgba(253, 224, 130, 0.16);
+      border-bottom: 1px solid rgba(253, 224, 130, 0.16);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+    }
+
+    .invitation-pledges li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: #f1f5f9;
+      line-height: 1.55;
+    }
+
+    .invitation-pledges li::before {
+      content: '✦';
+      color: #fde68a;
+      font-size: 0.78rem;
+      margin-top: 2px;
+    }
+
+    .invitation-signoff {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .signoff-line {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: #fde68a;
+      margin-bottom: 0.35rem;
+    }
+
+    .signoff-entity {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    /* ================= SECTION 03: DIRECT CONTACT ANCHOR ================= */
+    .contact-strip {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-radius: 16px;
+      background: rgba(8, 13, 11, 0.82);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      scroll-margin-top: 100px;
+    }
+
+    .contact-strip-text h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-strip-text p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .contact-strip-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .cta-pill {
+      padding: 0.65rem 1.2rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      background: rgba(16, 185, 129, 0.14);
+      color: var(--text-primary);
+      transition: all 0.25s ease;
+    }
+
+    .cta-pill:hover {
+      background: rgba(16, 185, 129, 0.28);
+      border-color: var(--emerald-bright);
+    }
+
+    .cta-pill.secondary {
+      border-color: var(--border-subtle);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    @media (max-width: 860px) {
+      .ethos-section {
+        grid-template-columns: 1fr;
+      }
+      .ethos-pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main id="page-content">
+    <div class="about-wrapper">
+
+      <!-- SECTION 01: OUR ETHOS + ANIMATED CLIFF CLOUDS -->
+      <section class="ethos-section" id="ethos">
+        <div class="ethos-visual-frame">
+          <img src="assets/images/about-ethos.jpg" alt="Arimori Studios Monogram Over Misty Pine Canyon" />
+          <div class="cliff-mist-layer" aria-hidden="true">
+            <div class="monogram-aura"></div>
+            <div class="mist-bank upper"></div>
+            <div class="mist-bank lower"></div>
+          </div>
+        </div>
+
+        <div class="ethos-content">
+          <div class="ethos-3d-badge">
+            <div class="monogram-3d-spin" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 12L104 98H86L60 46L34 98H16L60 12Z" stroke="#FDE68A" stroke-width="5" stroke-linejoin="round"/>
+                <path d="M36 98V64L60 84L84 64V98" stroke="#10B981" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="kanji-tag">有森 ARI-MORI // SHELTERED & FLOURISHING</span>
+          </div>
+
+          <span class="eyebrow">01 // OUR ETHOS</span>
+          <h1>Built Like a Living Forest, Not a Fragile Rental</h1>
+
+          <p>
+            The name <strong>Arimori</strong> draws from the Japanese concepts of <em>Ari-mori</em> (有森 — "to hold a sheltered forest") and <em>Arimori</em> (有盛 — "prosperous and flourishing"). Like a pine forest anchored deep into rocky mountain strata, enduring businesses rely on quiet, self-sustaining roots rather than flashy software that breaks the moment signal drops.
+          </p>
+
+          <p>
+            We engineer digital foundations for South African shop owners, co-ops, churches, and growing enterprises—combining offline resilience, strict privacy safeguards, and complete client ownership.
+          </p>
+
+          <div class="ethos-pillars">
+            <div class="pillar-mini">
+              <strong>Zero Hostage Fees</strong>
+              <span>After 12 months, you own 100% of your code, database, domain, and counter hardware outright.</span>
+            </div>
+            <div class="pillar-mini">
+              <strong>Offline-First Resilience</strong>
+              <span>Built to keep printing receipts and balancing cash even during load-shedding or network drops.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 02: THE PROPOSAL (BLACK PARCHMENT INVITATION) -->
+      <section class="proposal-section" id="proposal">
+        <div class="parchment-card">
+          <div class="parchment-inner-border">
+
+            <div class="invitation-crest">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M60 12L104 98H86L60 46L34 98H16L60 12Z" stroke="#FDE68A" stroke-width="4.5" stroke-linejoin="round"/>
+                <path d="M36 98V64L60 84L84 64V98" stroke="#FDE68A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="invitation-kicker">02 // THE PROPOSAL</span>
+              <h2 class="invitation-title">An Invitation to Sovereign Infrastructure</h2>
+            </div>
+
+            <div class="invitation-divider"></div>
+
+            <div class="invitation-body">
+              <p class="invitation-salutation">To the Builders, Stewards, and Business Owners,</p>
+
+              <p>
+                Too many hardworking businesses spend years paying endless monthly software rentals—only to discover they do not own their customer records, cannot operate when the internet fails, and lose access the moment a subscription lapses.
+              </p>
+
+              <p>
+                Arimori Studios proposes a simpler, fairer covenant. Whether you are establishing your first verified presence online or equipping a multi-branch retail counter, every system we deploy is governed by four unbreakable commitments:
+              </p>
+
+              <ul class="invitation-pledges">
+                <li><strong>True Ownership:</strong> Full transfer of your software, customer ledger, and physical equipment after your 12-month foundation term.</li>
+                <li><strong>Protected Operations:</strong> Local-first databases, theft-proof blind cash-up audits, and tamper-evident receipt records.</li>
+                <li><strong>Encrypted Privacy:</strong> Single-tenant AES-256 vaults engineered in full alignment with South Africa's POPIA standards.</li>
+                <li><strong>Transparent Economics:</strong> Clear 50% deposit / 50% upon fulfillment milestones, with raw network pass-through pricing on SMS and ad spend.</li>
+              </ul>
+
+              <p>
+                We invite you to inspect our Earth-layer tiers, test our systems against your daily operational needs, and build an asset that belongs to your enterprise for decades to come.
+              </p>
+
+              <div class="invitation-signoff">
+                <div class="signoff-line">Architects of Enduring Systems</div>
+                <div class="signoff-entity">ARIMORI STUDIOS (PTY) LTD</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 03: DIRECT CONTACT ANCHOR -->
+      <section class="contact-strip" id="contact">
+        <div class="contact-strip-text">
+          <h3>Ready to Discuss Your Business?</h3>
+          <p>Reach out directly on WhatsApp or email, or visit our full Contact page for all channels.</p>
+        </div>
+        <div class="contact-strip-actions">
+          <a href="https://wa.me/27836947300?text=Hi%20Arimori%20Studios,%20I'd%20like%20to%20chat." target="_blank" rel="noopener noreferrer" class="cta-pill">WhatsApp +27 83 694 7300</a>
+          <a href="contact.html" class="cta-pill secondary">All Contact Channels →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/shell.js"></script>
+</body>
+</html>
