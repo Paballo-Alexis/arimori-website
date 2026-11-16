@@ -1,1 +1,339 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modular Solutions — Technical Architecture | Arimori Studios</title>
+
+  <meta property="og:title" content="Modular Solutions — Technical Architecture | Arimori Studios" />
+  <meta property="og:description" content="Explore all five nested architectural tiers floating on magnetic-pad vector stages." />
+  <meta property="og:url" content="https://arimori.studio/modular-solutions.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/shell.css" />
+
+  <style>
+    .modular-wrapper {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    .modular-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 4rem;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--emerald-bright);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .modular-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+
+    .modular-header p {
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    /* 5-Column Magnetic-Pad Levitating Vector Orbs Grid */
+    .magnetic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .mag-card {
+      position: relative;
+      padding: 2rem 1.35rem 1.75rem;
+      border-radius: 18px;
+      background: rgba(7, 11, 9, 0.85);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .mag-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--orb-accent, var(--emerald-core));
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9), 0 0 28px rgba(16, 185, 129, 0.14);
+    }
+
+    /* Levitating 2.5D Vector Orb + Magnetic Pad Stage */
+    .mag-stage {
+      position: relative;
+      width: 140px;
+      height: 155px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .vector-orb {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.35), var(--orb-accent) 42%, #030504 88%);
+      box-shadow:
+        inset -8px -10px 18px rgba(0, 0, 0, 0.85),
+        inset 4px 4px 12px rgba(255, 255, 255, 0.25),
+        0 0 26px var(--orb-glow, rgba(16, 185, 129, 0.45));
+      animation: levitateOrb 4.2s ease-in-out infinite;
+    }
+
+    .vector-orb::after {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 255, 255, 0.32);
+      animation: spinGrid 16s linear infinite;
+    }
+
+    .vector-orb span {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+      z-index: 2;
+    }
+
+    /* Magnetic Field Beam & Base Pad */
+    .mag-beam {
+      width: 46px;
+      height: 22px;
+      margin-top: -4px;
+      background: linear-gradient(180deg, var(--orb-glow, rgba(16, 185, 129, 0.35)), transparent);
+      clip-path: polygon(22% 0%, 78% 0%, 100% 100%, 0% 100%);
+      opacity: 0.7;
+    }
+
+    .mag-pad {
+      width: 96px;
+      height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, var(--orb-accent), #070b09 72%);
+      border: 1px solid var(--orb-accent);
+      box-shadow: 0 6px 20px var(--orb-glow, rgba(16, 185, 129, 0.5));
+    }
+
+    @keyframes levitateOrb {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes spinGrid {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .mag-tier-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orb-accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .mag-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+    }
+
+    .mag-summary {
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin-bottom: 1.15rem;
+      flex: 1;
+    }
+
+    .mag-price {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text-primary);
+      margin-bottom: 0.9rem;
+    }
+
+    .mag-link {
+      width: 100%;
+      padding: 0.55rem 0.9rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--orb-accent);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-primary);
+      transition: background 0.2s ease;
+    }
+
+    .mag-link:hover {
+      background: rgba(16, 185, 129, 0.22);
+    }
+
+    /* Architectural Principles Strip */
+    .arch-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      border-radius: 18px;
+      background: rgba(8, 13, 11, 0.82);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .arch-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--emerald-bright);
+      margin-bottom: 0.4rem;
+    }
+
+    .arch-item p {
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <main id="page-content">
+    <div class="modular-wrapper">
+
+      <header class="modular-header">
+        <span class="eyebrow">MODULAR SYSTEM ARCHITECTURE // TIERS 01 – 05</span>
+        <h1>Engineered Layers, Sovereign Control</h1>
+        <p>
+          Select any levitating module below to inspect its complete operational blueprint—written in clear everyday language alongside exact technical specifications.
+        </p>
+      </header>
+
+      <!-- 5 Magnetic-Pad Vector Orbs -->
+      <section class="magnetic-grid" aria-label="Modular Solution Tiers">
+
+        <!-- Tier 01 -->
+        <a href="tier-01.html" class="mag-card" style="--orb-accent: #F97316; --orb-glow: rgba(249, 115, 22, 0.48);">
+          <div class="mag-stage">
+            <div class="vector-orb" style="animation-delay: 0s;"><span>01</span></div>
+            <div class="mag-beam"></div>
+            <div class="mag-pad"></div>
+          </div>
+          <span class="mag-tier-tag">CORE / MANTLE</span>
+          <h2 class="mag-title">The Discovery Suite</h2>
+          <p class="mag-summary">Verified Google Maps pin, custom domain, and a fast 4-page mobile site with 24/7 WhatsApp routing.</p>
+          <div class="mag-price">R2,500 + R450/mo</div>
+          <span class="mag-link">Inspect Tier 01 →</span>
+        </a>
+
+        <!-- Tier 02 -->
+        <a href="tier-02.html" class="mag-card" style="--orb-accent: #A8A29E; --orb-glow: rgba(168, 162, 158, 0.45);">
+          <div class="mag-stage">
+            <div class="vector-orb" style="animation-delay: -0.8s;"><span>02</span></div>
+            <div class="mag-beam"></div>
+            <div class="mag-pad"></div>
+          </div>
+          <span class="mag-tier-tag">CRUST</span>
+          <h2 class="mag-title">The Growth Launchpad</h2>
+          <p class="mag-summary">WhatsApp Business price catalog, automated inquiry replies, and instant phone calendar booking sync.</p>
+          <div class="mag-price">R6,500 + R1,250/mo</div>
+          <span class="mag-link">Inspect Tier 02 →</span>
+        </a>
+
+        <!-- Tier 03 (Hero) -->
+        <a href="tier-03.html" class="mag-card" style="--orb-accent: #10B981; --orb-glow: rgba(16, 185, 129, 0.55);">
+          <div class="mag-stage">
+            <div class="vector-orb" style="animation-delay: -1.6s;"><span>03</span></div>
+            <div class="mag-beam"></div>
+            <div class="mag-pad"></div>
+          </div>
+          <span class="mag-tier-tag">FOREST FLOOR • HERO</span>
+          <h2 class="mag-title">The Counter Standard</h2>
+          <p class="mag-summary">Offline-first SQLite POS, 80mm thermal printer, barcode scanner, blind cash-ups, and AES-256 POPIA vault.</p>
+          <div class="mag-price">R9,500 + R1,500/mo</div>
+          <span class="mag-link">Inspect Tier 03 →</span>
+        </a>
+
+        <!-- Tier 04 -->
+        <a href="tier-04.html" class="mag-card" style="--orb-accent: #E2E8F0; --orb-glow: rgba(226, 232, 240, 0.45);">
+          <div class="mag-stage">
+            <div class="vector-orb" style="animation-delay: -2.4s;"><span>04</span></div>
+            <div class="mag-beam"></div>
+            <div class="mag-pad"></div>
+          </div>
+          <span class="mag-tier-tag">ATMOSPHERE</span>
+          <h2 class="mag-title">The Remote Exchange</h2>
+          <p class="mag-summary">Instant EFT & Capitec Pay rails, automatic deposit matching, and OTP self-service member statement portals.</p>
+          <div class="mag-price">R12,500 + R2,250/mo</div>
+          <span class="mag-link">Inspect Tier 04 →</span>
+        </a>
+
+        <!-- Tier 05 -->
+        <a href="tier-05.html" class="mag-card" style="--orb-accent: #38BDF8; --orb-glow: rgba(56, 189, 248, 0.5);">
+          <div class="mag-stage">
+            <div class="vector-orb" style="animation-delay: -3.2s;"><span>05</span></div>
+            <div class="mag-beam"></div>
+            <div class="mag-pad"></div>
+          </div>
+          <span class="mag-tier-tag">STRATOSPHERE</span>
+          <h2 class="mag-title">The Enterprise Foundation</h2>
+          <p class="mag-summary">Multi-branch executive BI dashboard, early-warning lapse telemetry, staff training, and CTO stewardship.</p>
+          <div class="mag-price">R16,500 + R3,200/mo</div>
+          <span class="mag-link">Inspect Tier 05 →</span>
+        </a>
+
+      </section>
+
+      <section class="arch-strip">
+        <div class="arch-item">
+          <h3>Upwardly Modular</h3>
+          <p>Start at Tier 01 today and upgrade smoothly to Tier 03 or Tier 04 later—every tier inherits the exact foundation below it without rebuilding from scratch.</p>
+        </div>
+        <div class="arch-item">
+          <h3>Zero Software Hostage Fees</h3>
+          <p>After your 12-month foundation term, full ownership of your domain, source code, customer database, and counter hardware transfers permanently to you.</p>
+        </div>
+        <div class="arch-item">
+          <h3>2D Standard or Custom 3D</h3>
+          <p>Base pricing covers ultra-fast 2D architectural builds. Interactive WebGL/3D stages can be scoped onto any tier as a custom add-on.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/shell.js"></script>
+</body>
+</html>
