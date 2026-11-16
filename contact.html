@@ -1,1 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Arimori Studios</title>
 
+  <meta property="og:title" content="Contact Us | Arimori Studios" />
+  <meta property="og:description" content="Direct WhatsApp, Email, and consultation onboarding with Arimori Studios (Pty) Ltd." />
+  <meta property="og:url" content="https://arimori.studio/contact.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/shell.css" />
+
+  <style>
+    .contact-wrapper {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 6rem;
+    }
+
+    .contact-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--emerald-bright);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+    }
+
+    .contact-header p {
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    .channels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.35rem;
+      margin-bottom: 4rem;
+    }
+
+    .channel-card {
+      padding: 1.75rem 1.5rem;
+      border-radius: 16px;
+      background: rgba(8, 13, 11, 0.78);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.9rem;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .channel-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--emerald-core);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85), 0 0 22px rgba(16, 185, 129, 0.14);
+    }
+
+    .channel-icon-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .channel-icon-box img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      mix-blend-mode: screen;
+    }
+
+    .channel-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--emerald-bright);
+    }
+
+    .channel-value {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      word-break: break-word;
+    }
+
+    .channel-hint {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .onboarding-box {
+      padding: 2.25rem;
+      border-radius: 18px;
+      background: rgba(7, 11, 9, 0.85);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .onboarding-box h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-item {
+      padding: 1.15rem;
+      border-left: 2px solid var(--emerald-core);
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--cerulean-bright);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <main id="page-content">
+    <div class="contact-wrapper">
+
+      <header class="contact-header">
+        <span class="eyebrow">DIRECT CHANNELS // SOUTH AFRICA</span>
+        <h1>Initiate a Conversation</h1>
+        <p>
+          Whether you need a plain-English walkthrough for your shop counter or a custom technical scope, reach out directly—no call centers, no middlemen.
+        </p>
+      </header>
+
+      <section class="channels-grid" aria-label="Direct Contact Channels">
+
+        <a href="https://wa.me/27836947300?text=Hi%20Arimori%20Studios,%20I'd%20like%20to%20book%20a%20consultation%20for%20my%20business."
+           target="_blank"
+           rel="noopener noreferrer"
+           class="channel-card">
+          <div class="channel-icon-box">
+            <img src="assets/images/icon-whatsapp.jpg" alt="WhatsApp Icon" />
+          </div>
+          <span class="channel-label">Direct WhatsApp</span>
+          <span class="channel-value">+27 83 694 7300</span>
+          <span class="channel-hint">Fastest response • Tap to open chat</span>
+        </a>
+
+        <a href="mailto:paballoalexis@gmail.com?subject=Arimori%20Studios%20Project%20Inquiry"
+           class="channel-card">
+          <div class="channel-icon-box">
+            <img src="assets/images/icon-email.jpg" alt="Email Icon" />
+          </div>
+          <span class="channel-label">Direct Email</span>
+          <span class="channel-value">paballoalexis@gmail.com</span>
+          <span class="channel-hint">Proposals, scopes & formal briefs</span>
+        </a>
+
+        <a href="https://www.linkedin.com"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="channel-card">
+          <div class="channel-icon-box">
+            <img src="assets/images/icon-linkedin.jpg" alt="LinkedIn Icon" />
+          </div>
+          <span class="channel-label">LinkedIn</span>
+          <span class="channel-value">Arimori Studios</span>
+          <span class="channel-hint">Executive network & updates</span>
+        </a>
+
+        <a href="https://github.com/Paballo-Alexis"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="channel-card">
+          <div class="channel-icon-box">
+            <img src="assets/images/icon-github.jpg" alt="GitHub Icon" />
+          </div>
+          <span class="channel-label">GitHub</span>
+          <span class="channel-value">@Paballo-Alexis</span>
+          <span class="channel-hint">Code architecture & repositories</span>
+        </a>
+
+      </section>
+
+      <section class="onboarding-box">
+        <h2>How Onboarding Works</h2>
+        <div class="steps-grid">
+          <div class="step-item">
+            <span class="step-num">01 // DISCOVERY</span>
+            <div class="step-title">Share Your Operational Goal</div>
+            <p class="step-desc">Message us on WhatsApp or email with your business type, branch count, and whether you need a 2D or custom 3D build.</p>
+          </div>
+          <div class="step-item">
+            <span class="step-num">02 // MOBILIZATION (50%)</span>
+            <div class="step-title">Scope Lock & Provisioning</div>
+            <p class="step-desc">We finalize your tier deliverables, lock your domain/vault architecture, and order any counter hardware upon 50% deposit.</p>
+          </div>
+          <div class="step-item">
+            <span class="step-num">03 // HANDOVER (50%)</span>
+            <div class="step-title">Deployment & 100% Ownership</div>
+            <p class="step-desc">We install, test offline resilience, train your staff, and hand over full credentials upon completion.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/shell.js"></script>
+</body>
+</html>
