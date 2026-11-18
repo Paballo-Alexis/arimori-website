@@ -1,24 +1,9 @@
 /* ==========================================================================
    ARIMORI STUDIOS — GLOBAL SHELL INJECTOR (js/shell.js)
-   Renders Header (with standalone Pricing tab), WhatsApp Pill, Footer & Modals
+   Real Logo Image • Separate Ethos/Proposal/Contact • WhatsApp Icon FAB
    ========================================================================== */
 
 (function () {
-  const MONOGRAM_SVG = `
-    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="arimoriGrad" x1="15" y1="10" x2="105" y2="110" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#38BDF8"/>
-          <stop offset="50%" stop-color="#10B981"/>
-          <stop offset="100%" stop-color="#F8FAFC"/>
-        </linearGradient>
-      </defs>
-      <path d="M60 12L104 98H86L60 46L34 98H16L60 12Z" stroke="url(#arimoriGrad)" stroke-width="4.5" stroke-linejoin="round"/>
-      <path d="M36 98V64L60 84L84 64V98" stroke="url(#arimoriGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="60" cy="30" r="3.5" fill="#34D399"/>
-    </svg>
-  `;
-
   const WHATSAPP_ICON = `
     <svg viewBox="0 0 32 32" aria-hidden="true">
       <path d="M16.04 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.1 29.1l6.88-1.8a12.76 12.76 0 0 0 6.06 1.54h.01c7.05 0 12.79-5.74 12.79-12.8 0-3.42-1.33-6.63-3.75-9.05A12.72 12.72 0 0 0 16.04 3.2zm0 23.48h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-4.08 1.07 1.09-3.98-.25-.41a10.6 10.6 0 0 1-1.63-5.65c0-5.86 4.77-10.63 10.64-10.63 2.84 0 5.51 1.11 7.52 3.12a10.56 10.56 0 0 1 3.11 7.52c0 5.86-4.77 10.63-10.6 10.67zm5.83-7.96c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.72.16-.21.32-.82 1.04-1.01 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.82.67.77.24 1.46.21 2.01.13.61-.09 1.89-.77 2.16-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37z"/>
@@ -36,13 +21,13 @@
   const isPricing = currentPath === 'pricing.html';
   const isModular = currentPath === 'modular-solutions.html' || currentPath.startsWith('tier-');
   const isPortfolio = currentPath === 'portfolio.html';
-  const isAbout = currentPath === 'about.html' || currentPath === 'contact.html';
+  const isAbout = ['ethos.html', 'proposal.html', 'contact.html', 'about.html'].includes(currentPath);
 
   const headerHTML = `
     <header class="arimori-header">
       <div class="arimori-nav-inner">
         <a href="index.html" class="arimori-brand" aria-label="Arimori Studios Home">
-          ${MONOGRAM_SVG}
+          <img src="assets/images/logo-light.jpg" alt="Arimori Studios Official Logo" />
           <span>ARIMORI</span>
         </a>
 
@@ -68,7 +53,7 @@
             <div class="dropdown-menu">
               <a href="modular-solutions.html" class="dropdown-link">
                 <span class="dropdown-title">Technical Overview</span>
-                <span class="dropdown-sub">Architecture & magnetic-pad orbs</span>
+                <span class="dropdown-sub">Architecture & magnetic hover-pads</span>
               </a>
               <div class="dropdown-divider"></div>
               <a href="tier-01.html" class="dropdown-link">
@@ -103,13 +88,13 @@
               About Arimori ${CHEVRON_SVG}
             </button>
             <div class="dropdown-menu">
-              <a href="about.html#ethos" class="dropdown-link">
+              <a href="ethos.html" class="dropdown-link">
                 <span class="dropdown-title">Our Ethos</span>
                 <span class="dropdown-sub">有森 / 有盛 • Sheltered Forest</span>
               </a>
-              <a href="about.html#proposal" class="dropdown-link">
+              <a href="proposal.html" class="dropdown-link">
                 <span class="dropdown-title">The Proposal</span>
-                <span class="dropdown-sub">100% Ownership & Safeguards</span>
+                <span class="dropdown-sub">Sovereign Infrastructure Covenant</span>
               </a>
               <a href="contact.html" class="dropdown-link">
                 <span class="dropdown-title">Contact Us</span>
@@ -127,15 +112,17 @@
        target="_blank"
        rel="noopener noreferrer"
        class="whatsapp-fab"
+       title="Chat on WhatsApp (+27 83 694 7300)"
        aria-label="Chat on WhatsApp +27 83 694 7300">
       ${WHATSAPP_ICON}
-      <span>+27 83 694 7300</span>
     </a>
   `;
 
   const footerHTML = `
     <footer class="arimori-footer">
-      <div class="footer-watermark">${MONOGRAM_SVG}</div>
+      <div class="footer-watermark">
+        <img src="assets/images/logo-light.jpg" alt="" aria-hidden="true" />
+      </div>
       <div class="footer-content">
         <div class="footer-contacts">
           <a href="https://wa.me/27836947300" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
@@ -238,3 +225,4 @@
     });
   });
 })();
+       
