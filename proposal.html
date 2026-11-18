@@ -1,1 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Proposal — Sovereign Infrastructure Covenant | Arimori Studios</title>
+
+  <meta property="og:title" content="The Proposal — Arimori Studios" />
+  <meta property="og:description" content="A formal invitation to true software ownership, offline resilience, and POPIA-encrypted operations." />
+  <meta property="og:url" content="https://arimori.studio/proposal.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/shell.css" />
+
+  <style>
+    .proposal-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    .parchment-card {
+      position: relative;
+      padding: clamp(2.25rem, 5vw, 4.25rem) clamp(1.5rem, 5vw, 4rem);
+      border-radius: 28px;
+      background-color: #0b0c0c;
+      background-image:
+        linear-gradient(rgba(5, 6, 6, 0.72), rgba(5, 6, 6, 0.84)),
+        url('assets/images/proposal-parchment.jpg');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 32px 85px rgba(0, 0, 0, 0.95), 0 0 45px rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(253, 224, 130, 0.36);
+      margin-bottom: 2.5rem;
+    }
+
+    .parchment-inner-border {
+      border: 1px solid rgba(253, 224, 130, 0.2);
+      border-radius: 20px;
+      padding: clamp(1.75rem, 4vw, 3rem);
+    }
+
+    .invitation-crest {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .invitation-crest img {
+      height: 54px;
+      width: auto;
+      margin: 0 auto 1rem;
+      display: block;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 14px rgba(253, 224, 130, 0.55));
+    }
+
+    .invitation-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #fde68a;
+      display: block;
+      margin-bottom: 0.55rem;
+    }
+
+    .invitation-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.95rem, 3.8vw, 2.85rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #fefce8;
+      line-height: 1.15;
+    }
+
+    .invitation-divider {
+      width: 100px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(253, 224, 130, 0.75), transparent);
+      margin: 1.5rem auto 2rem;
+    }
+
+    .invitation-body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.15rem, 1.65vw, 1.3rem);
+      line-height: 1.82;
+      color: #e7e5e4;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .invitation-salutation {
+      font-style: italic;
+      font-size: 1.35rem;
+      color: #fef3c7;
+    }
+
+    .invitation-pledges {
+      list-style: none;
+      margin: 0.5rem 0;
+      padding: 1.35rem 1.5rem;
+      border-top: 1px solid rgba(253, 224, 130, 0.18);
+      border-bottom: 1px solid rgba(253, 224, 130, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+    }
+
+    .invitation-pledges li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: #f1f5f9;
+      line-height: 1.58;
+    }
+
+    .invitation-pledges li::before {
+      content: '✦';
+      color: #fde68a;
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+
+    .invitation-signoff {
+      margin-top: 1.65rem;
+      text-align: center;
+    }
+
+    .signoff-line {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: #fde68a;
+      margin-bottom: 0.35rem;
+    }
+
+    .signoff-entity {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .proposal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .pill-cta {
+      padding: 0.72rem 1.45rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid var(--emerald-core);
+      color: var(--text-primary);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pill-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 22px rgba(16, 185, 129, 0.38);
+    }
+
+    .pill-cta.secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <main id="page-content">
+    <div class="proposal-wrapper">
+
+      <article class="parchment-card">
+        <div class="parchment-inner-border">
+
+          <div class="invitation-crest">
+            <img src="assets/images/logo-light.jpg" alt="Arimori Studios Official Crest" />
+            <span class="invitation-kicker">THE PROPOSAL // COVENANT OF OWNERSHIP</span>
+            <h1 class="invitation-title">An Invitation to Sovereign Infrastructure</h1>
+          </div>
+
+          <div class="invitation-divider"></div>
+
+          <div class="invitation-body">
+            <p class="invitation-salutation">To the Builders, Stewards, and Business Owners,</p>
+
+            <p>
+              Too many hardworking businesses spend years paying endless monthly software rentals—only to discover they do not own their customer records, cannot operate when the internet fails, and lose access the moment a subscription lapses.
+            </p>
+
+            <p>
+              Arimori Studios proposes a simpler, fairer covenant. Whether you are establishing your first verified presence online or equipping a multi-branch retail counter, every system we deploy is governed by four unbreakable commitments:
+            </p>
+
+            <ul class="invitation-pledges">
+              <li><strong>True Ownership:</strong> Full transfer of your software, customer ledger, and physical equipment after your 12-month foundation term.</li>
+              <li><strong>Protected Operations:</strong> Local-first databases, theft-proof blind cash-up audits, and tamper-evident receipt records.</li>
+              <li><strong>Encrypted Privacy:</strong> Single-tenant AES-256 vaults engineered in full alignment with South Africa's POPIA standards.</li>
+              <li><strong>Transparent Economics:</strong> Clear 50% deposit / 50% upon fulfillment milestones, with raw network pass-through pricing on SMS and ad spend.</li>
+            </ul>
+
+            <p>
+              We invite you to inspect our Earth-layer tiers, test our systems against your daily operational needs, and build an asset that belongs to your enterprise for decades to come.
+            </p>
+
+            <div class="invitation-signoff">
+              <div class="signoff-line">Architects of Enduring Systems</div>
+              <div class="signoff-entity">ARIMORI STUDIOS (PTY) LTD</div>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <div class="proposal-actions">
+        <a href="pricing.html" class="pill-cta">Explore Earth-Layer Pricing →</a>
+        <a href="contact.html" class="pill-cta secondary">Contact Us Directly</a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/shell.js"></script>
+</body>
+</html>
 
