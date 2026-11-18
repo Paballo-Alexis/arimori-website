@@ -11,13 +11,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/shell.css" />
 
   <style>
     .contact-wrapper {
-      max-width: 1040px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 4.5rem 1.5rem 6rem;
     }
@@ -40,49 +40,52 @@
 
     .contact-header h1 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
+      font-size: clamp(2.1rem, 4.2vw, 3.15rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
       margin-bottom: 0.85rem;
     }
 
     .contact-header p {
-      font-size: 0.98rem;
+      font-size: 1rem;
       line-height: 1.65;
       color: var(--text-secondary);
     }
 
     .channels-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.35rem;
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      gap: 1.45rem;
       margin-bottom: 4rem;
     }
 
     .channel-card {
-      padding: 1.75rem 1.5rem;
-      border-radius: 16px;
-      background: rgba(8, 13, 11, 0.78);
-      border: 1px solid var(--border-subtle);
+      padding: 2rem 1.5rem;
+      border-radius: 26px;
+      background: linear-gradient(155deg, rgba(12, 18, 22, 0.85), rgba(6, 9, 12, 0.94));
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.85), 0 0 24px var(--ch-glow, rgba(16, 185, 129, 0.14));
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       gap: 0.9rem;
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .channel-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--emerald-core);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85), 0 0 22px rgba(16, 185, 129, 0.14);
+      transform: translateY(-6px);
+      border-color: var(--ch-accent, var(--emerald-core));
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.92), 0 0 38px var(--ch-glow);
     }
 
     .channel-icon-box {
-      width: 64px;
-      height: 64px;
-      border-radius: 14px;
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
       background: #000000;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -90,8 +93,8 @@
     }
 
     .channel-icon-box img {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       object-fit: contain;
       mix-blend-mode: screen;
     }
@@ -99,35 +102,39 @@
     .channel-label {
       font-family: var(--font-mono);
       font-size: 0.7rem;
+      font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--emerald-bright);
+      color: var(--ch-accent, var(--emerald-bright));
     }
 
     .channel-value {
       font-family: var(--font-display);
-      font-size: 1.02rem;
-      font-weight: 600;
+      font-size: 1.05rem;
+      font-weight: 700;
       color: var(--text-primary);
       word-break: break-word;
     }
 
     .channel-hint {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-secondary);
     }
 
     .onboarding-box {
-      padding: 2.25rem;
-      border-radius: 18px;
-      background: rgba(7, 11, 9, 0.85);
-      border: 1px solid var(--border-subtle);
+      padding: 2.35rem;
+      border-radius: 26px;
+      background: rgba(10, 15, 20, 0.78);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.85);
     }
 
     .onboarding-box h2 {
       font-family: var(--font-display);
-      font-size: 1.35rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 1.75rem;
       text-align: center;
     }
 
@@ -138,9 +145,10 @@
     }
 
     .step-item {
-      padding: 1.15rem;
-      border-left: 2px solid var(--emerald-core);
-      background: rgba(255, 255, 255, 0.015);
+      padding: 1.35rem;
+      border-radius: 18px;
+      border-left: 3px solid var(--emerald-core);
+      background: rgba(255, 255, 255, 0.025);
     }
 
     .step-num {
@@ -149,19 +157,19 @@
       font-weight: 700;
       color: var(--cerulean-bright);
       display: block;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
 
     .step-title {
       font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
     }
 
     .step-desc {
-      font-size: 0.85rem;
-      line-height: 1.55;
+      font-size: 0.87rem;
+      line-height: 1.58;
       color: var(--text-secondary);
     }
   </style>
@@ -184,7 +192,8 @@
         <a href="https://wa.me/27836947300?text=Hi%20Arimori%20Studios,%20I'd%20like%20to%20book%20a%20consultation%20for%20my%20business."
            target="_blank"
            rel="noopener noreferrer"
-           class="channel-card">
+           class="channel-card"
+           style="--ch-accent: #10B981; --ch-glow: rgba(16, 185, 129, 0.22);">
           <div class="channel-icon-box">
             <img src="assets/images/icon-whatsapp.jpg" alt="WhatsApp Icon" />
           </div>
@@ -194,7 +203,8 @@
         </a>
 
         <a href="mailto:paballoalexis@gmail.com?subject=Arimori%20Studios%20Project%20Inquiry"
-           class="channel-card">
+           class="channel-card"
+           style="--ch-accent: #38BDF8; --ch-glow: rgba(56, 189, 248, 0.22);">
           <div class="channel-icon-box">
             <img src="assets/images/icon-email.jpg" alt="Email Icon" />
           </div>
@@ -206,7 +216,8 @@
         <a href="https://www.linkedin.com"
            target="_blank"
            rel="noopener noreferrer"
-           class="channel-card">
+           class="channel-card"
+           style="--ch-accent: #A78BFA; --ch-glow: rgba(167, 139, 250, 0.22);">
           <div class="channel-icon-box">
             <img src="assets/images/icon-linkedin.jpg" alt="LinkedIn Icon" />
           </div>
@@ -218,7 +229,8 @@
         <a href="https://github.com/Paballo-Alexis"
            target="_blank"
            rel="noopener noreferrer"
-           class="channel-card">
+           class="channel-card"
+           style="--ch-accent: #FBBF24; --ch-glow: rgba(251, 191, 36, 0.22);">
           <div class="channel-icon-box">
             <img src="assets/images/icon-github.jpg" alt="GitHub Icon" />
           </div>
