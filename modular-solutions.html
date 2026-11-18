@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +6,12 @@
   <title>Modular Solutions — Technical Architecture | Arimori Studios</title>
 
   <meta property="og:title" content="Modular Solutions — Technical Architecture | Arimori Studios" />
-  <meta property="og:description" content="Explore all five nested architectural tiers floating on magnetic-pad vector stages." />
+  <meta property="og:description" content="Explore all five nested architectural tiers floating on 3D magnetic hover-pads." />
   <meta property="og:url" content="https://arimori.studio/modular-solutions.html" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/shell.css" />
 
@@ -41,71 +40,74 @@
 
     .modular-header h1 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3.1rem);
-      font-weight: 700;
+      font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
       margin-bottom: 0.9rem;
     }
 
     .modular-header p {
-      font-size: 0.98rem;
+      font-size: 1rem;
       line-height: 1.65;
       color: var(--text-secondary);
     }
 
-    /* 5-Column Magnetic-Pad Levitating Vector Orbs Grid */
     .magnetic-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
       gap: 1.5rem;
       margin-bottom: 4.5rem;
     }
 
     .mag-card {
       position: relative;
-      padding: 2rem 1.35rem 1.75rem;
-      border-radius: 18px;
-      background: rgba(7, 11, 9, 0.85);
-      border: 1px solid var(--border-subtle);
+      padding: 2rem 1.35rem 1.85rem;
+      border-radius: 26px;
+      background: linear-gradient(155deg, rgba(14, 19, 24, 0.85), rgba(6, 9, 12, 0.94));
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 26px var(--orb-glow);
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.32s ease;
     }
 
     .mag-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--orb-accent, var(--emerald-core));
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9), 0 0 28px rgba(16, 185, 129, 0.14);
+      transform: translateY(-8px);
+      border-color: var(--orb-accent);
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.92), 0 0 42px var(--orb-glow);
     }
 
-    /* Levitating 2.5D Vector Orb + Magnetic Pad Stage */
+    /* 3D Levitating Vector Orb + Sculpted Magnetic Hover-Pad Stage */
     .mag-stage {
       position: relative;
-      width: 140px;
-      height: 155px;
+      width: 150px;
+      height: 175px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.25rem;
+      perspective: 600px;
     }
 
     .vector-orb {
-      width: 86px;
-      height: 86px;
+      width: 88px;
+      height: 88px;
       border-radius: 50%;
       position: relative;
-      z-index: 2;
+      z-index: 3;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.35), var(--orb-accent) 42%, #030504 88%);
+      background: radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.48), var(--orb-accent) 44%, #030504 88%);
       box-shadow:
-        inset -8px -10px 18px rgba(0, 0, 0, 0.85),
-        inset 4px 4px 12px rgba(255, 255, 255, 0.25),
-        0 0 26px var(--orb-glow, rgba(16, 185, 129, 0.45));
-      animation: levitateOrb 4.2s ease-in-out infinite;
+        inset -10px -12px 20px rgba(0, 0, 0, 0.88),
+        inset 4px 5px 14px rgba(255, 255, 255, 0.35),
+        0 0 30px var(--orb-glow);
+      animation: levitateOrb 4s ease-in-out infinite;
     }
 
     .vector-orb::after {
@@ -113,41 +115,68 @@
       position: absolute;
       inset: 6px;
       border-radius: 50%;
-      border: 1px dashed rgba(255, 255, 255, 0.32);
-      animation: spinGrid 16s linear infinite;
+      border: 1px dashed rgba(255, 255, 255, 0.42);
+      animation: spinGrid 14s linear infinite;
     }
 
     .vector-orb span {
       font-family: var(--font-mono);
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: #ffffff;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
       z-index: 2;
     }
 
-    /* Magnetic Field Beam & Base Pad */
-    .mag-beam {
-      width: 46px;
-      height: 22px;
-      margin-top: -4px;
-      background: linear-gradient(180deg, var(--orb-glow, rgba(16, 185, 129, 0.35)), transparent);
-      clip-path: polygon(22% 0%, 78% 0%, 100% 100%, 0% 100%);
-      opacity: 0.7;
+    /* Levitation Magnetic Field Waves */
+    .mag-field {
+      width: 56px;
+      height: 28px;
+      margin-top: -6px;
+      background: linear-gradient(180deg, var(--orb-glow), transparent);
+      clip-path: polygon(24% 0%, 76% 0%, 100% 100%, 0% 100%);
+      opacity: 0.85;
+      z-index: 2;
     }
 
-    .mag-pad {
-      width: 96px;
-      height: 16px;
+    /* Multi-Ring 3D Hover-Pad Base */
+    .mag-pad-assembly {
+      position: relative;
+      width: 118px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .mag-pad-outer {
+      position: absolute;
+      inset: 0;
       border-radius: 50%;
-      background: radial-gradient(ellipse at center, var(--orb-accent), #070b09 72%);
-      border: 1px solid var(--orb-accent);
-      box-shadow: 0 6px 20px var(--orb-glow, rgba(16, 185, 129, 0.5));
+      background: linear-gradient(180deg, #1e293b, #05080b);
+      border: 1.5px solid var(--orb-accent);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.95), 0 0 22px var(--orb-glow);
+    }
+
+    .mag-pad-core {
+      position: relative;
+      width: 66px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, #ffffff, var(--orb-accent) 60%, transparent 100%);
+      box-shadow: 0 0 18px var(--orb-accent);
+      animation: pulsePad 4s ease-in-out infinite;
     }
 
     @keyframes levitateOrb {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-13px); }
+    }
+
+    @keyframes pulsePad {
+      0%, 100% { transform: scale(1); opacity: 0.95; }
+      50% { transform: scale(0.84); opacity: 0.65; }
     }
 
     @keyframes spinGrid {
@@ -167,13 +196,14 @@
 
     .mag-title {
       font-family: var(--font-display);
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       font-weight: 700;
+      letter-spacing: -0.01em;
       margin-bottom: 0.45rem;
     }
 
     .mag-summary {
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       line-height: 1.55;
       color: var(--text-secondary);
       margin-bottom: 1.15rem;
@@ -182,47 +212,50 @@
 
     .mag-price {
       font-family: var(--font-mono);
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       color: var(--text-primary);
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
     }
 
     .mag-link {
       width: 100%;
-      padding: 0.55rem 0.9rem;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.04);
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--orb-accent);
       font-family: var(--font-mono);
       font-size: 0.74rem;
+      font-weight: 600;
       color: var(--text-primary);
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .mag-link:hover {
-      background: rgba(16, 185, 129, 0.22);
+    .mag-card:hover .mag-link {
+      background: var(--orb-glow);
+      box-shadow: 0 0 18px var(--orb-glow);
     }
 
-    /* Architectural Principles Strip */
     .arch-strip {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      padding: 2rem;
-      border-radius: 18px;
-      background: rgba(8, 13, 11, 0.82);
-      border: 1px solid var(--border-subtle);
+      padding: 2.25rem;
+      border-radius: 26px;
+      background: rgba(10, 15, 20, 0.76);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .arch-item h3 {
       font-family: var(--font-display);
-      font-size: 1.05rem;
+      font-size: 1.08rem;
+      font-weight: 700;
       color: var(--emerald-bright);
       margin-bottom: 0.4rem;
     }
 
     .arch-item p {
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       line-height: 1.6;
       color: var(--text-secondary);
     }
@@ -241,15 +274,17 @@
         </p>
       </header>
 
-      <!-- 5 Magnetic-Pad Vector Orbs -->
       <section class="magnetic-grid" aria-label="Modular Solution Tiers">
 
         <!-- Tier 01 -->
-        <a href="tier-01.html" class="mag-card" style="--orb-accent: #F97316; --orb-glow: rgba(249, 115, 22, 0.48);">
+        <a href="tier-01.html" class="mag-card" style="--orb-accent: #F97316; --orb-glow: rgba(249, 115, 22, 0.28);">
           <div class="mag-stage">
             <div class="vector-orb" style="animation-delay: 0s;"><span>01</span></div>
-            <div class="mag-beam"></div>
-            <div class="mag-pad"></div>
+            <div class="mag-field"></div>
+            <div class="mag-pad-assembly">
+              <div class="mag-pad-outer"></div>
+              <div class="mag-pad-core"></div>
+            </div>
           </div>
           <span class="mag-tier-tag">CORE / MANTLE</span>
           <h2 class="mag-title">The Discovery Suite</h2>
@@ -259,11 +294,14 @@
         </a>
 
         <!-- Tier 02 -->
-        <a href="tier-02.html" class="mag-card" style="--orb-accent: #A8A29E; --orb-glow: rgba(168, 162, 158, 0.45);">
+        <a href="tier-02.html" class="mag-card" style="--orb-accent: #D6A276; --orb-glow: rgba(214, 162, 118, 0.26);">
           <div class="mag-stage">
             <div class="vector-orb" style="animation-delay: -0.8s;"><span>02</span></div>
-            <div class="mag-beam"></div>
-            <div class="mag-pad"></div>
+            <div class="mag-field"></div>
+            <div class="mag-pad-assembly">
+              <div class="mag-pad-outer"></div>
+              <div class="mag-pad-core"></div>
+            </div>
           </div>
           <span class="mag-tier-tag">CRUST</span>
           <h2 class="mag-title">The Growth Launchpad</h2>
@@ -273,11 +311,14 @@
         </a>
 
         <!-- Tier 03 (Hero) -->
-        <a href="tier-03.html" class="mag-card" style="--orb-accent: #10B981; --orb-glow: rgba(16, 185, 129, 0.55);">
+        <a href="tier-03.html" class="mag-card" style="--orb-accent: #10B981; --orb-glow: rgba(16, 185, 129, 0.34);">
           <div class="mag-stage">
             <div class="vector-orb" style="animation-delay: -1.6s;"><span>03</span></div>
-            <div class="mag-beam"></div>
-            <div class="mag-pad"></div>
+            <div class="mag-field"></div>
+            <div class="mag-pad-assembly">
+              <div class="mag-pad-outer"></div>
+              <div class="mag-pad-core"></div>
+            </div>
           </div>
           <span class="mag-tier-tag">FOREST FLOOR • HERO</span>
           <h2 class="mag-title">The Counter Standard</h2>
@@ -287,11 +328,14 @@
         </a>
 
         <!-- Tier 04 -->
-        <a href="tier-04.html" class="mag-card" style="--orb-accent: #E2E8F0; --orb-glow: rgba(226, 232, 240, 0.45);">
+        <a href="tier-04.html" class="mag-card" style="--orb-accent: #E2E8F0; --orb-glow: rgba(226, 232, 240, 0.26);">
           <div class="mag-stage">
             <div class="vector-orb" style="animation-delay: -2.4s;"><span>04</span></div>
-            <div class="mag-beam"></div>
-            <div class="mag-pad"></div>
+            <div class="mag-field"></div>
+            <div class="mag-pad-assembly">
+              <div class="mag-pad-outer"></div>
+              <div class="mag-pad-core"></div>
+            </div>
           </div>
           <span class="mag-tier-tag">ATMOSPHERE</span>
           <h2 class="mag-title">The Remote Exchange</h2>
@@ -301,11 +345,14 @@
         </a>
 
         <!-- Tier 05 -->
-        <a href="tier-05.html" class="mag-card" style="--orb-accent: #38BDF8; --orb-glow: rgba(56, 189, 248, 0.5);">
+        <a href="tier-05.html" class="mag-card" style="--orb-accent: #38BDF8; --orb-glow: rgba(56, 189, 248, 0.32);">
           <div class="mag-stage">
             <div class="vector-orb" style="animation-delay: -3.2s;"><span>05</span></div>
-            <div class="mag-beam"></div>
-            <div class="mag-pad"></div>
+            <div class="mag-field"></div>
+            <div class="mag-pad-assembly">
+              <div class="mag-pad-outer"></div>
+              <div class="mag-pad-core"></div>
+            </div>
           </div>
           <span class="mag-tier-tag">STRATOSPHERE</span>
           <h2 class="mag-title">The Enterprise Foundation</h2>
