@@ -1,31 +1,31 @@
 /* ==========================================================================
    ARIMORI STUDIOS — GLOBAL SHELL STYLESHEET (css/shell.css)
-   Pure Obsidian (#030504) • Bioluminescent Emerald & Cerulean • Editorial
+   Plus Jakarta Sans • Ambient Color Mesh Gradients • Rounded Glowing Cards
    ========================================================================== */
 
 :root {
   --bg-obsidian: #030504;
-  --bg-surface: rgba(8, 13, 11, 0.78);
-  --bg-surface-solid: #070b09;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-emerald: rgba(16, 185, 129, 0.35);
+  --bg-surface: rgba(10, 14, 18, 0.72);
+  --bg-surface-solid: #080b0f;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-emerald: rgba(16, 185, 129, 0.42);
 
   --emerald-core: #10b981;
   --emerald-bright: #34d399;
-  --emerald-deep: #064e3b;
   --cerulean-core: #0ea5e9;
   --cerulean-bright: #38bdf8;
+  --violet-accent: #8b5cf6;
   --gold-accent: #fbbf24;
 
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
 
-  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --header-height: 74px;
+  --header-height: 76px;
 }
 
 *, *::before, *::after {
@@ -49,6 +49,21 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Soft Multi-Color Ambient Mesh Glow Behind Non-Home Content Pages */
+body:not(.home-void)::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(56, 189, 248, 0.14) 0%, transparent 42%),
+    radial-gradient(circle at 84% 24%, rgba(139, 92, 246, 0.13) 0%, transparent 44%),
+    radial-gradient(circle at 50% 62%, rgba(16, 185, 129, 0.12) 0%, transparent 48%),
+    radial-gradient(circle at 22% 88%, rgba(249, 115, 22, 0.09) 0%, transparent 42%);
 }
 
 a {
@@ -66,9 +81,9 @@ a {
   right: 0;
   height: var(--header-height);
   z-index: 1000;
-  background: rgba(3, 5, 4, 0.78);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(3, 5, 4, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -88,22 +103,23 @@ a {
   gap: 0.75rem;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.18em;
+  font-size: 1.08rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-primary);
 }
 
-.arimori-brand svg {
-  width: 34px;
-  height: 34px;
-  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.45));
-  transition: transform 0.35s ease, filter 0.35s ease;
+.arimori-brand img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 10px rgba(253, 224, 130, 0.45));
+  transition: transform 0.3s ease;
 }
 
-.arimori-brand:hover svg {
+.arimori-brand:hover img {
   transform: scale(1.06);
-  filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.7));
 }
 
 .arimori-nav-links {
@@ -121,12 +137,12 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.55rem 0.95rem;
-  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
   font-family: var(--font-display);
-  font-size: 0.88rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--text-secondary);
   background: transparent;
   border: none;
@@ -137,7 +153,7 @@ a {
 .nav-link:hover,
 .nav-link.active {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .nav-link.active {
@@ -159,16 +175,16 @@ a {
 /* Dropdown Menus */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 10px);
   right: 0;
-  min-width: 280px;
-  padding: 0.65rem;
-  border-radius: 14px;
-  background: rgba(5, 9, 7, 0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.85), 0 0 24px rgba(16, 185, 129, 0.08);
+  min-width: 285px;
+  padding: 0.7rem;
+  border-radius: 20px;
+  background: rgba(7, 11, 14, 0.94);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.88), 0 0 28px rgba(56, 189, 248, 0.12);
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
@@ -187,18 +203,18 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  padding: 0.65rem 0.85rem;
-  border-radius: 9px;
+  padding: 0.65rem 0.9rem;
+  border-radius: 12px;
   transition: background 0.2s ease;
 }
 
 .dropdown-link:hover {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(16, 185, 129, 0.12);
 }
 
 .dropdown-title {
   font-family: var(--font-display);
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-primary);
   display: flex;
@@ -215,10 +231,10 @@ a {
 .badge-hero {
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  padding: 0.12rem 0.42rem;
-  border-radius: 4px;
-  background: rgba(16, 185, 129, 0.18);
-  border: 1px solid rgba(16, 185, 129, 0.45);
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.5);
   color: var(--emerald-bright);
   letter-spacing: 0.06em;
 }
@@ -229,70 +245,67 @@ a {
   margin: 0.45rem 0.5rem;
 }
 
-/* Mobile Menu Button */
 .mobile-toggle {
   display: none;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-subtle);
   color: var(--text-primary);
   width: 42px;
   height: 42px;
-  border-radius: 10px;
+  border-radius: 12px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
-/* Main Content Wrapper */
 main#page-content {
   flex: 1;
   padding-top: var(--header-height);
+  position: relative;
+  z-index: 1;
 }
 
 /* ==========================================================================
-   PERSISTENT FLOATING WHATSAPP PILL
+   CIRCULAR GLOWING WHATSAPP ICON BUTTON
    ========================================================================== */
 .whatsapp-fab {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 999;
-  display: inline-flex;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #10b981, #047857);
+  border: 1.5px solid rgba(167, 243, 208, 0.75);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85), 0 0 24px rgba(16, 185, 129, 0.55);
+  display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.72rem 1.15rem;
-  border-radius: 999px;
-  background: rgba(5, 10, 8, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(16, 185, 129, 0.45);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 18px rgba(16, 185, 129, 0.22);
-  color: var(--text-primary);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
 
 .whatsapp-fab:hover {
-  transform: translateY(-3px);
-  border-color: var(--emerald-bright);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9), 0 0 26px rgba(16, 185, 129, 0.45);
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.92), 0 0 34px rgba(52, 211, 153, 0.85);
 }
 
 .whatsapp-fab svg {
-  width: 20px;
-  height: 20px;
-  fill: #f8fafc;
-  filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.85));
+  width: 28px;
+  height: 28px;
+  fill: #ffffff;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
 }
 
 /* ==========================================================================
-   GLOBAL FOOTER WITH WATERMARK
+   GLOBAL FOOTER WITH REAL LOGO WATERMARK
    ========================================================================== */
 .arimori-footer {
   position: relative;
+  z-index: 1;
   border-top: 1px solid var(--border-subtle);
-  background: #020303;
+  background: rgba(2, 4, 4, 0.88);
+  backdrop-filter: blur(12px);
   padding: 4.5rem 1.5rem 3.5rem;
   overflow: hidden;
   text-align: center;
@@ -303,11 +316,17 @@ main#page-content {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 260px;
-  height: 260px;
-  opacity: 0.045;
+  width: 300px;
+  opacity: 0.06;
+  mix-blend-mode: screen;
   pointer-events: none;
   z-index: 0;
+}
+
+.footer-watermark img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .footer-content {
@@ -325,23 +344,24 @@ main#page-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   font-family: var(--font-mono);
   font-size: 0.82rem;
 }
 
 .footer-contact-link {
   color: var(--text-secondary);
-  padding: 0.4rem 0.85rem;
+  padding: 0.5rem 1.05rem;
   border-radius: 999px;
   border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.02);
-  transition: color 0.2s ease, border-color 0.2s ease;
+  background: rgba(255, 255, 255, 0.03);
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .footer-contact-link:hover {
   color: var(--emerald-bright);
   border-color: var(--border-emerald);
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.2);
 }
 
 .footer-legal-block {
@@ -354,7 +374,7 @@ main#page-content {
 
 .footer-entity {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.16em;
   color: var(--text-secondary);
   font-size: 0.75rem;
@@ -389,14 +409,14 @@ main#page-content {
 }
 
 /* ==========================================================================
-   LEGAL MODALS (TERMS / PRIVACY / COOKIES)
+   LEGAL MODALS
    ========================================================================== */
 .arimori-modal-backdrop {
   position: fixed;
   inset: 0;
   z-index: 2000;
   background: rgba(0, 0, 0, 0.82);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -414,9 +434,9 @@ main#page-content {
 .arimori-modal {
   max-width: 560px;
   width: 100%;
-  background: #070c0a;
+  background: #080c10;
   border: 1px solid var(--border-emerald);
-  border-radius: 16px;
+  border-radius: 24px;
   padding: 2rem;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.95);
 }
@@ -429,7 +449,7 @@ main#page-content {
 }
 
 .arimori-modal p {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.65;
   color: var(--text-secondary);
   margin-bottom: 1rem;
@@ -437,9 +457,9 @@ main#page-content {
 
 .modal-close-btn {
   margin-top: 0.5rem;
-  padding: 0.55rem 1.25rem;
-  border-radius: 8px;
-  background: rgba(16, 185, 129, 0.15);
+  padding: 0.55rem 1.35rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.16);
   border: 1px solid var(--border-emerald);
   color: var(--text-primary);
   font-family: var(--font-mono);
@@ -447,13 +467,6 @@ main#page-content {
   cursor: pointer;
 }
 
-.modal-close-btn:hover {
-  background: rgba(16, 185, 129, 0.28);
-}
-
-/* ==========================================================================
-   RESPONSIVE NAVIGATION
-   ========================================================================== */
 @media (max-width: 860px) {
   .mobile-toggle {
     display: flex;
@@ -464,7 +477,7 @@ main#page-content {
     top: var(--header-height);
     left: 0;
     right: 0;
-    background: rgba(3, 5, 4, 0.98);
+    background: rgba(5, 8, 10, 0.98);
     border-bottom: 1px solid var(--border-subtle);
     flex-direction: column;
     align-items: stretch;
@@ -489,19 +502,1035 @@ main#page-content {
     transform: none;
     display: none;
     margin-top: 0.35rem;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.03);
     box-shadow: none;
   }
 
   .nav-item.open .dropdown-menu {
     display: block;
   }
+   }
+/* ==========================================================================
+   ARIMORI STUDIOS — GLOBAL SHELL STYLESHEET (css/shell.css)
+   Plus Jakarta Sans • Ambient Color Mesh Gradients • Rounded Glowing Cards
+   ========================================================================== */
 
-  .whatsapp-fab span {
-    display: none;
+:root {
+  --bg-obsidian: #030504;
+  --bg-surface: rgba(10, 14, 18, 0.72);
+  --bg-surface-solid: #080b0f;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-emerald: rgba(16, 185, 129, 0.42);
+
+  --emerald-core: #10b981;
+  --emerald-bright: #34d399;
+  --cerulean-core: #0ea5e9;
+  --cerulean-bright: #38bdf8;
+  --violet-accent: #8b5cf6;
+  --gold-accent: #fbbf24;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --header-height: 76px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Soft Multi-Color Ambient Mesh Glow Behind Non-Home Content Pages */
+body:not(.home-void)::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(56, 189, 248, 0.14) 0%, transparent 42%),
+    radial-gradient(circle at 84% 24%, rgba(139, 92, 246, 0.13) 0%, transparent 44%),
+    radial-gradient(circle at 50% 62%, rgba(16, 185, 129, 0.12) 0%, transparent 48%),
+    radial-gradient(circle at 22% 88%, rgba(249, 115, 22, 0.09) 0%, transparent 42%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   TOP NAVIGATION BAR
+   ========================================================================== */
+.arimori-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: 1000;
+  background: rgba(3, 5, 4, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.arimori-nav-inner {
+  max-width: 1320px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arimori-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.08rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.arimori-brand img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 10px rgba(253, 224, 130, 0.45));
+  transition: transform 0.3s ease;
+}
+
+.arimori-brand:hover img {
+  transform: scale(1.06);
+}
+
+.arimori-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+  color: var(--emerald-bright);
+}
+
+.nav-link svg.chevron {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+  transition: transform 0.25s ease;
+}
+
+.nav-item.open > .nav-link svg.chevron,
+.nav-item:hover > .nav-link svg.chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menus */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 285px;
+  padding: 0.7rem;
+  border-radius: 20px;
+  background: rgba(7, 11, 14, 0.94);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.88), 0 0 28px rgba(56, 189, 248, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  z-index: 1001;
+}
+
+.nav-item:hover .dropdown-menu,
+.nav-item.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+}
+
+.dropdown-link:hover {
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.dropdown-title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dropdown-sub {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.badge-hero {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: var(--emerald-bright);
+  letter-spacing: 0.06em;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0.45rem 0.5rem;
+}
+
+.mobile-toggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+main#page-content {
+  flex: 1;
+  padding-top: var(--header-height);
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   CIRCULAR GLOWING WHATSAPP ICON BUTTON
+   ========================================================================== */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #10b981, #047857);
+  border: 1.5px solid rgba(167, 243, 208, 0.75);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85), 0 0 24px rgba(16, 185, 129, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.92), 0 0 34px rgba(52, 211, 153, 0.85);
+}
+
+.whatsapp-fab svg {
+  width: 28px;
+  height: 28px;
+  fill: #ffffff;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+
+/* ==========================================================================
+   GLOBAL FOOTER WITH REAL LOGO WATERMARK
+   ========================================================================== */
+.arimori-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border-subtle);
+  background: rgba(2, 4, 4, 0.88);
+  backdrop-filter: blur(12px);
+  padding: 4.5rem 1.5rem 3.5rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.footer-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  opacity: 0.06;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-watermark img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.footer-contact-link {
+  color: var(--text-secondary);
+  padding: 0.5rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-contact-link:hover {
+  color: var(--emerald-bright);
+  border-color: var(--border-emerald);
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.2);
+}
+
+.footer-legal-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-entity {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.footer-policies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.footer-policies button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-policies button:hover {
+  color: var(--cerulean-bright);
+  text-decoration: underline;
+}
+
+.footer-copy {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
+
+/* ==========================================================================
+   LEGAL MODALS
+   ========================================================================== */
+.arimori-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.arimori-modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.arimori-modal {
+  max-width: 560px;
+  width: 100%;
+  background: #080c10;
+  border: 1px solid var(--border-emerald);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.95);
+}
+
+.arimori-modal h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: 0.85rem;
+  color: var(--emerald-bright);
+}
+
+.arimori-modal p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.modal-close-btn {
+  margin-top: 0.5rem;
+  padding: 0.55rem 1.35rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid var(--border-emerald);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+@media (max-width: 860px) {
+  .mobile-toggle {
+    display: flex;
   }
 
-  .whatsapp-fab {
-    padding: 0.85rem;
+  .arimori-nav-links {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: rgba(5, 8, 10, 0.98);
+    border-bottom: 1px solid var(--border-subtle);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.5rem 1.75rem;
+    gap: 0.4rem;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .arimori-nav-links.mobile-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+    margin-top: 0.35rem;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: none;
+  }
+
+  .nav-item.open .dropdown-menu {
+    display: block;
+  }
+}
+/* ==========================================================================
+   ARIMORI STUDIOS — GLOBAL SHELL STYLESHEET (css/shell.css)
+   Plus Jakarta Sans • Ambient Color Mesh Gradients • Rounded Glowing Cards
+   ========================================================================== */
+
+:root {
+  --bg-obsidian: #030504;
+  --bg-surface: rgba(10, 14, 18, 0.72);
+  --bg-surface-solid: #080b0f;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-emerald: rgba(16, 185, 129, 0.42);
+
+  --emerald-core: #10b981;
+  --emerald-bright: #34d399;
+  --cerulean-core: #0ea5e9;
+  --cerulean-bright: #38bdf8;
+  --violet-accent: #8b5cf6;
+  --gold-accent: #fbbf24;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --header-height: 76px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Soft Multi-Color Ambient Mesh Glow Behind Non-Home Content Pages */
+body:not(.home-void)::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(56, 189, 248, 0.14) 0%, transparent 42%),
+    radial-gradient(circle at 84% 24%, rgba(139, 92, 246, 0.13) 0%, transparent 44%),
+    radial-gradient(circle at 50% 62%, rgba(16, 185, 129, 0.12) 0%, transparent 48%),
+    radial-gradient(circle at 22% 88%, rgba(249, 115, 22, 0.09) 0%, transparent 42%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   TOP NAVIGATION BAR
+   ========================================================================== */
+.arimori-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: 1000;
+  background: rgba(3, 5, 4, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.arimori-nav-inner {
+  max-width: 1320px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arimori-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.08rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.arimori-brand img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 10px rgba(253, 224, 130, 0.45));
+  transition: transform 0.3s ease;
+}
+
+.arimori-brand:hover img {
+  transform: scale(1.06);
+}
+
+.arimori-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+  color: var(--emerald-bright);
+}
+
+.nav-link svg.chevron {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+  transition: transform 0.25s ease;
+}
+
+.nav-item.open > .nav-link svg.chevron,
+.nav-item:hover > .nav-link svg.chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menus */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 285px;
+  padding: 0.7rem;
+  border-radius: 20px;
+  background: rgba(7, 11, 14, 0.94);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.88), 0 0 28px rgba(56, 189, 248, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  z-index: 1001;
+}
+
+.nav-item:hover .dropdown-menu,
+.nav-item.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+}
+
+.dropdown-link:hover {
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.dropdown-title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dropdown-sub {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.badge-hero {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: var(--emerald-bright);
+  letter-spacing: 0.06em;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0.45rem 0.5rem;
+}
+
+.mobile-toggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+main#page-content {
+  flex: 1;
+  padding-top: var(--header-height);
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   CIRCULAR GLOWING WHATSAPP ICON BUTTON
+   ========================================================================== */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #10b981, #047857);
+  border: 1.5px solid rgba(167, 243, 208, 0.75);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85), 0 0 24px rgba(16, 185, 129, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.92), 0 0 34px rgba(52, 211, 153, 0.85);
+}
+
+.whatsapp-fab svg {
+  width: 28px;
+  height: 28px;
+  fill: #ffffff;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+
+/* ==========================================================================
+   GLOBAL FOOTER WITH REAL LOGO WATERMARK
+   ========================================================================== */
+.arimori-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border-subtle);
+  background: rgba(2, 4, 4, 0.88);
+  backdrop-filter: blur(12px);
+  padding: 4.5rem 1.5rem 3.5rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.footer-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  opacity: 0.06;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-watermark img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.footer-contact-link {
+  color: var(--text-secondary);
+  padding: 0.5rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-contact-link:hover {
+  color: var(--emerald-bright);
+  border-color: var(--border-emerald);
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.2);
+}
+
+.footer-legal-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-entity {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.footer-policies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.footer-policies button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-policies button:hover {
+  color: var(--cerulean-bright);
+  text-decoration: underline;
+}
+
+.footer-copy {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
+
+/* ==========================================================================
+   LEGAL MODALS
+   ========================================================================== */
+.arimori-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.arimori-modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.arimori-modal {
+  max-width: 560px;
+  width: 100%;
+  background: #080c10;
+  border: 1px solid var(--border-emerald);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.95);
+}
+
+.arimori-modal h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: 0.85rem;
+  color: var(--emerald-bright);
+}
+
+.arimori-modal p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.modal-close-btn {
+  margin-top: 0.5rem;
+  padding: 0.55rem 1.35rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid var(--border-emerald);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+@media (max-width: 860px) {
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .arimori-nav-links {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: rgba(5, 8, 10, 0.98);
+    border-bottom: 1px solid var(--border-subtle);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.5rem 1.75rem;
+    gap: 0.4rem;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .arimori-nav-links.mobile-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+    margin-top: 0.35rem;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: none;
+  }
+
+  .nav-item.open .dropdown-menu {
+    display: block;
   }
 }
