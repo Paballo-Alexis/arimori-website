@@ -47,9 +47,9 @@
     }
 
     /* Phase 5 Slogan Positioned Cleanly Between Top Logo & Stratosphere Orb */
-    .slogan-overlay {
+        .slogan-overlay {
       position: absolute;
-      top: 23.5vh;
+      top: 18.5vh;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
@@ -59,7 +59,7 @@
       transition: opacity 0.6s ease;
       width: 92%;
       max-width: 720px;
-    }
+        }
 
     .slogan-overlay.visible {
       opacity: 1;
@@ -221,7 +221,7 @@
       display: block;
                    }
     @media (max-width: 768px) {
-      .slogan-overlay { top: 21vh; }
+      .slogan-overlay { top: 17vh; }
       .orb-annotation.align-left {
         flex-direction: row;
         text-align: left;
@@ -493,8 +493,9 @@
       voidGroup.visible = false;
       scene.add(voidGroup);
 
-      const ORB_RADIUS = 0.85;
-      const ORB_Y_POSITIONS = [1.4, -1.4, -4.2, -7.0, -9.8];
+      const ORB_RADIUS = 0.80;
+      const ORB_Y_POSITIONS = [0.1, -2.6, -5.3, -8.0, -10.7];
+      
       const orbSharedGeo = new THREE.SphereGeometry(ORB_RADIUS, 48, 48);
 
       const orbMeshes = TIER_ORBS.map((orbCfg, i) => {
@@ -580,7 +581,7 @@
         const steps = 160;
         for (let i = 0; i <= steps; i++) {
           const t = i / steps;
-          const y = THREE.MathUtils.lerp(5.4, -10.5, t);
+          const y = THREE.MathUtils.lerp(4.2, -11.4, t);
           const envelope = Math.sin(Math.min(1, t * 4.5) * (Math.PI / 2));
           const angle = t * Math.PI * 5.0 + phaseOffset;
           const weaveRadius = 1.45 * envelope * radiusScale;
@@ -723,19 +724,19 @@
           voidGroup.visible = false;
           voidSlogan.classList.remove('visible');
           annotationEls.forEach((el) => el.classList.remove('revealed'));
-        } else {
+                } else {
           const t = (p - 0.82) / 0.18;
           strataMeshes.forEach((m) => (m.material.opacity = 0));
           particleMat.opacity = 0;
 
           logoGroup.visible = true;
-          logoGroup.position.set(0, 7.6, 0);
-          logoGroup.scale.setScalar(0.88);
+          logoGroup.position.set(0, 9.2, 0);
+          logoGroup.scale.setScalar(0.76);
 
           voidGroup.visible = true;
-          const zoomOutZ = THREE.MathUtils.lerp(7.0, isMobile ? 31.0 : 25.5, Math.min(1, t * 1.6));
-          camera.position.set(0, -1.8, zoomOutZ);
-          camera.lookAt(0, -1.8, 0);
+          const zoomOutZ = THREE.MathUtils.lerp(7.0, isMobile ? 34.0 : 27.5, Math.min(1, t * 1.6));
+          camera.position.set(0, -2.3, zoomOutZ);
+          camera.lookAt(0, -2.3, 0);
 
           voidSlogan.classList.toggle('visible', t > 0.2);
 
