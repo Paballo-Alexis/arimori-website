@@ -11,7 +11,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/shell.css" />
 
@@ -40,13 +40,14 @@
 
     .portfolio-header h1 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3.1rem);
-      font-weight: 700;
+      font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
       margin-bottom: 0.85rem;
     }
 
     .portfolio-header p {
-      font-size: 0.98rem;
+      font-size: 1rem;
       line-height: 1.65;
       color: var(--text-secondary);
     }
@@ -54,24 +55,26 @@
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.75rem;
+      gap: 1.85rem;
     }
 
     .discipline-card {
       position: relative;
-      border-radius: 18px;
+      border-radius: 26px;
       overflow: hidden;
-      background: #060908;
-      border: 1px solid var(--border-subtle);
+      background: linear-gradient(155deg, rgba(12, 17, 22, 0.85), rgba(6, 9, 12, 0.95));
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 22px 52px rgba(0, 0, 0, 0.85), 0 0 26px var(--card-glow, rgba(16, 185, 129, 0.15));
       display: flex;
       flex-direction: column;
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
     }
 
     .discipline-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(16, 185, 129, 0.5);
-      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.92), 0 0 30px rgba(16, 185, 129, 0.14);
+      transform: translateY(-7px);
+      border-color: var(--card-accent, #10b981);
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.92), 0 0 42px var(--card-glow);
     }
 
     .card-stage {
@@ -89,7 +92,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.88;
+      opacity: 0.9;
       transition: transform 0.6s ease, opacity 0.4s ease;
     }
 
@@ -98,72 +101,62 @@
       opacity: 0.52;
     }
 
-    /* Glowing 3D Floating "COMING SOON" Emblem */
     .coming-soon-3d {
       position: absolute;
       z-index: 3;
-      padding: 0.55rem 1.25rem;
-      border-radius: 8px;
-      background: rgba(3, 5, 4, 0.72);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(56, 189, 248, 0.55);
-      box-shadow:
-        0 0 22px rgba(16, 185, 129, 0.35),
-        0 10px 25px rgba(0, 0, 0, 0.85),
-        inset 0 0 12px rgba(56, 189, 248, 0.25);
+      padding: 0.58rem 1.35rem;
+      border-radius: 999px;
+      background: rgba(5, 8, 12, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--card-accent, #38bdf8);
+      box-shadow: 0 0 24px var(--card-glow), 0 10px 25px rgba(0, 0, 0, 0.85);
       font-family: var(--font-display);
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 0.26em;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: #f8fafc;
-      text-shadow:
-        0 1px 0 #0ea5e9,
-        0 2px 0 #10b981,
-        0 0 16px rgba(52, 211, 153, 0.9),
-        0 0 28px rgba(56, 189, 248, 0.75);
+      text-shadow: 0 0 16px var(--card-accent);
       transform-style: preserve-3d;
       animation: floatBadge3D 5.5s ease-in-out infinite;
       pointer-events: none;
     }
 
     @keyframes floatBadge3D {
-      0%, 100% {
-        transform: translateY(0px) rotateX(6deg) rotateY(-8deg);
-      }
-      50% {
-        transform: translateY(-7px) rotateX(-5deg) rotateY(8deg);
-      }
+      0%, 100% { transform: translateY(0px) rotateX(6deg) rotateY(-8deg); }
+      50% { transform: translateY(-7px) rotateX(-5deg) rotateY(8deg); }
     }
 
     .card-body {
-      padding: 1.5rem 1.65rem 1.75rem;
+      padding: 1.6rem 1.75rem 1.85rem;
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 0.65rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
 
     .pillar-code {
       font-family: var(--font-mono);
       font-size: 0.68rem;
+      font-weight: 700;
       letter-spacing: 0.18em;
-      color: var(--cerulean-bright);
+      color: var(--card-accent, #38bdf8);
     }
 
     .card-body h2 {
       font-family: var(--font-display);
-      font-size: 1.32rem;
+      font-size: 1.35rem;
       font-weight: 700;
+      letter-spacing: -0.015em;
       color: var(--text-primary);
     }
 
     .card-body p {
-      font-size: 0.88rem;
-      line-height: 1.6;
+      font-size: 0.89rem;
+      line-height: 1.62;
       color: var(--text-secondary);
     }
   </style>
@@ -183,8 +176,7 @@
 
       <section class="portfolio-grid" aria-label="Studio Disciplines">
 
-        <!-- 01: Consultancy -->
-        <article class="discipline-card">
+        <article class="discipline-card" style="--card-accent: #FBBF24; --card-glow: rgba(251, 191, 36, 0.22);">
           <div class="card-stage">
             <img src="assets/images/portfolio-consultancy.jpg" alt="Consultancy Golden Holographic Chess Grid" />
             <div class="coming-soon-3d">COMING SOON</div>
@@ -198,8 +190,7 @@
           </div>
         </article>
 
-        <!-- 02: Data Analytics -->
-        <article class="discipline-card">
+        <article class="discipline-card" style="--card-accent: #38BDF8; --card-glow: rgba(56, 189, 248, 0.24);">
           <div class="card-stage">
             <img src="assets/images/portfolio-analytics.jpg" alt="Data Analytics Golden 3D Telemetry Wave" />
             <div class="coming-soon-3d" style="animation-delay: -0.9s;">COMING SOON</div>
@@ -213,8 +204,7 @@
           </div>
         </article>
 
-        <!-- 03: Machine Learning -->
-        <article class="discipline-card">
+        <article class="discipline-card" style="--card-accent: #A78BFA; --card-glow: rgba(167, 139, 250, 0.24);">
           <div class="card-stage">
             <img src="assets/images/portfolio-ml.jpg" alt="Machine Learning Golden Neural Network" />
             <div class="coming-soon-3d" style="animation-delay: -1.8s;">COMING SOON</div>
@@ -228,8 +218,7 @@
           </div>
         </article>
 
-        <!-- 04: Cybersecurity -->
-        <article class="discipline-card">
+        <article class="discipline-card" style="--card-accent: #10B981; --card-glow: rgba(16, 185, 129, 0.25);">
           <div class="card-stage">
             <img src="assets/images/portfolio-cybersecurity.jpg" alt="Cybersecurity Golden Polygonal Shield" />
             <div class="coming-soon-3d" style="animation-delay: -2.7s;">COMING SOON</div>
@@ -243,8 +232,7 @@
           </div>
         </article>
 
-        <!-- 05: Marketing -->
-        <article class="discipline-card">
+        <article class="discipline-card" style="--card-accent: #F97316; --card-glow: rgba(249, 115, 22, 0.24);">
           <div class="card-stage">
             <img src="assets/images/portfolio-marketing.jpg" alt="Marketing Golden Acoustic Outreach Waves" />
             <div class="coming-soon-3d" style="animation-delay: -3.6s;">COMING SOON</div>
@@ -258,8 +246,7 @@
           </div>
         </article>
 
-        <!-- 06: Web Development -->
-        <article class="discipline-card">
+        <article class="discipline-card" style="--card-accent: #34D399; --card-glow: rgba(52, 211, 153, 0.24);">
           <div class="card-stage">
             <img src="assets/images/portfolio-webdev.jpg" alt="Web Development Golden Wireframe Windows" />
             <div class="coming-soon-3d" style="animation-delay: -4.5s;">COMING SOON</div>
