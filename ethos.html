@@ -1,1 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Ethos — 有森 / 有盛 | Arimori Studios</title>
+
+  <meta property="og:title" content="Our Ethos — Arimori Studios" />
+  <meta property="og:description" content="Built like a living forest anchored into rocky mountain strata—sovereign, resilient, and enduring." />
+  <meta property="og:url" content="https://arimori.studio/ethos.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/shell.css" />
+
+  <style>
+    .ethos-wrapper {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    .ethos-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 3.25rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    /* Visual Frame with Moving Cliff Clouds */
+    .ethos-visual-frame {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(253, 224, 130, 0.32);
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.9), 0 0 40px rgba(16, 185, 129, 0.16);
+      background: #030504;
+    }
+
+    .ethos-visual-frame img {
+      width: 100%;
+      max-height: 600px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cliff-mist-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .mist-bank {
+      position: absolute;
+      width: 230%;
+      left: -65%;
+      filter: blur(22px);
+      mix-blend-mode: screen;
+    }
+
+    .mist-bank.upper {
+      top: 38%;
+      height: 26%;
+      background:
+        radial-gradient(ellipse 26% 55% at 22% 50%, rgba(226, 232, 240, 0.32), transparent 72%),
+        radial-gradient(ellipse 32% 60% at 54% 48%, rgba(203, 213, 225, 0.26), transparent 75%),
+        radial-gradient(ellipse 24% 50% at 82% 52%, rgba(241, 245, 249, 0.28), transparent 70%);
+      animation: driftMistRight 26s ease-in-out infinite alternate;
+    }
+
+    .mist-bank.lower {
+      top: 56%;
+      height: 34%;
+      background:
+        radial-gradient(ellipse 30% 60% at 18% 55%, rgba(167, 243, 208, 0.18), transparent 75%),
+        radial-gradient(ellipse 35% 65% at 48% 50%, rgba(226, 232, 240, 0.32), transparent 78%),
+        radial-gradient(ellipse 28% 55% at 78% 58%, rgba(186, 230, 253, 0.22), transparent 72%);
+      animation: driftMistLeft 34s ease-in-out infinite alternate;
+    }
+
+    .monogram-aura {
+      position: absolute;
+      top: 6%;
+      left: 15%;
+      width: 70%;
+      height: 34%;
+      background: radial-gradient(circle, rgba(253, 224, 130, 0.22), transparent 68%);
+      mix-blend-mode: screen;
+      animation: pulseAura 6s ease-in-out infinite;
+    }
+
+    @keyframes driftMistRight {
+      0% { transform: translateX(-14%) translateY(0px); }
+      100% { transform: translateX(14%) translateY(-6px); }
+    }
+
+    @keyframes driftMistLeft {
+      0% { transform: translateX(15%) translateY(4px); }
+      100% { transform: translateX(-15%) translateY(-4px); }
+    }
+
+    @keyframes pulseAura {
+      0%, 100% { opacity: 0.55; transform: scale(0.96); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+
+    .ethos-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .ethos-logo-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .ethos-logo-lockup img {
+      height: 44px;
+      width: auto;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 14px rgba(253, 224, 130, 0.55));
+      animation: gentleTilt 8s ease-in-out infinite;
+    }
+
+    @keyframes gentleTilt {
+      0%, 100% { transform: perspective(500px) rotateY(-12deg); }
+      50% { transform: perspective(500px) rotateY(12deg); }
+    }
+
+    .kanji-tag {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #fde68a;
+      letter-spacing: 0.14em;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--emerald-bright);
+    }
+
+    .ethos-content h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.12;
+    }
+
+    .ethos-content p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.35rem;
+      margin-bottom: 3rem;
+    }
+
+    .pillar-card {
+      padding: 1.65rem;
+      border-radius: 24px;
+      background: linear-gradient(155deg, rgba(12, 18, 22, 0.85), rgba(6, 9, 12, 0.94));
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.82), 0 0 24px var(--pillar-glow, rgba(16, 185, 129, 0.14));
+    }
+
+    .pillar-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--pillar-accent, var(--emerald-bright));
+      margin-bottom: 0.45rem;
+    }
+
+    .pillar-card p {
+      font-size: 0.88rem;
+      line-height: 1.62;
+      color: var(--text-secondary);
+    }
+
+    .page-switch-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1.5rem 1.85rem;
+      border-radius: 24px;
+      background: rgba(10, 15, 20, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pill-btn {
+      padding: 0.65rem 1.35rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid var(--emerald-core);
+      color: var(--text-primary);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pill-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+    }
+
+    @media (max-width: 860px) {
+      .ethos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <main id="page-content">
+    <div class="ethos-wrapper">
+
+      <section class="ethos-grid">
+        <div class="ethos-visual-frame">
+          <img src="assets/images/about-ethos.jpg" alt="Arimori Studios Monogram Over Misty Pine Canyon" />
+          <div class="cliff-mist-layer" aria-hidden="true">
+            <div class="monogram-aura"></div>
+            <div class="mist-bank upper"></div>
+            <div class="mist-bank lower"></div>
+          </div>
+        </div>
+
+        <div class="ethos-content">
+          <div class="ethos-logo-lockup">
+            <img src="assets/images/logo-light.jpg" alt="Arimori Studios Official Monogram" />
+            <span class="kanji-tag">有森 ARI-MORI // SHELTERED & FLOURISHING</span>
+          </div>
+
+          <span class="eyebrow">OUR ETHOS // ARCHITECTS OF ENDURING SYSTEMS</span>
+          <h1>Built Like a Living Forest, Not a Fragile Rental</h1>
+
+          <p>
+            The name <strong>Arimori</strong> draws from the Japanese concepts of <em>Ari-mori</em> (有森 — "to hold a sheltered forest") and <em>Arimori</em> (有盛 — "prosperous and flourishing"). Like a pine forest anchored deep into rocky mountain strata, enduring businesses rely on quiet, self-sustaining roots rather than flashy software that breaks the moment signal drops.
+          </p>
+
+          <p>
+            We engineer digital foundations for South African shop owners, co-ops, churches, and growing enterprises—combining offline resilience, strict privacy safeguards, and complete client ownership.
+          </p>
+        </div>
+      </section>
+
+      <section class="pillars-grid">
+        <div class="pillar-card" style="--pillar-accent: #34D399; --pillar-glow: rgba(16, 185, 129, 0.16);">
+          <h3>01 // Zero Hostage Fees</h3>
+          <p>After your 12-month foundation term, you own 100% of your code, database, domain, and counter hardware outright with zero remote kill-switches.</p>
+        </div>
+        <div class="pillar-card" style="--pillar-accent: #38BDF8; --pillar-glow: rgba(56, 189, 248, 0.16);">
+          <h3>02 // Offline-First Resilience</h3>
+          <p>Built to keep printing receipts and balancing cash even during load-shedding or network drops, syncing automatically when signal returns.</p>
+        </div>
+        <div class="pillar-card" style="--pillar-accent: #FBBF24; --pillar-glow: rgba(251, 191, 36, 0.16);">
+          <h3>03 // Plain-English Clarity</h3>
+          <p>We strip away intimidating tech jargon so every business owner understands exactly what they are paying for and how it protects their daily cash.</p>
+        </div>
+      </section>
+
+      <div class="page-switch-bar">
+        <span style="font-size: 0.92rem; color: var(--text-secondary);">Continue reading our formal covenant to business owners:</span>
+        <a href="proposal.html" class="pill-btn">Read The Proposal →</a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/shell.js"></script>
+</body>
+</html>
 
